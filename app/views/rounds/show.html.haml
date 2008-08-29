@@ -1,0 +1,12 @@
+%p
+  %b Name:
+  =h @round.name
+%p
+  %b Date:
+  =h @round.date
+%p
+  %b League:
+  =h @round.league_id
+
+= link_to 'Edit', edit_league_round_path(@league.id, @round) |
+= link_to 'Back', league_rounds_path(@league.id)

@@ -12,14 +12,6 @@ class LeaguesController < ApplicationController
 
   # GET /leagues/1
   # GET /leagues/1.xml
-  def show
-    @league = League.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @league }
-    end
-  end
 
   # GET /leagues/new
   # GET /leagues/new.xml
@@ -45,7 +37,7 @@ class LeaguesController < ApplicationController
     respond_to do |format|
       if @league.save
         flash[:notice] = 'League was successfully created.'
-        format.html { redirect_to(@league) }
+        format.html { redirect_to leagues_path }
         format.xml  { render :xml => @league, :status => :created, :location => @league }
       else
         format.html { render :action => "new" }
@@ -62,7 +54,7 @@ class LeaguesController < ApplicationController
     respond_to do |format|
       if @league.update_attributes(params[:league])
         flash[:notice] = 'League was successfully updated.'
-        format.html { redirect_to(@league) }
+        format.html { redirect_to leagues_path }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

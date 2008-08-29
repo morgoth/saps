@@ -1,0 +1,25 @@
+%h1 
+  ="Listing rounds for #{@league.name}"
+
+%table
+  %tr
+    %th Name
+    %th Date
+    %th League
+  
+  - for round in @rounds
+    %tr
+      %td
+        = h round.name
+      %td
+        = h round.date
+      %td
+        =h round.league_id
+      %td
+        = link_to 'Show', league_round_path(@league, round)
+      %td
+        = link_to 'Edit', edit_league_round_path(@league,round)
+      %td
+        = link_to 'Destroy', league_round_path(@league, round), :confirm => 'Are you sure?', :method => :delete
+%br
+= link_to 'New round', new_league_round_path(@league)

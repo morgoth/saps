@@ -1,7 +1,11 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :teams
+
+  map.resources :matches
+
   
 
-  map.resources :leagues do |leagues|
+  map.resources :leagues, :collection => {:show_table=>:get } do |leagues|
 		leagues.resources :rounds
 	end
 

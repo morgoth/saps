@@ -2,7 +2,7 @@
 %html{html_attrs}
   %head
     %title league creator
-    = stylesheet_link_tag "scaffold"
+    = stylesheet_link_tag "league"
   %body
     #header
     #content
@@ -11,5 +11,7 @@
       - unless flash[:notice].nil?
         %div.notice= flash[:notice] 
       = link_to "leagues", leagues_path
+      = link_to "teams", teams_path
+      = link_to "matches", matches_path
       = yield
     #footer

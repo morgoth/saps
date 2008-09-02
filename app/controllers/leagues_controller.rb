@@ -74,4 +74,9 @@ class LeaguesController < ApplicationController
       format.xml  { head :ok }
     end
   end
+	
+	def show_table
+		@czy=League.find(:first).testuj
+	end
+	
 end

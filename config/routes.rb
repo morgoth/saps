@@ -1,13 +1,13 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :teams
+  map.resources :teams, :collection => {:points_table => :get}
 
   map.resources :matches
 
   
 
-  map.resources :leagues, :collection => {:show_table=>:get } do |leagues|
-		leagues.resources :rounds
-	end
+  map.resources :leagues do |leagues|
+    leagues.resources :rounds
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
 
@@ -41,7 +41,7 @@ ActionController::Routing::Routes.draw do |map|
   #   end
 
   # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
-	map.root :controller => "league"
+  map.root :controller => 'Leagues'
 
   # See how all your routes lay out with "rake routes"
 

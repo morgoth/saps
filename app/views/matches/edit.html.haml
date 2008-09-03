@@ -1,0 +1,20 @@
+%h1 Editing match
+
+- form_for(@match) do |f|
+  = f.error_messages
+  %p
+    Runda
+    = @match.round.name
+  %p
+    = @match.home_team.name
+    = ' - '
+    = @match.visitor_team.name
+    %br
+    = f.label :score
+    = f.text_field :score
+    = f.submit "Update"
+  
+
+
+= link_to 'Show', @match
+= link_to 'Back', matches_path

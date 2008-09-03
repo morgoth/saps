@@ -1,6 +1,7 @@
 class MatchesController < ApplicationController
   # GET /matches
   # GET /matches.xml
+  before_filter :update_empty_score_only, :only=> [:edit]
   def index
     @matches = Match.find(:all)
 
@@ -82,4 +83,15 @@ class MatchesController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  private
+  
+  def update_empty_score_only
+    @match = Match.find(params[:id])
+    if !@match.score.empty?
+      flash[:notice] = "Update only available on empty score"
+      redirect_to matches_path
+    end
+  end
+  
 end

@@ -1,0 +1,18 @@
+%h1 League table
+
+%table
+  %tr
+    %th Name
+  
+  - @teams.each do |team|
+    %tr
+      %td
+        =h team.name
+      %td
+        =h team.matches_played
+      %td
+        =h team.points
+      %td
+        =h team.sets_won
+      %td
+        =h team.sets_lost

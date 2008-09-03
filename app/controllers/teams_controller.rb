@@ -82,4 +82,10 @@ class TeamsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  def points_table
+    @teams=Team.all(:order=> 'points DESC') 
+  end  
+  
+  
 end

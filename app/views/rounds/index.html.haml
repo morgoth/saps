@@ -5,17 +5,17 @@
     %p
       %il
         = h round.name
-        = h round.date
+        = h year_month_day(round.date)
         = link_to 'Show', league_round_path(@league, round)
         = link_to 'Edit', edit_league_round_path(@league,round)
         = link_to 'Destroy', league_round_path(@league, round), :confirm => 'Are you sure?', :method => :delete
       %ul
         - for match in round.matches
           %il
-            = h match.hour
-            = match.home_team.name
+            = h hour_minute(match.hour)
+            = link_to "#{match.home_team.name}", match.home_team
             = #{ - } 
-            = match.visitor_team.name
+            = link_to "#{match.visitor_team.name}", match.visitor_team
             = #{ }
             = match.score
             %br

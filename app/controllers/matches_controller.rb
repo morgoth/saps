@@ -3,7 +3,7 @@ class MatchesController < ApplicationController
   # GET /matches.xml
   before_filter :update_empty_score_only, :only=> [:edit]
   def index
-    @matches = Match.find(:all)
+    @matches = Match.all :order=>:round_id
 
     respond_to do |format|
       format.html # index.html.erb

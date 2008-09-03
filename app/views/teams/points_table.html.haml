@@ -7,7 +7,7 @@
   - @teams.each do |team|
     %tr
       %td
-        =h team.name
+        =link_to "#{team.name}", team
       %td
         =h team.matches_played
       %td

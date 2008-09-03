@@ -59,5 +59,3 @@ Rails::Initializer.run do |config|
   # config.active_record.observers = :cacher, :garbage_collector
 end
 
-AVAILABLE_SCORES = %w{3:0 3:1 3:2 0:3 1:3 2:3}
-AVAILABLE_SCORES << ''

@@ -14,7 +14,7 @@ class TeamsController < ApplicationController
   # GET /teams/1.xml
   def show
     @team = Team.find(params[:id])
-
+		@matches = Match.find(:all, :conditions=>['home_team_id=? OR visitor_team_id=?',@team.id, @team.id ])
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @team }
@@ -45,7 +45,7 @@ class TeamsController < ApplicationController
     respond_to do |format|
       if @team.save
         flash[:notice] = 'Team was successfully created.'
-        format.html { redirect_to(@team) }
+        format.html { redirect_to teams_path }
         format.xml  { render :xml => @team, :status => :created, :location => @team }
       else
         format.html { render :action => "new" }
@@ -62,7 +62,7 @@ class TeamsController < ApplicationController
     respond_to do |format|
       if @team.update_attributes(params[:team])
         flash[:notice] = 'Team was successfully updated.'
-        format.html { redirect_to(@team) }
+        format.html { redirect_to teams_path }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

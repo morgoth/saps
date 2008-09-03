@@ -1,0 +1,13 @@
+%h1
+  =@team.name
+%br
+-@matches.each do |match|
+  =match.round.name
+  =year_month_day(match.round.date)
+  =hour_minute(match.hour)
+  =match.home_team.name
+  =' - '
+  =match.visitor_team.name
+  =match.score
+  %br
+

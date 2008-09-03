@@ -1,6 +1,5 @@
 class MatchesController < ApplicationController
-  # GET /matches
-  # GET /matches.xml
+	before_filter :login_required, :only=>[:new, :edit, :destroy]
   before_filter :update_empty_score_only, :only=> [:edit]
   def index
     @matches = Match.all :order=>:round_id

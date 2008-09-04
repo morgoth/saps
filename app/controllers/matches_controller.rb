@@ -36,7 +36,7 @@ class MatchesController < ApplicationController
     respond_to do |format|
       if @match.save
         flash[:notice] = 'Match was successfully created.'
-        format.html { redirect_to(@match) }
+        format.html { redirect_to matches_path }
         format.xml  { render :xml => @match, :status => :created, :location => @match }
       else
         format.html { render :action => "new" }
@@ -53,7 +53,7 @@ class MatchesController < ApplicationController
     respond_to do |format|
       if @match.update_attributes(params[:match])
         flash[:notice] = 'Match was successfully updated.'
-        format.html { redirect_to(@match) }
+        format.html { redirect_to matches_path }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

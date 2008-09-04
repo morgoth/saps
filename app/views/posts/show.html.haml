@@ -1,0 +1,18 @@
+%p
+  %b= @post.title
+  %small= @post.user.login
+%p
+  = @post.content
+%p
+  - @post.comments.each do |comment|
+    %p
+      %b= comment.name if comment.name
+      %br
+      = comment.content
+      - if logged_in?
+        %br
+        = link_to 'Edit', edit_comment_path(comment)
+        = link_to 'Destroy', comment, :confirm => 'Are you sure?', :method => :delete
+    %hr
+= link_to "Add comment", :controller => 'comments', :action=> 'new', :post_id => @post.id
+

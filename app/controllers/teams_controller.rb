@@ -1,4 +1,5 @@
 class TeamsController < ApplicationController
+  before_filter :login_required, :except => [:index, :show, :points_table]
   # GET /teams
   # GET /teams.xml
   def index
@@ -14,7 +15,7 @@ class TeamsController < ApplicationController
   # GET /teams/1.xml
   def show
     @team = Team.find(params[:id])
-		@matches = Match.find(:all, :conditions=>['home_team_id=? OR visitor_team_id=?',@team.id, @team.id ])
+    @matches = Match.find(:all, :conditions=>['home_team_id=? OR visitor_team_id=?',@team.id, @team.id ])
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @team }

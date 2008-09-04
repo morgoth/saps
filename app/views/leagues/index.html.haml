@@ -10,11 +10,12 @@
         =h league.name
       %td
         = link_to 'Show', league_rounds_path( league.id )
-      %td
-        = link_to 'Edit', edit_league_path(league)
-      %td
-        = link_to 'Destroy', league, :confirm => 'Are you sure?', :method => :delete
+      - if logged_in?
+        %td
+          = link_to 'Edit', edit_league_path(league)
+        %td
+          = link_to 'Destroy', league, :confirm => 'Are you sure?', :method => :delete
 
 %br
-
-= link_to 'New league', new_league_path
+- if logged_in?
+  = link_to 'New league', new_league_path

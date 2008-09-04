@@ -1,4 +1,5 @@
 class LeaguesController < ApplicationController
+  before_filter :login_required, :except => [:index, :show]
   # GET /leagues
   # GET /leagues.xml
   def index

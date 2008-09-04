@@ -1,5 +1,5 @@
 class MatchesController < ApplicationController
-	before_filter :login_required, :only=>[:new, :edit, :destroy]
+  before_filter :login_required, :except => [:index]
   before_filter :update_empty_score_only, :only=> [:edit]
   def index
     @matches = Match.all :order=>:round_id
@@ -12,15 +12,6 @@ class MatchesController < ApplicationController
 
   # GET /matches/1
   # GET /matches/1.xml
-  def show
-    @match = Match.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @match }
-    end
-  end
-
   # GET /matches/new
   # GET /matches/new.xml
   def new

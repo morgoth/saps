@@ -1,5 +1,6 @@
 class RoundsController < ApplicationController
-	before_filter :get_league
+  before_filter :login_required, :except => [:index, :show]
+  before_filter :get_league
   # GET /rounds
   # GET /rounds.xml
   def index
@@ -42,7 +43,7 @@ class RoundsController < ApplicationController
   # POST /rounds.xml
   def create
     @round = Round.new(params[:round])
-		@round.league_id = @league.id
+    @round.league_id = @league.id
 
     respond_to do |format|
       if @round.save
@@ -84,9 +85,9 @@ class RoundsController < ApplicationController
       format.xml  { head :ok }
     end
   end
-	
-	private
-	def get_league
-		@league=League.find(params[:league_id])
-	end
+  
+  private
+  def get_league
+    @league=League.find(params[:league_id])
+  end
 end

@@ -5,14 +5,20 @@
     = stylesheet_link_tag "league"
   %body
     #header
-    #content
-      - unless flash[:error].nil?
-        %div.error= flash[:error] 
-      - unless flash[:notice].nil?
-        %div.notice= flash[:notice] 
+      header
+    #navbar
       = link_to "leagues", leagues_path
       = link_to "teams", teams_path
       = link_to "matches", matches_path
       = link_to "points table", :controller=>'teams',:action=>'points_table'
+      - if logged_in?
+        = link_to "Logout", logout_path
+      - else
+        = link_to "Login", login_path
+    #content
+      - unless flash[:error].nil?
+        %div#error= flash[:error] 
+      - unless flash[:notice].nil?
+        %div#notice= flash[:notice] 
       = yield
     #footer

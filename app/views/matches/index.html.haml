@@ -1,15 +1,28 @@
 %h1 Listing matches
-%ul
+%table
+  %tr
+    %th Starts
+    %th Home
+    %th Visitor
+    %th Score
+    %th Round
   - for match in @matches
-    %il
-      =h hour_minute( match.hour)
-      =h match.home_team.name
-      =h match.visitor_team.name
-      =h match.score
-      =h match.round.name
-      = link_to 'Show', match
-      = link_to_if match.score.empty?, 'Edit', edit_match_path(match)
-      = link_to 'Destroy', match, :confirm => 'Are you sure?', :method => :delete
-      %br
-
-= link_to 'New match', new_match_path
+    %tr
+      %td 
+        =h hour_minute( match.hour)
+      %td
+        =h match.home_team.name
+      %td
+        =h match.visitor_team.name
+      %td
+        =h match.score
+      %td
+        =h match.round.name
+      - if logged_in?
+        %td 
+          = link_to 'Show', match
+          = link_to_if match.score.empty?, 'Edit', edit_match_path(match)
+          = link_to 'Destroy', match, :confirm => 'Are you sure?', :method => :delete
+    %br
+- if logged_in?
+  = link_to 'New match', new_match_path

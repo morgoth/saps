@@ -18,11 +18,12 @@
         =h team.sets_lost
       %td
         = link_to 'Show', team_path( team )
-      %td
-        = link_to 'Edit', edit_team_path(team)
-      %td
-        = link_to 'Destroy', team, :confirm => 'Are you sure?', :method => :delete
+      - if logged_in?
+        %td
+          = link_to 'Edit', edit_team_path(team)
+        %td
+          = link_to 'Destroy', team, :confirm => 'Are you sure?', :method => :delete
 
 %br
-
-= link_to 'New team', new_team_path
+- if logged_in?
+  = link_to 'New team', new_team_path

@@ -1,5 +1,6 @@
 %h1 
 ="Listing rounds for #{@league.name}"
+
 %ul 
   - for round in @rounds
     %p
@@ -7,8 +8,9 @@
         = h round.name
         = h year_month_day(round.date)
         = link_to 'Show', league_round_path(@league, round)
-        = link_to 'Edit', edit_league_round_path(@league,round)
-        = link_to 'Destroy', league_round_path(@league, round), :confirm => 'Are you sure?', :method => :delete
+        - if logged_in?
+          = link_to 'Edit', edit_league_round_path(@league,round)
+          = link_to 'Destroy', league_round_path(@league, round), :confirm => 'Are you sure?', :method => :delete
       %ul
         - for match in round.matches
           %il
@@ -20,4 +22,5 @@
             = match.score
             %br
 %br
-= link_to 'New round', new_league_round_path(@league)
+- if logged_in?
+  = link_to 'New round', new_league_round_path(@league)

@@ -4,7 +4,7 @@ body {
   width: 780px;
 }
 
-body, p, ol, ul {
+body, p, ol {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size:   13px;
   line-height: 18px;
@@ -36,6 +36,9 @@ a:hover { color: #fff; background-color:#000; }
 }
 #navbar{
 
+}
+#navbar ul li {
+  display: inline;
 }
 #content {
   padding-left: 20px;

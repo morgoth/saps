@@ -19,8 +19,7 @@
       %td
         =h match.round.name
       - if logged_in?
-        %td 
-          = link_to 'Show', match
+        %td
           = link_to_if match.score.empty?, 'Edit', edit_match_path(match)
           = link_to 'Destroy', match, :confirm => 'Are you sure?', :method => :delete
     %br

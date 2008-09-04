@@ -3,18 +3,19 @@
 - form_for(@match) do |f|
   = f.error_messages
   %p
-    Runda
-    = @match.round.name
+    = f.label :round_id
+    %br
+    = f.select( :round_id, Round.all.collect{ |p| [p.name, p.id] } )
   %p
     = @match.home_team.name
     = ' - '
     = @match.visitor_team.name
     %br
+    = f.label :date
+    = time_select( :match, :hour)
+    %br
     = f.label :score
     = f.text_field :score
     = f.submit "Update"
   
-
-
-= link_to 'Show', @match
 = link_to 'Back', matches_path

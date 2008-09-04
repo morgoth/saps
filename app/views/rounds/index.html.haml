@@ -4,7 +4,7 @@
 %ul 
   - for round in @rounds
     %p
-      %il
+      %li
         = h round.name
         = h year_month_day(round.date)
         = link_to 'Show', league_round_path(@league, round)
@@ -13,7 +13,7 @@
           = link_to 'Destroy', league_round_path(@league, round), :confirm => 'Are you sure?', :method => :delete
       %ul
         - for match in round.matches
-          %il
+          %li
             = h hour_minute(match.hour)
             = link_to "#{match.home_team.name}", match.home_team
             = #{ - } 

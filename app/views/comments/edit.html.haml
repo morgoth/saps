@@ -1,0 +1,15 @@
+%h1 Editing comment
+ 
+- form_for(@comment) do |f|
+  = f.error_messages
+  %p
+    = f.label :name
+    %br
+    = f.text_field :name
+  %p
+    = f.label :content
+    %br
+    = f.text_area :content
+  %p
+    = f.submit "Update"
+= link_to 'Back', post_path(params[:post_id])

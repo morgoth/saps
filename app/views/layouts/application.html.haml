@@ -7,15 +7,16 @@
     #header
       header
     #navbar
-      = link_to "posts", posts_path
-      = link_to "leagues", leagues_path
-      = link_to "teams", teams_path
-      = link_to "matches", matches_path
-      = link_to "points table", :controller=>'teams',:action=>'points_table'
-      - if logged_in?
-        = link_to "Logout", logout_path
-      - else
-        = link_to "Login", login_path
+      %ul
+        %li= link_to "posts", posts_path
+        %li= link_to "leagues", leagues_path
+        %li= link_to "teams", teams_path
+        %li= link_to "matches", matches_path
+        %li= link_to "points table", table_path
+        - if logged_in?
+          %li= link_to "Logout", logout_path
+        - else
+          %li= link_to "Login", login_path
     #content
       - unless flash[:error].nil?
         %div#error= flash[:error] 

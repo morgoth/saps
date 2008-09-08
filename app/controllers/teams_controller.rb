@@ -3,8 +3,9 @@ class TeamsController < ApplicationController
   # GET /teams
   # GET /teams.xml
   def index
+    @album=Picassa.new
     @teams = Team.find(:all)
-
+    @teams.delete_if {|team| team.name=='Pause'}
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @teams }
@@ -85,7 +86,8 @@ class TeamsController < ApplicationController
   end
   
   def points_table
-    @teams=Team.all(:order=> 'points DESC') 
+    @teams=Team.all(:order=> 'points DESC')
+    @teams.delete_if {|team| team.name=='Pause'}
   end  
   
   

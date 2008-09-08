@@ -17,6 +17,7 @@ class UsersController < ApplicationController
       redirect_back_or_default('/')
       flash[:notice] = "Thanks for signing up!"
     else
+      flash[:notice] = "User #{@user.login} not created"
       render :action => 'new'
     end
   end

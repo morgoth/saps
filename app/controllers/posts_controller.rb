@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   def index
     @posts = Post.find(:all)
     #@posts = Post.paginate :page => params[:page], :per_page => 1
-
+@album=Picasa.new
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @posts }

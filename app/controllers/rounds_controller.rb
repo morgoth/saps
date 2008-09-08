@@ -14,15 +14,6 @@ class RoundsController < ApplicationController
 
   # GET /rounds/1
   # GET /rounds/1.xml
-  def show
-    @round = @league.rounds.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @round }
-    end
-  end
-
   # GET /rounds/new
   # GET /rounds/new.xml
   def new

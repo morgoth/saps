@@ -12,7 +12,7 @@
     %br
     %small 
       Ilośc komentarzy: 
-      =post.comments.count
+      = post.comments.count
     = link_to 'Show', post
     - if logged_in?
       = link_to 'Edit', edit_post_path(post)
@@ -20,3 +20,5 @@
   %hr
 - if logged_in?
   = link_to 'New post', new_post_path
+=image_tag @album.xml['entry'][0]['group'][0]['thumbnail'][0]['url']
+= @album.xml

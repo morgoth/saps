@@ -32,7 +32,7 @@ class MatchesController < ApplicationController
   # POST /matches.xml
   def create
     @match = Match.new(params[:match])
-
+    @match.score = '' if (@match.home_team.name == 'Pause' || @match.visitor_team.name == 'Pause')
     respond_to do |format|
       if @match.save
         flash[:notice] = 'Match was successfully created.'
@@ -49,7 +49,7 @@ class MatchesController < ApplicationController
   # PUT /matches/1.xml
   def update
     @match = Match.find(params[:id])
-
+    @match.score = '' if (@match.home_team.name == 'Pause' || @match.visitor_team.name == 'Pause')
     respond_to do |format|
       if @match.update_attributes(params[:match])
         flash[:notice] = 'Match was successfully updated.'

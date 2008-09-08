@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(:version => 20080904094309) do
 
   create_table "rounds", :force => true do |t|
     t.string   "name"
-    t.datetime "date"
+    t.date     "date"
     t.integer  "league_id"
     t.datetime "created_at"
     t.datetime "updated_at"

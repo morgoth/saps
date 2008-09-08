@@ -2,28 +2,27 @@
 
 -form_for(@match) do |f|
   = f.error_messages
-
-  %p
-    = f.label :home_team_id
-    %br
-    = f.select(:home_team_id, Team.all.collect{ |p| [p.name, p.id] } )
-  %p
-    = f.label :visitor_team_id
-    %br
-    = f.select(:visitor_team_id, Team.all.collect{ |p| [p.name, p.id] } )
-  %p
-    = f.label :hour
-    %br
-    = time_select( :match, :hour)
-  %p
-    = f.label :score
-    %small (leave empty if none)
-    %br
-    = f.text_field :score
   %p
     = f.label :round_id
     %br
     = f.select( :round_id, Round.all.collect{ |p| [p.name, p.id] } )
+  %p
+    = f.label :hour
+    %br
+    = time_select( :match, :hour) 
+  %p
+    = f.label :home_team_id
+    = f.label :visitor_team_id
+    %br
+    = f.select(:home_team_id, Team.all.collect{ |p| [p.name, p.id] } )
+    = f.select(:visitor_team_id, Team.all.collect{ |p| [p.name, p.id] } )
+
+  %p
+    = f.label :score
+    %small (leave empty if none)
+    %br
+    = f.text_field :score, :size=> 3
+
   %p
     = f.submit "Create"
 

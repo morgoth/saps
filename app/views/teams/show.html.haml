@@ -15,9 +15,9 @@
           =','
           = hour_minute(match.hour)
         %td 
-          = link_to "#{match.home_team.name}", match.home_team
+          = link_to_if match.home_team.name!= 'Pause', "#{match.home_team.name}", match.home_team
           =' - '
-          = link_to "#{match.visitor_team.name}", match.visitor_team
+          = link_to_if match.visitor_team.name!= 'Pause', "#{match.visitor_team.name}", match.visitor_team
         %td= match.score
   %br
 

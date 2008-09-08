@@ -3,6 +3,7 @@
   %head
     %title league creator
     = stylesheet_link_tag "league"
+    = javascript_include_tag :defaults
   %body
     #header
       header
@@ -10,7 +11,7 @@
       %ul
         %li= link_to "posts", posts_path
         %li= link_to "leagues", leagues_path
-        %li= link_to "teams", teams_path
+        %li= link_to "teams"[:teams], teams_path
         %li= link_to "matches", matches_path
         %li= link_to "points table", table_path
         %li= link_to "gallery", gallery_path

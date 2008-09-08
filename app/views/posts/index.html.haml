@@ -1,10 +1,10 @@
 %h1 Listing posts
 - for post in @posts
   %p
-    %b= post.title
-    %br
+    %h3
+      = link_to "#{post.title}", post
     %small 
-      = post.user.login
+      = post.user.login.capitalize
       = post.created_at.strftime("%d.%m.%y %H:%M")
     %br
     %br
@@ -13,10 +13,10 @@
     %small 
       Ilośc komentarzy: 
       = post.comments.count
-    = link_to 'Show', post
     - if logged_in?
       = link_to 'Edit', edit_post_path(post)
       = link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete
-  %hr
+    = will_paginate @posts
+    %hr
 - if logged_in?
   = link_to 'New post', new_post_path

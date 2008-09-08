@@ -3,7 +3,6 @@ class TeamsController < ApplicationController
   # GET /teams
   # GET /teams.xml
   def index
-    @album=Picassa.new
     @teams = Team.find(:all)
     @teams.delete_if {|team| team.name=='Pause'}
     respond_to do |format|

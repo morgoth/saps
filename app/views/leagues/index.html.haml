@@ -7,9 +7,7 @@
   - @leagues.each do |league|
     %tr
       %td 
-        =h league.name
-      %td
-        = link_to 'Show', league_rounds_path( league.id )
+        =link_to "#{league.name}", league_rounds_path(league.id)
       - if logged_in?
         %td
           = link_to 'Edit', edit_league_path(league)

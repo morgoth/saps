@@ -5,10 +5,10 @@ class User < ActiveRecord::Base
   attr_accessor :password
 
   validates_presence_of     :login
-  validates_presence_of     :password,                   :if => :password_required?
-  validates_presence_of     :password_confirmation,      :if => :password_required?
-  validates_length_of       :password, :within => 3..30, :if => :password_required?
-  validates_confirmation_of :password,                   :if => :password_required?
+  validates_presence_of     :password
+  validates_presence_of     :password_confirmation
+  validates_length_of       :password, :within => 3..30
+  validates_confirmation_of :password
   validates_length_of       :login,    :within => 3..40
   #validates_length_of       :email,    :within => 3..100
   validates_uniqueness_of   :login, :case_sensitive => false
@@ -66,6 +66,15 @@ class User < ActiveRecord::Base
   # Returns true if the user has just been activated.
   def recently_activated?
     @activated
+  end
+	
+  def safe_delete
+		transaction do
+			destroy
+			if User.count.zero?
+				raise "Nie można usunąć ostatniego administratora"
+			end
+		end	  
   end
 
   protected

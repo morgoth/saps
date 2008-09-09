@@ -5,7 +5,7 @@
     %th Name
   
   - @teams.each do |team|
-    %tr
+    %tr{ :class=>cycle('row-a', 'row-b')}
       %td 
         = link_to "#{team.name}", team
       - if logged_in?

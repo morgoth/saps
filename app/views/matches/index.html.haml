@@ -7,7 +7,7 @@
     %th Score
     %th Round
   - for match in @matches
-    %tr
+    %tr{ :class=>cycle('row-a', 'row-b')}
       %td 
         =h hour_minute( match.hour)
       %td

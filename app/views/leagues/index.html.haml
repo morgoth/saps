@@ -5,14 +5,13 @@
     %th Name
   
   - @leagues.each do |league|
-    %tr
+    %tr{ :class=>cycle('row-a', 'row-b')}
       %td 
         =link_to "#{league.name}", league_rounds_path(league.id)
       - if logged_in?
         %td
-          = link_to 'Edit', edit_league_path(league)
-        %td
-          = link_to 'Destroy', league, :confirm => 'Are you sure?', :method => :delete
+          = link_to 'Edit'[:edit], edit_league_path(league)
+          = link_to 'Destroy'[:destroy], league, :confirm => 'Are you sure?', :method => :delete
 
 %br
 - if logged_in?

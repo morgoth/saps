@@ -23,8 +23,8 @@ GOOGLE_USER = 'w.wnetrzak'
      xml['entry'].each do |photo|
       attributes[:title] << photo['group'][0]['title'][0]['content']
       attributes[:thumbnail] << photo['group'][0]['thumbnail'][1]['url']
-      #attributes[:photo] << photo['group'][0]['content']['url']
-      attributes[:photo] << photo['group'][0]['content']['url'].gsub(/http:\/\/lh[0-9]/,'http://lh5')
+      attributes[:photo] << photo['group'][0]['content']['url']
+      #attributes[:photo] << photo['group'][0]['content']['url'].gsub(/http:\/\/lh[0-9]/,'http://lh3')
     end
     attributes[:slideshow] << xml['link'][2]['href']
       attributes

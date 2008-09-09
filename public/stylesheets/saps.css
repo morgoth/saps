@@ -201,7 +201,7 @@ input.button {
   color: #FFF;
   
   /* change the values of top and left to adjust the position of the slogan*/
-  top: 70px; left: 55px;    
+  top: 73px; left: 55px;    
 }
 
 /* header links */
@@ -218,7 +218,11 @@ input.button {
 #header #header-links a:hover {
   color: #D4E59F;  
 }
-
+#header img {
+	background: none;
+  border: none;
+  padding: 5px;
+}
 /* Menu */
 #menu {
   clear: both;  
@@ -326,7 +330,8 @@ input.button {
 #notice {
   color: green;
 }
-.fieldWithErrors {
+
+.fieldWithErrors {
   padding: 2px;
   background-color: red;
   display: table;

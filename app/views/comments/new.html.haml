@@ -12,5 +12,5 @@
     = f.text_area :content
     = f.hidden_field( :post_id, :value => params[:post_id])
   %p
-    = f.submit "Create"
+    = f.submit "Create"[:create], :class => "button"
 = link_to 'Back', post_path(params[:post_id])

@@ -1,28 +1,43 @@
 !!! Strict
 %html{html_attrs}
   %head
-    %title league creator
-    = stylesheet_link_tag "league"
+    %meta{:name=>"verify-v1", :content=>"p3vhsABnuwDTuRTflrKA0+zZqC7B4naN2mU9YoCwD/c="}
+    %title Saps
+    = stylesheet_link_tag "saps"
     = javascript_include_tag :defaults
   %body
-    #header
-      header
-    #navbar
-      %ul
-        %li= link_to "posts", posts_path
-        %li= link_to "leagues", leagues_path
-        %li= link_to "teams"[:teams], teams_path
-        %li= link_to "matches", matches_path
-        %li= link_to "points table", table_path
-        %li= link_to "gallery", gallery_path
-        - if logged_in?
-          %li= link_to "Logout", logout_path
-        - else
-          %li= link_to "Login", login_path
-    #content  
-      - unless flash[:error].nil?
-        %div#error= flash[:error] 
-      - unless flash[:notice].nil?
-        %div#notice= flash[:notice] 
-      = yield
-    #footer
+    #wrap
+      #header
+        %h1#logo-text
+          saps
+        %p#slogan
+          Stowarzyszenie Amatarów Piłki Siatkowej
+        #header-links
+          - if Gibberish.current_language == :en
+            = link_to "polski", {:controller=>controller.controller_name, :action => controller.action_name, :locale =>'pl', :id=>params[:id], :league_id=>params[:league_id]}
+          - else
+            = link_to "angielski", {:controller=>controller.controller_name, :action => controller.action_name, :locale =>'en', :id=>params[:id], :league_id=>params[:league_id]}        
+      #menu
+        %ul
+          %li= link_to "posts", posts_path
+          %li= link_to "leagues", leagues_path
+          %li= link_to "teams"[:teams], teams_path
+          %li= link_to "matches", matches_path
+          %li= link_to "points table", table_path
+          %li= link_to "gallery", gallery_path
+          - if logged_in?
+            %li= link_to "Logout", logout_path
+          - else
+            %li= link_to "Login", login_path
+      #content-wrap
+        //#sidebar
+        // %div.left-box
+        #main
+          - unless flash[:error].nil?
+            %div#error= flash[:error] 
+          - unless flash[:notice].nil?
+            %div#notice= flash[:notice]
+          =yield 
+      #footer
+        
+

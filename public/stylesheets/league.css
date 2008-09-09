@@ -23,8 +23,8 @@ pre {
 a { color: #000; }
 a:visited { color: #666; }
 a:hover { 
-	color: #fff;
-	background-color:#000;
+  color: #fff;
+  background-color:#000;
 }
 
 #notice{
@@ -52,9 +52,11 @@ a:hover {
   
 }
 #photos a:hover{
-	background: none;
+  background: none;
 }
+label {
 
+}
 .fieldWithErrors {
   padding: 2px;
   background-color: red;

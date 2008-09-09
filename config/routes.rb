@@ -15,7 +15,7 @@ ActionController::Routing::Routes.draw do |map|
   map.login '/login', :controller => 'sessions', :action => 'new'
   map.logout '/logout', :controller => 'sessions', :action => 'destroy'
   map.table '/table', :controller => 'teams', :action => 'points_table'
-	map.gallery '/gallery', :controller => 'galleries', :action => 'albums'
+  map.gallery '/gallery', :controller => 'galleries', :action => 'albums'
 
   map.resources :leagues do |leagues|
     leagues.resources :rounds
@@ -59,6 +59,7 @@ ActionController::Routing::Routes.draw do |map|
   # See how all your routes lay out with "rake routes"
 
   # Install the default routes as the lowest priority.
+  map.connect ':locale/:controller/:action/:id'
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
 end

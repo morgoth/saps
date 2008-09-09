@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+
+<meta name="Description" content="Information architecture, Web Design, Web Standards." />
+<meta name="Keywords" content="your, keywords" />
+
+
+<%= stylesheet_link_tag "Envision" %>
+
+<title>Envision</title>
+  
+</head>
+
+<body>
+<!-- wrap starts here -->
+<div id="wrap">
+    <div id="header">      
+      <div id="header-links">   
+    </div>    
+            
+    </div>
+    <div  id="menu">
+    </div>          
+    <div id="content-wrap">
+      <div id="sidebar">
+        <div class="left-box">
+        </div>  
+        <div class="left-box">
+        </div>                           
+      </div>
+      <div id="main">
+      </div>
+     
+    </div>
+    <div id="footer">
+    </div>  
+</div>
+
+</body>
+</html>

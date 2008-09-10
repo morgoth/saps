@@ -1,6 +1,6 @@
 require 'digest/sha1'
 class User < ActiveRecord::Base
-  has_many :posts
+  has_many :posts, :dependent => :nullify
   # Virtual attribute for the unencrypted password
   attr_accessor :password
 
@@ -67,14 +67,14 @@ class User < ActiveRecord::Base
   def recently_activated?
     @activated
   end
-	
+  
   def safe_delete
-		transaction do
-			destroy
-			if User.count.zero?
-				raise "Nie można usunąć ostatniego administratora"
-			end
-		end	  
+    transaction do
+      destroy
+      if User.count.zero?
+        raise "Nie można usunąć ostatniego administratora"
+      end
+    end    
   end
 
   protected

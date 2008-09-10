@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+<url>
+  <loc>http://saps.heroku.com/</loc>
+  <priority>1.00</priority>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://saps.heroku.com/pl/posts</loc>
+  <priority>0.80</priority>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://saps.heroku.com/posts</loc>
+  <priority>0.80</priority>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://saps.heroku.com/leagues</loc>
+  <priority>0.80</priority>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://saps.heroku.com/gallery</loc>
+  <priority>0.80</priority>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://saps.heroku.com/login</loc>
+  <priority>0.80</priority>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://saps.heroku.com/en/posts</loc>
+  <priority>0.64</priority>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://saps.heroku.com/en/leagues</loc>
+  <priority>0.64</priority>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://saps.heroku.com/teams</loc>
+  <priority>0.64</priority>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://saps.heroku.com/matches</loc>
+  <priority>0.64</priority>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://saps.heroku.com/table</loc>
+  <priority>0.64</priority>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://saps.heroku.com/en/galleries/albums</loc>
+  <priority>0.64</priority>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://saps.heroku.com/en/sessions/new</loc>
+  <priority>0.64</priority>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://saps.heroku.com/pl/leagues</loc>
+  <priority>0.51</priority>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://saps.heroku.com/pl/teams</loc>
+  <priority>0.51</priority>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://saps.heroku.com/pl/matches</loc>
+  <priority>0.51</priority>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://saps.heroku.com/pl/teams/points_table</loc>
+  <priority>0.51</priority>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://saps.heroku.com/pl/galleries/albums</loc>
+  <priority>0.51</priority>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://saps.heroku.com/pl/sessions/new</loc>
+  <priority>0.51</priority>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://saps.heroku.com/pl/comments/new</loc>
+  <priority>0.51</priority>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://saps.heroku.com/en/matches</loc>
+  <priority>0.41</priority>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://saps.heroku.com/en/teams/points_table</loc>
+  <priority>0.41</priority>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://saps.heroku.com/en/comments/new</loc>
+  <priority>0.41</priority>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://saps.heroku.com/posts/</loc>
+  <priority>0.41</priority>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  

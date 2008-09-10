@@ -1,4 +1,4 @@
-%h1 Listing posts
+%h1= "posts"[:posts]
 - for post in @posts
   %p
     %h3
@@ -8,7 +8,7 @@
     %br
     %br
     %span.post-footer 
-      = post.user.login.capitalize
+      = post.user.login.capitalize if post.user
       %span.date= post.created_at.strftime("%d.%m.%y %H:%M")
       %span.comments
         Ilośc komentarzy: 

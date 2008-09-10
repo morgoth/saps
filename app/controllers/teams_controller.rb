@@ -1,5 +1,6 @@
 class TeamsController < ApplicationController
   before_filter :login_required, :except => [:index, :show, :points_table]
+  before_filter :team_played_match, :only=>[:destroy]
   # GET /teams
   # GET /teams.xml
   def index
@@ -89,5 +90,13 @@ class TeamsController < ApplicationController
     @teams.delete_if {|team| team.name=='Pause'}
   end  
   
+  private
+  def team_played_match
+    matches=Match.find(:all, :conditions=>['home_team_id=? OR visitor_team_id=?',params[:id], params[:id] ])
+    unless matches.empty?
+      redirect_to matches_path
+      flash[:notice] = 'Team played match, delete it first'
+    end
+  end
   
 end

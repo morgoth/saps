@@ -1,8 +1,8 @@
 !!! Strict
 %html{html_attrs}
   %head
-    %meta{:description => 'Strona domowa klubu siatkarskiego: Stowarzyszenie Amatorów Piłki Siatkowej',:name=>"verify-v1", :content=>"p3vhsABnuwDTuRTflrKA0+zZqC7B4naN2mU9YoCwD/c="}
-    %title SAPS
+    %meta{:description => 'Strona domowa klubu siatkarskiego: Stowarzyszenie Amatorów Piłki Siatkowej - Gliwice',:name=>"verify-v1", :content=>"p3vhsABnuwDTuRTflrKA0+zZqC7B4naN2mU9YoCwD/c="}
+    %title SAPS Gliwice
     %link{:rel=>"shortcut icon", :href=>"/images/ball.ico"}
     = stylesheet_link_tag "saps"
     = javascript_include_tag :defaults
@@ -22,15 +22,19 @@
         %ul
           %li= link_to "posts"[:posts], posts_path
           %li= link_to "leagues"[:leagues], leagues_path
-          %li= link_to "teams"[:teams], teams_path
-          %li= link_to "matches"[:matches], matches_path
-          %li= link_to "points table"[:points_table], table_path
           %li= link_to "gallery"[:gallery], gallery_path
           - if logged_in?
             %li= link_to "users"[:users], users_path
-            %li= link_to "Logout", logout_path
+            %li= link_to "Logout #{current_user.login}", logout_path
           - else
             %li= link_to "Login", login_path
+        - if leagues?
+          #submenu
+            %ul
+              %li= link_to "teams"[:teams], teams_path
+              %li= link_to "matches"[:matches], matches_path
+              %li= link_to "points table"[:points_table], table_path
+
       #content-wrap
         #main
           - unless flash[:error].nil?

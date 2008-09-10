@@ -219,18 +219,18 @@ input.button {
   color: #D4E59F;  
 }
 #header img {
-	background: none;
+  background: none;
   border: none;
   padding: 5px;
 }
 /* Menu */
 #menu {
-  clear: both;  
+  clear: both;
   margin: 0 auto; padding: 0;
-  background: url('/images/menu.jpg') repeat-x 0 0;  
+  background: url('/images/menu.jpg') repeat-x 0 0;
   font: bold 12px/37px Verdana, Arial, Tahoma, Sans-serif;
   height: 37px;
-  width: 780px;  
+  width: 780px;
 }
 #menu ul {
   float: left;
@@ -243,7 +243,7 @@ input.button {
 #menu ul li a {
   display: block;
   float: left;
-  padding: 0 12px;
+  padding: 0 12px 0 12px;
   color: #FFF;  
   text-decoration: none;
 }
@@ -255,6 +255,18 @@ input.button {
 }
 #menu ul li#current a {  
   color: #D4E59F;
+}
+#submenu {
+  clear: both;
+  margin: 0 auto;
+  padding-left: 15px;
+  background: url('/images/submenu.jpg') repeat-x 0 0;  ;
+  font: bold 11px/30px Verdana, Arial, Tahoma, Sans-serif;
+  height: 30px;
+  width: 760px;
+}
+#submenu ul li a {
+  padding: 0 5px 0 8px;
 }
 
 /* Main Column */

@@ -2,7 +2,7 @@ class MatchesController < ApplicationController
   before_filter :login_required, :except => [:index]
   before_filter :update_empty_score_only, :only=> [:edit]
   def index
-    @matches = Match.all :order=>:round_id
+    @matches = Match.all :order=>'round_id, hour'
 
     respond_to do |format|
       format.html # index.html.erb

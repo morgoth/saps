@@ -169,6 +169,7 @@ input.button {
 #content-wrap {
   clear: both;
   width: 760px;
+  min-height: 300px;
   padding: 0; 
   margin: 10px auto;
 }

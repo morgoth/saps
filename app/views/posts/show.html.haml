@@ -18,6 +18,7 @@
       %span.post-footer
         = comment.name.capitalize if comment.name
         %span.date= comment.created_at.strftime("%d.%m.%y %H:%M")
+      %br
       - if logged_in?
         %br
         = link_to 'Edit', edit_comment_path(comment)

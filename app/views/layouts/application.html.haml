@@ -1,7 +1,7 @@
 !!! Strict
 %html{html_attrs}
   %head
-    %meta{:description => 'Strona domowa klubu siatkarskiego: Stowarzyszenie Amatorów Piłki Siatkowej - Gliwice',:name=>"verify-v1", :content=>"p3vhsABnuwDTuRTflrKA0+zZqC7B4naN2mU9YoCwD/c="}
+    %meta{:name=>"verify-v1", :content=>"p3vhsABnuwDTuRTflrKA0+zZqC7B4naN2mU9YoCwD/c="}
     %title SAPS Gliwice
     %link{:rel=>"shortcut icon", :href=>"/images/ball.ico"}
     = stylesheet_link_tag "saps"
@@ -15,9 +15,9 @@
           Stowarzyszenie Amatarów Piłki Siatkowej
         #header-links
           - if Gibberish.current_language == :en
-            = link_to image_tag( "/images/pl.gif"), {:controller=>controller.controller_name, :action => controller.action_name, :locale =>'pl', :id=>params[:id], :league_id=>params[:league_id]}
+            = link_to image_tag( "/images/pl.gif"), current('pl')
           - else
-            = link_to image_tag( "/images/en.gif"), {:controller=>controller.controller_name, :action => controller.action_name, :locale =>'en', :id=>params[:id], :league_id=>params[:league_id]}        
+            = link_to image_tag( "/images/en.gif"), current('en')        
       #menu
         %ul
           %li= link_to "posts"[:posts], posts_path
@@ -41,7 +41,7 @@
             %div#error= flash[:error] 
           - unless flash[:notice].nil?
             %div#notice= flash[:notice]
-          =yield 
+          = yield 
       #footer
         
 

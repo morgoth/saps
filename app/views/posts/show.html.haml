@@ -1,7 +1,7 @@
 %p
-  %h3= @post.title
+  %h3=h @post.title
 %p
-  = @post.content
+  =h @post.content
   %br
   %br
   %span.post-footer
@@ -11,12 +11,11 @@
   %hr
   - @post.comments.each do |comment|
     %p
-      //%b= comment.name if comment.name
-      = comment.content
+      =h comment.content
       %br
       %br
       %span.post-footer
-        = comment.name.capitalize if comment.name
+        =h comment.name.capitalize if comment.name
         %span.date= comment.created_at.strftime("%d.%m.%y %H:%M")
       %br
       - if logged_in?

@@ -6,10 +6,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :users
 
   map.resource :session
-
-  map.resources :teams, :collection => {:points_table => :get}
-
-  map.resources :matches
+  
+  map.resources :teams
   
   map.signup '/signup', :controller => 'users', :action => 'new'
   map.login '/login', :controller => 'sessions', :action => 'new'
@@ -19,8 +17,8 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :leagues do |leagues|
     leagues.resources :rounds
+    leagues.resources :matches
   end
-
 
   # The priority is based upon order of creation: first created -> highest priority.
 

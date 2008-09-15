@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_filter :login_required
-	before_filter :account_owner, :only => [:edit]
+  before_filter :account_owner, :only => [:edit]
   # render new.rhtml
   def new
   end
@@ -22,16 +22,16 @@ class UsersController < ApplicationController
       render :action => 'new'
     end
   end
-	
+  
   def index
-	  @users=User.all
-	  respond_to do |format|
-	      format.html # index.html.erb
-	      format.xml  { render :xml => @users }
-	  end 
+    @users=User.all
+    respond_to do |format|
+        format.html # index.html.erb
+        format.xml  { render :xml => @users }
+    end 
   end
-	
-	def edit
+  
+  def edit
     @user = User.find(params[:id])
   end
   # PUT /update1
@@ -51,26 +51,26 @@ class UsersController < ApplicationController
   end
 
   def destroy
-       	id = params[:id]
-		if id && user = User.find(id)
-			begin
-				user.safe_delete
-				flash[:notice] = "User #{user.name} usunięty"
-			rescue Exception => e
-				flash[:notice] = e.message
-			end
-		end 
+         id = params[:id]
+    if id && user = User.find(id)
+      begin
+        user.safe_delete
+        flash[:notice] = "User #{user.name} usunięty"
+      rescue Exception => e
+        flash[:notice] = e.message
+      end
+    end 
     respond_to do |format|
       format.html { redirect_to(users_path) }
       format.xml  { head :ok }
     end
   end 
-	private
-	
-	def account_owner
-		unless current_user==User.find(params[:id])
-			redirect_to users_path
-			flash[:notice] = "Can't edit"
-		end
-	end
+  private
+  
+  def account_owner
+    unless current_user==User.find(params[:id])
+      redirect_to users_path
+      flash[:notice] = "Can't edit"
+    end
+  end
 end

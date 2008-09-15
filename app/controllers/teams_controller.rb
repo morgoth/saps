@@ -83,18 +83,13 @@ class TeamsController < ApplicationController
       format.html { redirect_to(teams_url) }
       format.xml  { head :ok }
     end
-  end
-  
-  def points_table
-    @teams=Team.all(:order=> 'points DESC')
-    @teams.delete_if {|team| team.name=='Pause'}
-  end  
+  end 
   
   private
   def team_played_match
     matches=Match.find(:all, :conditions=>['home_team_id=? OR visitor_team_id=?',params[:id], params[:id] ])
     unless matches.empty?
-      redirect_to matches_path
+      redirect_to leagues_path
       flash[:notice] = 'Team played match, delete it first'
     end
   end

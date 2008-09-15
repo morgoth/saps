@@ -1,21 +1,19 @@
 %h1 New match
-
--form_for(@match) do |f|
+- form_for(:match, :url => league_matches_path( params[:league_id] )) do |f|
   = f.error_messages
   %p
     = f.label :round_id
     %br
-    = f.select( :round_id, Round.all.collect{ |p| [p.name, p.id] } )
+    = f.select( :round_id, Round.find_all_by_league_id(params[:league_id]).collect{ |p| [p.name, p.id] } )
   %p
     = f.label :hour
     %br
     = time_select( :match, :hour) 
   %p
-    = f.label :home_team_id
-    = f.label :visitor_team_id
+    = f.label :home_team_visitor_team
     %br
-    = f.select(:home_team_id, Team.all.collect{ |p| [p.name, p.id] } )
-    = f.select(:visitor_team_id, Team.all.collect{ |p| [p.name, p.id] } )
+    = f.select(:home_team_id, @league.teams.collect{ |p| [p.name, p.id] } )
+    = f.select(:visitor_team_id, @league.teams.collect{ |p| [p.name, p.id] } )
 
   %p
     = f.label :score
@@ -26,4 +24,4 @@
   %p
     = f.submit "Create"[:create], :class => "button"
 
-= link_to 'Back', matches_path
+= link_to 'Back'[:back], league_matches_path(params[:league_id])

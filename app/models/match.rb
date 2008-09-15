@@ -16,6 +16,7 @@ class Match < ActiveRecord::Base
   
   private
   def change_team_points_on_save
+    self.score = '' if (home_team.name == 'Pause' || visitor_team.name == 'Pause')
     if !score.empty?
       points_calculation(home_team, visitor_team,'increment')
       home_team.save!
@@ -39,17 +40,17 @@ class Match < ActiveRecord::Base
         visitor_team.send(inc_dec, :sets_lost, score[0,1].to_i)
         home_team.send(inc_dec, :matches_played, 1)
         visitor_team.send(inc_dec, :matches_played, 1)
-          if score=='3:0' || '3:1'
+          if score.eql?('3:0') || score.eql?('3:1')
             home_team.send(inc_dec,:points, 3)
-            visitor_team.send(inc_dec,:points, 1)
-          elsif score == '3:2'
+            visitor_team.send(inc_dec,:points, 0)
+          elsif score.eql?('3:2')
             home_team.send(inc_dec,:points, 2)
             visitor_team.send(inc_dec,:points, 1)
-          elsif score =='2:3'
+          elsif score.eql?('2:3')
             home_team.send(inc_dec,:points, 1)
             visitor_team.send(inc_dec,:points, 2)
-          elsif score =='0:3' || '1:3'
-            home_team.send(inc_dec,:points, 1)
+          elsif score.eql?('0:3') || score.eql?('1:3')
+            home_team.send(inc_dec,:points, 0)
             visitor_team.send(inc_dec,:points, 3)
           end
   end

@@ -6,7 +6,7 @@ module ApplicationHelper
   end
   
   def year_month_day(date)
-    date.strftime("%y.%m.%d")
+    date.strftime("%d.%m.%Y")
   end
   
   def current(lang)
@@ -14,10 +14,7 @@ module ApplicationHelper
   end
   
   def leagues?
-    flag = false
-    %w{teams leagues matches rounds}.each do |check|
-      flag = true if check.eql?(controller.controller_name)
-    end
-    flag
+    return true if %w{teams leagues matches rounds}.include?(controller.controller_name)
   end
+
 end

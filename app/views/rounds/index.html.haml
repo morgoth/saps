@@ -1,23 +1,57 @@
-%h1 
-  ="Listing rounds for #{@league.name}"
+%h1= @league.name
 
 %ul 
-  - for round in @rounds
+  - for round in @league.rounds
     %p
       %li
         = h round.name
         = h year_month_day(round.date)
         - if logged_in?
-          = link_to 'Edit', edit_league_round_path(@league,round)
-          = link_to 'Destroy', league_round_path(@league, round), :confirm => 'Are you sure?', :method => :delete
-      %ul
-        - for match in round.matches
-          %li
-            = h hour_minute(match.hour)
-            = link_to_if match.home_team.name!= 'Pause', "#{match.home_team.name}", match.home_team 
-            = link_to_if match.visitor_team.name!= 'Pause', "#{match.visitor_team.name}", match.visitor_team
-            = match.score
-            %br
+          = link_to 'Edit'[:edit], edit_league_round_path(@league,round)
+          = link_to 'Destroy'[:destroy], league_round_path(@league, round), :confirm => 'Are you sure?', :method => :delete     
+    %table
+      %tr
+        %th Starts
+        %th Home
+        %th Visitor
+        %th Score
+      - for match in round.matches
+        %tr{ :class=>cycle('row-a', 'row-b')}
+          %td
+            =h hour_minute( match.hour)
+          %td
+            = link_to_if match.home_team.name !='Pause', "#{match.home_team.name}", match.home_team
+          %td
+            = link_to_if match.visitor_team.name !='Pause', "#{match.visitor_team.name}", match.visitor_team
+          %td
+            = h match.score
+          - if logged_in?
+            %td
+              = link_to_if match.score.empty?, 'Edit'[:edit], edit_league_match_path(@league,match)
+              = link_to 'Destroy'[:destroy], league_match_path(@league, match), :confirm => 'Are you sure?', :method => :delete
+
 %br
 - if logged_in?
   = link_to 'New round', new_league_round_path(@league)
+  = link_to "New match", new_league_match_path(@league)
+  
+%h1= 'Table'[:table]
+%table
+  %tr
+    %th Name
+    %th Matches played
+    %th Points
+    %th Sets won
+    %th Sets lost  
+  - @league.teams.each do |team|
+    %tr{ :class=>cycle('row-a', 'row-b')}
+      %td
+        =link_to "#{team.name}", team
+      %td
+        =h team.matches_played
+      %td
+        =h team.points
+      %td
+        =h team.sets_won
+      %td
+        =h team.sets_lost

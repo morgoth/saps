@@ -7,6 +7,14 @@
   %br
     = f.text_field :name
   %p
-    = f.submit "Update", :class => "button"
+    = f.label :team_ids
+  %br
+    = f.collection_select :team_ids, Team.all, :id, :name, {}, {:multiple => true}
+  %p
+    = f.label :active
+  %br
+    = f.check_box :active
+  %p
+    = f.submit "Update"[:update], :class => "button"
 
-= link_to 'Back', leagues_path
+= link_to 'Back'[:back], leagues_path

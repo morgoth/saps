@@ -76,4 +76,13 @@ class LeaguesController < ApplicationController
     end
   end
   
+  def show
+    league=League.find_by_active(true)
+    if league
+       redirect_to league_rounds_path(league.id)
+    else
+      redirect_to leagues_path
+    end
+  end
+  
 end

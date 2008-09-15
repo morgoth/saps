@@ -1,9 +1,10 @@
 class MatchesController < ApplicationController
   before_filter :login_required, :except => [:index]
+  before_filter :get_league
   before_filter :update_empty_score_only, :only=> [:edit]
   def index
-    @matches = Match.all :order=>'round_id, hour'
-
+    #@matches = Match.all :order=>'round_id, hour'
+    @matches = @league.matches
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @matches }
@@ -32,11 +33,10 @@ class MatchesController < ApplicationController
   # POST /matches.xml
   def create
     @match = Match.new(params[:match])
-    @match.score = '' if (@match.home_team.name == 'Pause' || @match.visitor_team.name == 'Pause')
     respond_to do |format|
       if @match.save
         flash[:notice] = 'Match was successfully created.'
-        format.html { redirect_to matches_path }
+        format.html { redirect_to league_rounds_path(@league.id) }
         format.xml  { render :xml => @match, :status => :created, :location => @match }
       else
         format.html { render :action => "new" }
@@ -49,11 +49,10 @@ class MatchesController < ApplicationController
   # PUT /matches/1.xml
   def update
     @match = Match.find(params[:id])
-    @match.score = '' if (@match.home_team.name == 'Pause' || @match.visitor_team.name == 'Pause')
     respond_to do |format|
       if @match.update_attributes(params[:match])
         flash[:notice] = 'Match was successfully updated.'
-        format.html { redirect_to matches_path }
+        format.html { redirect_to league_rounds_path(@league.id)}
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -69,7 +68,7 @@ class MatchesController < ApplicationController
     @match.destroy
 
     respond_to do |format|
-      format.html { redirect_to(matches_url) }
+      format.html { redirect_to league_rounds_path(@league.id) }
       format.xml  { head :ok }
     end
   end
@@ -77,11 +76,15 @@ class MatchesController < ApplicationController
   private
   
   def update_empty_score_only
-    @match = Match.find(params[:id])
-    if !@match.score.empty?
+    match = Match.find(params[:id])
+    if !match.score.empty?
       flash[:notice] = "Update only available on empty score"
-      redirect_to matches_path
+      redirect_to league_matches_path(@league.id)
     end
+  end
+  
+  def get_league
+    @league=League.find(params[:league_id])
   end
   
 end

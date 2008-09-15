@@ -20,8 +20,8 @@
         =h match.round.name
       - if logged_in?
         %td
-          = link_to_if match.score.empty?, 'Edit', edit_match_path(match)
-          = link_to 'Destroy', match, :confirm => 'Are you sure?', :method => :delete
+          = link_to_if match.score.empty?, 'Edit', edit_league_match_path(params[:league_id], match)
+          = link_to 'Destroy', league_match_path(params[:league_id], match), :confirm => 'Are you sure?', :method => :delete
     %br
 - if logged_in?
-  = link_to 'New match', new_match_path
+  = link_to 'New'[:new_male]+' '+'match'[:match], new_league_match_path(params[:league_id])

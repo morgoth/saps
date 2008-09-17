@@ -1,10 +1,12 @@
 %h1= @league.name
-
+- if logged_in?
+  = link_to 'New round', new_league_round_path(@league)
+  = link_to "New match", new_league_match_path(@league)
 %ul 
   - for round in @league.rounds
     %p
       %li
-        = h round.name
+        %b= h round.name
         = h year_month_day(round.date)
         - if logged_in?
           = link_to 'Edit'[:edit], edit_league_round_path(@league,round)
@@ -30,11 +32,7 @@
               = link_to_if match.score.empty?, 'Edit'[:edit], edit_league_match_path(@league,match)
               = link_to 'Destroy'[:destroy], league_match_path(@league, match), :confirm => 'Are you sure?', :method => :delete
 
-%br
-- if logged_in?
-  = link_to 'New round', new_league_round_path(@league)
-  = link_to "New match", new_league_match_path(@league)
-  
+%br 
 %h1= 'Table'[:table]
 %table
   %tr

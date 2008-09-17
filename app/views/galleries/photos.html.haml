@@ -1,8 +1,8 @@
-%h1
-  = link_to "Slideshow", {:controller => 'galleries', :action => 'slideshow', :link => "#{@photos[:slideshow]}"}, {:popup => true}
+%h1= 'gallery'[:gallery]
+%h3= link_to "Slideshow", {:controller => 'galleries', :action => 'slideshow', :link => "#{@photos[:slideshow]}"}, {:popup => true}
 %p
   - @photos[:thumbnail].each_with_index do |photo, index|
-    //=link_to( image_tag( "#{photo)", #{@photos[:photo][index] }")
+    //=link_to( image_tag( photo), @photos[:photo][index])
     = image_tag( "#{photo}")
     //- if @photos[:title][index]
     //  %br

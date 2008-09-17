@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
   private
     def set_language
         session[:locale] = params[:locale] || session[:locale]
-        Gibberish.use_language(session[:locale] || :en) { yield }
+        Gibberish.use_language(session[:locale] || :pl) { yield }
     end
 
   

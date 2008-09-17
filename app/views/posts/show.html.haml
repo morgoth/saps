@@ -20,8 +20,8 @@
       %br
       - if logged_in?
         %br
-        = link_to 'Edit', edit_comment_path(comment)
-        = link_to 'Destroy', comment, :confirm => 'Are you sure?', :method => :delete
+        = link_to 'Edit'[:edit], edit_comment_path(comment)
+        = link_to 'Destroy'[:destroy], comment, :confirm => 'Are you sure?', :method => :delete
 
 = link_to "Add comment"[:add_comment], :controller => 'comments', :action=> 'new', :post_id => @post.id
 

@@ -1,5 +1,5 @@
 class RoundsController < ApplicationController
-  before_filter :login_required, :except => [:index, :show]
+  before_filter :login_required, :except => [:index]
   before_filter :get_league
   # GET /rounds
   # GET /rounds.xml

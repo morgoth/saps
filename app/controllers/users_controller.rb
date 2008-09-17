@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     @user.save
     if @user.errors.empty?
-      self.current_user = @user
+      #self.current_user = @user
       redirect_back_or_default('/')
       flash[:notice] = "Thanks for signing up!"
     else
@@ -24,7 +24,7 @@ class UsersController < ApplicationController
   end
   
   def index
-    @users=User.all
+    @users=User.all(:order => :login)
     respond_to do |format|
         format.html # index.html.erb
         format.xml  { render :xml => @users }

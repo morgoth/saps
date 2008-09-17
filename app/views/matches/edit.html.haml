@@ -11,7 +11,7 @@
     = @match.visitor_team.name
     %br
     = f.label :hour
-    = time_select( :match, :hour)
+    = time_select( :match, :hour, {:minute_step => 15})
     %br
     = f.label :score
     = f.text_field :score, :size => 3

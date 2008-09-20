@@ -1,13 +1,13 @@
-%h1 New comment
+%h1= 'New'[:new_male]+' '+'comment'[:comment]
 
 - form_for(@comment) do |f|
   = f.error_messages
   %p
-    = f.label :name
+    %label#name= 'name'[:name]
     %br
     = f.text_field :name
   %p
-    = f.label :content
+    %label#content= 'content'[:content]
     %br
     = f.text_area :content
     = f.hidden_field( :post_id, :value => params[:post_id])

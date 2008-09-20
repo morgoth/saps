@@ -18,17 +18,17 @@ class Match < ActiveRecord::Base
   def change_team_points_on_save
     self.score = '' if (home_team.name == 'Pause' || visitor_team.name == 'Pause')
     if !score.empty?
-      points_calculation(home_team, visitor_team,'increment')
-      home_team.save!
-      visitor_team.save!
+      home=TeamTable.find_by_league_id_and_team_id(self.round.league.id, home_team.id)
+      visitor=TeamTable.find_by_league_id_and_team_id(self.round.league.id, visitor_team.id)
+      points_calculation(home, visitor,'increment')
     end
   end
   
   def change_team_points_on_delete
     if !score.empty?
-        points_calculation(home_team, visitor_team, 'decrement')
-        home_team.save!
-        visitor_team.save!
+      home=TeamTable.find_by_league_id_and_team_id(self.round.league.id, home_team.id)
+      visitor=TeamTable.find_by_league_id_and_team_id(self.round.league.id, visitor_team.id)
+      points_calculation(home, visitor, 'decrement')
     end
   end  
   
@@ -53,6 +53,8 @@ class Match < ActiveRecord::Base
             home_team.send(inc_dec,:points, 0)
             visitor_team.send(inc_dec,:points, 3)
           end
+      home_team.save!
+      visitor_team.save!
   end
   
   def home_different_than_visitor

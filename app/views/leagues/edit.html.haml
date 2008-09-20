@@ -7,9 +7,11 @@
   %br
     = f.text_field :name
   %p
-    = f.label :team_ids
+    = f.label :teams
   %br
-    = f.collection_select :team_ids, Team.all, :id, :name, {}, {:multiple => true}
+    -@league.teams.each do |team|
+      = team.name
+      %br
   %p
     = f.label :active
   %br

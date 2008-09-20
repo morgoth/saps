@@ -42,7 +42,7 @@ h3 {
 /* images */
 img {
   background: #FAFAFA;
-   border: 1px solid #E5E5E5;
+  border: 1px solid #E5E5E5;
   padding: 5px;
 }
 img.float-right {
@@ -341,9 +341,19 @@ input.button {
 .clear { clear: both; }
 
 #notice {
-  color: green;
+  padding: 5px;
+  color: black;
+  background-color: #dfffdf;
+  border: 1px solid #62df61;
 }
+#error {
+  padding: 5px;
+  color: black;
+  background-color: #ff9394;
+  border: 1px solid #ff0f11;
 
+
+}
 .fieldWithErrors {
   padding: 2px;
   background-color: red;

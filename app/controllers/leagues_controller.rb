@@ -51,17 +51,16 @@ class LeaguesController < ApplicationController
   # PUT /leagues/1.xml
   def update
     @league = League.find(params[:id])
-
-    respond_to do |format|
-      if @league.update_attributes(params[:league])
-        flash[:notice] = 'League was successfully updated.'
-        format.html { redirect_to leagues_path }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @league.errors, :status => :unprocessable_entity }
+      respond_to do |format|
+        if @league.update_attributes(params[:league])
+          flash[:notice] = 'League was successfully updated.'
+          format.html { redirect_to leagues_path }
+          format.xml  { head :ok }
+        else
+          format.html { render :action => "edit" }
+          format.xml  { render :xml => @league.errors, :status => :unprocessable_entity }
+        end
       end
-    end
   end
 
   # DELETE /leagues/1

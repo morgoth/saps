@@ -7,6 +7,7 @@ back: Wróć
 update: Aktualizuj
 destroy: Usuń
 posts: aktualności
+post: wiadomość
 leagues: archiwum
 league: liga
 matches: mecze
@@ -16,6 +17,9 @@ users: użytkownicy
 change_password: zmień hasło
 new_female: nowa
 new_male: nowy
-post: wiadomość
 add_comment: dodaj komentarz
 table: Tabela
+comment: komentarz
+content: Treść
+title: Tytuł
+name: Imię

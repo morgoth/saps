@@ -26,11 +26,6 @@ ActiveRecord::Schema.define(:version => 20080912124250) do
     t.datetime "updated_at"
   end
 
-  create_table "leagues_teams", :id => false, :force => true do |t|
-    t.integer "league_id"
-    t.integer "team_id"
-  end
-
   create_table "matches", :force => true do |t|
     t.integer  "home_team_id"
     t.integer  "visitor_team_id"
@@ -57,12 +52,17 @@ ActiveRecord::Schema.define(:version => 20080912124250) do
     t.datetime "updated_at"
   end
 
+  create_table "team_tables", :force => true do |t|
+    t.integer "league_id"
+    t.integer "team_id"
+    t.integer "points",         :default => 0
+    t.integer "sets_won",       :default => 0
+    t.integer "sets_lost",      :default => 0
+    t.integer "matches_played", :default => 0
+  end
+
   create_table "teams", :force => true do |t|
     t.string   "name"
-    t.integer  "points",         :default => 0
-    t.integer  "sets_won",       :default => 0
-    t.integer  "sets_lost",      :default => 0
-    t.integer  "matches_played", :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end

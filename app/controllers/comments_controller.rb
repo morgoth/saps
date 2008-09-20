@@ -1,9 +1,5 @@
 class CommentsController < ApplicationController
   before_filter :login_required, :only => [:destroy, :edit]
-  # GET /comments
-  # GET /comments.xml
-  # GET /comments/1
-  # GET /comments/1.xml
   # GET /comments/new
   # GET /comments/new.xml
   def new

@@ -4,7 +4,7 @@ class RoundsController < ApplicationController
   # GET /rounds
   # GET /rounds.xml
   def index
-   @league = League.find(@league.id, :include => [:teams, :rounds], :order => "rounds.date, teams.points DESC")
+   @league = League.find(@league.id, :include => [:teams, :rounds], :order => "rounds.date, team_tables.points DESC")
   
     respond_to do |format|
       format.html # index.html.erb

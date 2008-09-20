@@ -3,12 +3,14 @@
 %br
 %table
   %tr
-    %th Round
-    %th Starts
-    %th Home vs. Visitor
-    %th Score
+    %th= 'League'[:league]
+    %th= 'Round'[:round]
+    %th= 'Starts'[:starts]
+    %th= 'Home'[:home]+' vs. '+'Visitor'[:visitor]
+    %th= 'Score'[:score]
     - @matches.each do |match|
       %tr
+        %td= match.round.league.name
         %td= match.round.name
         %td 
           = year_month_day(match.round.date)
@@ -20,3 +22,14 @@
           = link_to_if match.visitor_team.name!= 'Pause', "#{match.visitor_team.name}", match.visitor_team
         %td= match.score
   %br
+%p
+  %b
+    - stats=@team.statistics
+    Rozegrane mecze: 
+    = stats[:played]
+    %br
+    Wygrane sety:
+    = stats[:won]
+    %br
+    Przegrane sety:
+    = stats[:lost]

@@ -11,4 +11,7 @@ class GalleriesController < ApplicationController
   def slideshow
       redirect_to params[:link]
   end
+  
+  def test
+  end
 end

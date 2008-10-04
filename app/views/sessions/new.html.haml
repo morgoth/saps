@@ -1,6 +1,6 @@
 - form_tag session_path do
   %p
-    %label#login Login
+    %label Login
     %br
     = text_field_tag 'login'
   %p 
@@ -9,5 +9,4 @@
     = password_field_tag 'password'
   %p 
     = submit_tag 'Log in', :class => "button"
-= javascript_tag "$('login').focus()"
 

@@ -30,18 +30,6 @@ it "should not be valid when home team is equal visitor team" do
   @match.should_not be_valid
 end
 
-it "should change team matches played when score is present" do 
-  @match.score = '3:1'
-  home_matches=@team1.matches_played
-  visitor_matches=@team2.matches_played
-  @match.home_team_id=@team1.id
-  @match.visitor_team_id=@team2.id
-  @match.save!
-  @team1.reload
-  @team2.reload
-  @team1.matches_played.should_not eql(home_matches)
-  @team2.matches_played.should_not eql(visitor_matches)
-  
-end
+
 
 end

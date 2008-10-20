@@ -39,7 +39,7 @@ class RoundsController < ApplicationController
     respond_to do |format|
       if @round.save
         flash[:notice] = 'Round was successfully created.'
-        format.html { redirect_to league_rounds_path(@round.league) }
+        format.html { redirect_to new_league_match_path(@round.league)}#league_rounds_path(@round.league) }
         format.xml  { render :xml => @round, :status => :created, :location => @round }
       else
         format.html { render :action => "new" }

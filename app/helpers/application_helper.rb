@@ -2,7 +2,8 @@
 module ApplicationHelper
   
   def hour_minute(date)
-    date.strftime("%H:%M")
+		date+=7200
+    date.strftime("%d.%m.%y - %H:%M")
   end
   
   def year_month_day(date)

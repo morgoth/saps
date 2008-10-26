@@ -41,15 +41,15 @@
     %th Points
     %th Sets won
     %th Sets lost  
-  - @league.teams.each do |team|
+  - @league.team_tables.sorted_table.each do |table|
     %tr{ :class=>cycle('row-a', 'row-b')}
       %td
-        =link_to "#{team.name}", team
+        =link_to "#{table.team.name}", table.team
       %td
-        =h @league.team_tables.find_by_team_id(team.id).matches_played
+        =h table.matches_played
       %td
-        =h @league.team_tables.find_by_team_id(team.id).points
+        =h table.points
       %td
-        =h @league.team_tables.find_by_team_id(team.id).sets_won
+        =h table.sets_won
       %td
-        =h @league.team_tables.find_by_team_id(team.id).sets_lost
+        =h table.sets_lost

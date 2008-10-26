@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(:version => 20080912124250) do
   create_table "matches", :force => true do |t|
     t.integer  "home_team_id"
     t.integer  "visitor_team_id"
-    t.time     "hour"
+    t.datetime "hour"
     t.string   "score"
     t.integer  "round_id"
     t.datetime "created_at"

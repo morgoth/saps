@@ -3,7 +3,7 @@ class CreateMatches < ActiveRecord::Migration
     create_table :matches do |t|
       t.integer :home_team_id
       t.integer :visitor_team_id
-      t.time :hour
+      t.datetime :hour
       t.string :score
       t.integer :round_id
 

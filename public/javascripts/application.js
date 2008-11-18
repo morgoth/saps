@@ -10,7 +10,5 @@
         $(this).next(".hidden").slideUp("fast");
 				}
 		});
-
-			
   }
   );

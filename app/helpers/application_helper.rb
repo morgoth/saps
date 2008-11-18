@@ -17,4 +17,11 @@ module ApplicationHelper
     return true if %w{teams leagues matches rounds}.include?(controller.controller_name)
   end
 
+	def flash_messages
+	  messages = []
+    %w(notice error).each do |msg|
+      messages << content_tag(:div, flash[msg.to_sym], :id => "#{msg}") unless flash[msg.to_sym].blank?
+    end
+    messages
+	end
 end

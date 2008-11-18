@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  birth_date: 2008-11-13
+  height: 1
+  position: MyString
+  about: MyText
+  active_player: false
+
+two:
+  name: MyString
+  birth_date: 2008-11-13
+  height: 1
+  position: MyString
+  about: MyText
+  active_player: false

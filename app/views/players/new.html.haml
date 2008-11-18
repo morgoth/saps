@@ -1,0 +1,36 @@
+%h1 New player
+
+- form_for @player, :html => { :multipart=> true } do |f|
+  = f.error_messages
+  %p
+    = f.label :name
+    %br
+    = f.text_field :name
+  %p
+    = f.label :birth_date
+    %br
+    = f.date_select :birth_date, :start_year => Time.now.year - 70, :end_year => Time.now.year, :order => [:day, :month, :year]
+
+  %p
+    = f.label :height
+    %br
+    = f.text_field :height
+  %p
+    = f.label :position
+    %br
+    = f.select( :position, Player::POSITIONS, :include_blank => true)
+  %p
+    = f.label :about
+    %br
+    = f.text_area :about
+  %p
+    = f.label :photo
+    %br
+    =f.file_field :photo
+  %p
+    = f.label :active_player
+    %br
+    = f.check_box :active_player
+  %p
+    = f.submit "Create"[:create]
+= link_to 'Back', players_path

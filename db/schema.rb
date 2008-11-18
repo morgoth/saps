@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080912124250) do
+ActiveRecord::Schema.define(:version => 20081113154124) do
 
   create_table "comments", :force => true do |t|
     t.string   "name"
@@ -34,6 +34,21 @@ ActiveRecord::Schema.define(:version => 20080912124250) do
     t.integer  "round_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "players", :force => true do |t|
+    t.string   "name"
+    t.date     "birth_date"
+    t.integer  "height"
+    t.string   "position"
+    t.text     "about"
+    t.boolean  "active_player"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   create_table "posts", :force => true do |t|

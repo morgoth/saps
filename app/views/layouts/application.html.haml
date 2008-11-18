@@ -5,7 +5,7 @@
     %title SAPS Gliwice
     %link{:rel=>"shortcut icon", :href=>"/images/ball.ico"}
     = stylesheet_link_tag "saps"
-    = javascript_include_tag 'jquery', 'jSmile', 'my'
+    = javascript_include_tag 'jquery', 'jSmile', 'application'
   %body
     #wrap
       #header
@@ -36,9 +36,6 @@
 
       #content-wrap
         #main
-          - unless flash[:error].nil?
-            %span#error= flash[:error] 
-          - unless flash[:notice].nil?
-            %span#notice= flash[:notice]
+          = flash_messages
           = yield 
       #footer

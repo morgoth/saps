@@ -1,0 +1,14 @@
+%h1= "players"[:players]
+- if logged_in?
+  = link_to 'New'[:new_male]+' '+'player'[:player], new_player_path
+  %br
+  %br
+#players
+  %h2 Obecni zawodnicy:
+  - @players.each do |player|
+    - if player.active_player
+      = render :partial => 'show_player', :locals => {:player => player}
+  %h2 Zawodnicy grający wcześniej:
+  - @players.each do |player|
+    - if !player.active_player
+      = render :partial => 'show_player', :locals => {:player => player}

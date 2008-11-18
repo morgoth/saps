@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :players
+
   map.resources :comments
   
   map.resources :posts
@@ -15,10 +17,8 @@ ActionController::Routing::Routes.draw do |map|
   map.table '/table', :controller => 'teams', :action => 'points_table'
   map.gallery '/gallery', :controller => 'galleries', :action => 'albums'
 
-  map.resources :leagues do |leagues|
-    leagues.resources :rounds
-    leagues.resources :matches
-  end
+	map.resources :leagues, :has_many => [:rounds, :matches]
+
 
   # The priority is based upon order of creation: first created -> highest priority.
 

@@ -78,9 +78,9 @@ acronym {
 }
 blockquote {
   margin: 10px;
-   padding: 0 0 0 28px;  
-   border: 1px solid #f2f2f2; 
-    background: #FAFAFA url('/immages/quote.gif') no-repeat 5px 5px;    
+  padding: 0 0 0 28px;  
+  border: 1px solid #f2f2f2; 
+  background: #FAFAFA url('/immages/quote.gif') no-repeat 5px 5px;    
 }
 
 /* start - table */
@@ -297,6 +297,30 @@ input.button {
   list-style-image: url('/images/bullet.gif');
 }
 
+#players{
+	display: inline;
+}
+#player{
+	display: table-cell;
+	text-align: center;
+}
+#player img:hover{
+	cursor: pointer;
+}
+.hidden{
+	display: table-cell;
+	display: none;
+	width: 150px;
+  background-color: #FAFAFA;
+  padding: 3px; margin: 0 5px;
+  border: 1px solid #f2f2f2;
+  font-size: 95%; 
+}
+.hidden .name{
+	text-align: left;
+	font-weight: bold;
+
+}
 .post-footer {
   background-color: #FAFAFA;
   padding: 5px; margin: 20px 10px 10px 10px;
@@ -385,4 +409,3 @@ input.button {
   font-size: 12px;
   list-style: square;
 }
-

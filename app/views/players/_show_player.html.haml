@@ -1,0 +1,19 @@
+%div#player
+  = image_tag player.photo.url
+  %div.hidden
+    %span.name= h player.name
+    %br
+    Urodzony:
+    = h year_month_day( player.birth_date )
+    %br
+    = h "Wzrost: #{player.height} cm" if !player.height.nil?
+    %br
+    Pozycja:
+    = h player.position
+    %br
+    %br
+    = h player.about
+  %br
+  - if logged_in?
+    = link_to 'Edit'[:edit], edit_player_path(player)
+    = link_to 'Destroy'[:destroy], player, :confirm => 'Are you sure?', :method => :delete

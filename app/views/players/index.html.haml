@@ -8,7 +8,7 @@
   - @players.each do |player|
     - if player.active_player
       = render :partial => 'show_player', :locals => {:player => player}
-  %h2 Zawodnicy grający wcześniej:
+  %h2.clear Zawodnicy grający wcześniej:
   - @players.each do |player|
     - if !player.active_player
       = render :partial => 'show_player', :locals => {:player => player}

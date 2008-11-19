@@ -7,7 +7,7 @@
       if ($(this).next(".hidden").is(":hidden")) {
         $(this).next(".hidden").slideDown("slow");
       } else {
-        $(this).next(".hidden").slideUp("fast");
+        $(this).next(".hidden").fadeOut("fast");
 				}
 		});
   }

@@ -23,6 +23,7 @@
           %li= link_to "posts"[:posts], posts_path
           %li= link_to "league"[:league], :controller=>'leagues', :action => 'show'
           %li= link_to "gallery"[:gallery], gallery_path
+          %li= link_to "players"[:players], players_path
           - if logged_in?
             %li= link_to "users"[:users], users_path
             %li= link_to "Logout #{current_user.login}", logout_path

@@ -31,7 +31,6 @@ h1 {
 }
 h2 {
   font-size: 140%;
-  text-transform: uppercase;
   color: #88ac0b;
 }
 h3 {
@@ -298,28 +297,28 @@ input.button {
 }
 
 #players{
-	display: inline;
 }
 #player{
-	display: table-cell;
+	display: block;
+	float: left;
 	text-align: center;
+	position: relative;
 }
 #player img:hover{
 	cursor: pointer;
 }
 .hidden{
-	display: table-cell;
 	display: none;
 	width: 150px;
   background-color: #FAFAFA;
-  padding: 3px; margin: 0 5px;
+  padding: 3px;
   border: 1px solid #f2f2f2;
-  font-size: 95%; 
+  font-size: 95%;
+	z-index: 2;
+	position: absolute;
 }
 .hidden .name{
-	text-align: left;
 	font-weight: bold;
-
 }
 .post-footer {
   background-color: #FAFAFA;

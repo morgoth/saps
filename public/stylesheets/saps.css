@@ -232,41 +232,39 @@ input.button {
   height: 37px;
   width: 780px;
 }
-#menu ul {
-  float: left;
-  list-style: none;
-  margin:0; padding: 0;
+#jsddm
+{	margin: 0;
+	padding: 0;
+}	
+#jsddm li	 {
+	float: left;
+	list-style: none;
 }
-#menu ul li {
-  display: inline;
+#jsddm li a {
+	display: block;
+	padding: 0 8px 0 8px;
+	text-decoration: none;
+	color: #FFF;
+	white-space: nowrap;
 }
-#menu ul li a {
-  display: block;
-  float: left;
-  padding: 0 12px 0 12px;
-  color: #FFF;  
-  text-decoration: none;
+#jsddm li a:hover {
+	color: #D4E59F;
 }
-#menu ul li.last a {
-  padding-right: 20px;  
+#jsddm li ul	{
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	visibility: hidden;
 }
-#menu ul li a:hover {
-  color: #D4E59F;  
+#jsddm li ul li	 {
+	float: none;
+	display: inline;
 }
-#menu ul li#current a {  
-  color: #D4E59F;
+#jsddm li ul li a {
+	background: #2A88C5;
 }
-#submenu {
-  clear: both;
-  margin: 0 auto;
-  padding-left: 15px;
-  background: url('/images/submenu.jpg') repeat-x 0 0;  ;
-  font: bold 11px/30px Verdana, Arial, Tahoma, Sans-serif;
-  height: 30px;
-  width: 760px;
-}
-#submenu ul li a {
-  padding: 0 5px 0 8px;
+#jsddm li ul li a:hover {
+	color: #D4E59F;
 }
 
 /* Main Column */

@@ -5,7 +5,7 @@
     %title SAPS Gliwice
     %link{:rel=>"shortcut icon", :href=>"/images/ball.ico"}
     = stylesheet_link_tag "saps"
-    = javascript_include_tag 'jquery', 'jSmile', 'application'
+    = javascript_include_tag :defaults, 'jSmile'
   %body
     #wrap
       #header
@@ -19,9 +19,13 @@
           - else
             = link_to image_tag( "/images/en.gif"), current('en')        
       #menu
-        %ul
+        %ul#jsddm
           %li= link_to "posts"[:posts], posts_path
-          %li= link_to "league"[:league], :controller=>'leagues', :action => 'show'
+          %li
+            = link_to "league"[:league], :controller=>'leagues', :action => 'show'
+            %ul
+              %li= link_to "teams"[:teams], teams_path
+              %li= link_to "leagues"[:leagues], leagues_path
           %li= link_to "gallery"[:gallery], gallery_path
           %li= link_to "players"[:players], players_path
           - if logged_in?
@@ -29,14 +33,10 @@
             %li= link_to "Logout #{current_user.login}", logout_path
           - else
             %li= link_to "Login", login_path
-        - if leagues?
-          #submenu
-            %ul
-              %li= link_to "teams"[:teams], teams_path
-              %li= link_to "leagues"[:leagues], leagues_path
-
       #content-wrap
         #main
           = flash_messages
           = yield 
       #footer
+        %br
+        = h "Kontakt: saps.gliwice@gmail.com"

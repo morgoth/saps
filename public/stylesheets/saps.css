@@ -259,6 +259,7 @@ input.button {
 #jsddm li ul li	 {
 	float: none;
 	display: inline;
+	line-height: 20px;
 }
 #jsddm li ul li a {
 	background: #2A88C5;
@@ -347,11 +348,22 @@ input.button {
   text-align: center;  
   font-size: 92%;  
 }
+#footer .txt{
+	position: absolute;
+}
+#footer .first img{
+	margin-right: 20px;
+}
 #footer a { 
   color: #FFF;
   text-decoration: none; 
 }
-
+#footer img{
+  background: none;
+  border: none;
+  margin: 5px 2px;
+	float: right;
+}
 /* alignment classes */
 .float-left  { float: left; }
 .float-right { float: right; }

@@ -1,4 +1,4 @@
-RAILS_GEM_VERSION = '2.1'
+RAILS_GEM_VERSION = '2.2.2'
 
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
@@ -15,7 +15,11 @@ Rails::Initializer.run do |config|
 
   # Specify gems that this application depends on. 
   # They can then be installed with "rake gems:install" on new installations.
-  # config.gem "bj"
+   config.gem "haml"
+	 config.gem "xml-simple"
+	 config.gem "will_paginate"
+	#config.gem "rspec"
+	#config.gem "rspec-rails"
   # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
   # config.gem "aws-s3", :lib => "aws/s3"
 
@@ -58,4 +62,3 @@ Rails::Initializer.run do |config|
   # Activate observers that should always be running
   # config.active_record.observers = :cacher, :garbage_collector
 end
-

@@ -16,10 +16,10 @@ Rails::Initializer.run do |config|
   # Specify gems that this application depends on. 
   # They can then be installed with "rake gems:install" on new installations.
    config.gem "haml"
-	 config.gem "xml-simple"
+	# config.gem "xml-simple"
 	 config.gem "will_paginate"
-	#config.gem "rspec"
-	#config.gem "rspec-rails"
+	# config.gem "rspec", :lib =>"spec"
+	# config.gem "rspec-rails", :lib => "spec"
   # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
   # config.gem "aws-s3", :lib => "aws/s3"
 

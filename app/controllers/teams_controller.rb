@@ -1,5 +1,5 @@
 class TeamsController < ApplicationController
-  before_filter :login_required, :except => [:index, :show, :points_table]
+  before_filter :login_required, :except => [:index, :show]
   before_filter :team_played_match, :only=>[:destroy]
   # GET /teams
   # GET /teams.xml

@@ -30,7 +30,7 @@ GOOGLE_USER = 'saps.gliwice'
       #attributes[:photo] << photo['group'][0]['content']['url'].gsub(/http:\/\/lh[0-9]/,'http://lh3')
     end
     attributes[:slideshow] << xml['link'][2]['href']
-      attributes
+    attributes
   end
   
   module_function :albums, :photos

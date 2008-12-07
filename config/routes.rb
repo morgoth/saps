@@ -1,24 +1,17 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :players
-
-  map.resources :comments
-  
+  map.resources :players, :except => :show
+  map.resources :comments, :except => [:show, :index]
   map.resources :posts
-
   map.resources :users
-
-  map.resource :session
-  
+  map.resource :session, :only => [:new, :create, :destroy]
   map.resources :teams
-  
+  map.resources :leagues, :has_many => [:rounds, :matches]
+	
   map.signup '/signup', :controller => 'users', :action => 'new'
   map.login '/login', :controller => 'sessions', :action => 'new'
   map.logout '/logout', :controller => 'sessions', :action => 'destroy'
   map.table '/table', :controller => 'teams', :action => 'points_table'
   map.gallery '/gallery', :controller => 'galleries', :action => 'albums'
-
-	map.resources :leagues, :has_many => [:rounds, :matches]
-
 
   # The priority is based upon order of creation: first created -> highest priority.
 

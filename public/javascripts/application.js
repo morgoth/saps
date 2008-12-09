@@ -2,7 +2,6 @@
   function()
   {
     $("input#login").focus();
-    $("#testowy").smile();
 		$('#jsddm > li').bind('mouseover', jsddm_open)
     $('#jsddm > li').bind('mouseout',  jsddm_timer)
 		

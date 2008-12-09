@@ -1,4 +1,4 @@
 %h1= 'Gallery'[:gallery]
-- @albums[:title].each_with_index do |album, index|
-  = link_to "#{album}", :controller => 'galleries', :action=> 'photos', :id =>@albums[:id][index]
+- @albums.each do |album|
+  = link_to "#{album[:title]}", :controller => 'galleries', :action=> 'photos', :id => album[:id]
   %br

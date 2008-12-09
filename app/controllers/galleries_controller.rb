@@ -5,13 +5,7 @@ class GalleriesController < ApplicationController
   end
 
   def photos
-      @photos=Picasa.photos(params[:id])
+      @album=Picasa.photos(params[:id])
   end
-  
-  def slideshow
-      redirect_to params[:link]
-  end
-  
-  def test
-  end
+
 end

@@ -12,4 +12,4 @@
     = f.text_area :content
   %p
     = f.submit "Update"
-= link_to 'Back'[:back], post_path(params[:post_id])
+= link_to 'Back'[:back], post_path(@comment.post)

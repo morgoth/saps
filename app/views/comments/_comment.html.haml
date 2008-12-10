@@ -1,0 +1,13 @@
+%hr
+%p
+  =h comment.content
+  %br
+  %br
+  %span.post-footer
+    =h comment.name.capitalize if comment.name
+    %span.date= hour_minute( comment.created_at )
+  %br
+  - if logged_in?
+    %br
+    = link_to 'Edit'[:edit], edit_comment_path(comment)
+    = link_to 'Destroy'[:destroy], comment, :confirm => 'Are you sure?', :method => :delete

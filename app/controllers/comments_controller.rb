@@ -1,15 +1,5 @@
 class CommentsController < ApplicationController
   before_filter :login_required, :only => [:destroy, :edit]
-  # GET /comments/new
-  # GET /comments/new.xml
-  def new
-    @comment = Comment.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @comment }
-    end
-  end
 
   # GET /comments/1/edit
   def edit
@@ -19,15 +9,21 @@ class CommentsController < ApplicationController
   # POST /comments
   # POST /comments.xml
   def create
+		#TODO: validate errors catch in partial
     @comment = Comment.new(params[:comment])
     respond_to do |format|
       if @comment.save
+				@saved = true
         flash[:notice] = 'Comment was successfully created.'
         format.html { redirect_to @comment.post }
+				format.js
         format.xml  { render :xml => @comment, :status => :created, :location => @comment }
       else
-        format.html { render :action => "new" }
+				@saved = false
+				flash[:error] = "Content can not be empty"
+        format.html {  redirect_to @comment.post }
         format.xml  { render :xml => @comment.errors, :status => :unprocessable_entity }
+				format.js
       end
     end
   end

@@ -3,10 +3,10 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 describe Player do
   before(:each) do
     @valid_attributes = {
-      :name => "value for name",
+      :name => "Zdzichu",
       :birth_date => Date.today,
-      :height => "1",
-      :position => "value for position",
+      :height => "170",
+      :position => "Rozgrywający",
       :about => "value for about",
       :active_player => false
     }

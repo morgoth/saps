@@ -1,6 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :players, :except => :show
-  map.resources :comments, :except => [:show, :index]
+  map.resources :comments, :except => [:show, :index, :new]
   map.resources :posts
   map.resources :users
   map.resource :session, :only => [:new, :create, :destroy]

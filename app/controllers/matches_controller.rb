@@ -8,11 +8,10 @@ class MatchesController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @matches }
+			format.rss
     end
   end
 
-  # GET /matches/1
-  # GET /matches/1.xml
   # GET /matches/new
   # GET /matches/new.xml
   def new

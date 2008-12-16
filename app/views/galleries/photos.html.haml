@@ -2,8 +2,4 @@
 %h3= link_to "Slideshow",  @album[ :slideshow ], {:popup => true}
 %p
   - @album[:photos].each do |photo|
-    //=link_to( image_tag( photo), @photos[:photo][index])
     = image_tag( "#{photo[:thumbnail]}")
-    //- if @photos[:title][index]
-    //  %br
-    //  = "#{@photos[:title][index]}" 

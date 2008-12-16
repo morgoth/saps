@@ -11,7 +11,7 @@
 %div#comments
   = render :partial => @post.comments
 %h2 Add comment:
-- form_for  Comment.new(:post => @post) do |f|
+- form_for Comment.new(:post => @post) do |f|
   = f.error_messages
   = f.hidden_field :post_id
   %p

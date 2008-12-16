@@ -1,7 +1,6 @@
 class LeaguesController < ApplicationController
   before_filter :login_required, :except => [:index, :show]
-  # GET /leagues
-  # GET /leagues.xml
+
   def index
     @leagues = League.find(:all)
 
@@ -11,11 +10,6 @@ class LeaguesController < ApplicationController
     end
   end
 
-  # GET /leagues/1
-  # GET /leagues/1.xml
-
-  # GET /leagues/new
-  # GET /leagues/new.xml
   def new
     @league = League.new
 
@@ -25,13 +19,10 @@ class LeaguesController < ApplicationController
     end
   end
 
-  # GET /leagues/1/edit
   def edit
     @league = League.find(params[:id])
   end
 
-  # POST /leagues
-  # POST /leagues.xml
   def create
     @league = League.new(params[:league])
 
@@ -47,8 +38,6 @@ class LeaguesController < ApplicationController
     end
   end
 
-  # PUT /leagues/1
-  # PUT /leagues/1.xml
   def update
     @league = League.find(params[:id])
       respond_to do |format|
@@ -63,8 +52,6 @@ class LeaguesController < ApplicationController
       end
   end
 
-  # DELETE /leagues/1
-  # DELETE /leagues/1.xml
   def destroy
     @league = League.find(params[:id])
     @league.destroy
@@ -76,7 +63,7 @@ class LeaguesController < ApplicationController
   end
   
   def show
-    league=League.find_by_active(true)
+    league=@active_league || League.find_by_active(true)
     if league
        redirect_to league_rounds_path(league.id)
     else

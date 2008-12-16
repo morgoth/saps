@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
     end
 		
 		def get_active_league
-			@active_league ||= League.active
+			@active_league = League.active.first
 		end
 
 end

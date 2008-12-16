@@ -2,7 +2,7 @@ class League < ActiveRecord::Base
   has_many :rounds, :dependent => :destroy
   has_many :team_tables
   has_many :teams, :through => :team_tables
-  has_many :matches, :through => :rounds
+  has_many :matches, :through => :rounds, :order => "updated_at DESC"
   validates_presence_of :name
   validates_uniqueness_of :name
   validate :only_one_league_active

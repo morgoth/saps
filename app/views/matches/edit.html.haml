@@ -4,7 +4,7 @@
   %p
     = f.label :round_id
     %br
-    = f.select( :round_id, Round.find_all_by_league_id(params[:league_id]).collect{ |p| [p.name, p.id] } )
+    =  f.collection_select( :round_id, Round.find_all_by_league_id(params[:league_id]).reverse, :id, :name )
   %p
     = @match.home_team.name
     = ' - '

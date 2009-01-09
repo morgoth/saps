@@ -4,7 +4,7 @@
   %p
     = f.label :round_id
     %br
-    = f.select( :round_id, Round.find_all_by_league_id(params[:league_id]).collect{ |p| [p.name, p.id] }.reverse )
+    = f.collection_select( :round_id, Round.find_all_by_league_id(params[:league_id]).reverse, :id, :name )
   %p
     = f.label :hour
     %br
@@ -12,8 +12,8 @@
   %p
     = f.label :home_team_visitor_team
     %br
-    = f.select(:home_team_id, @league.teams.collect{ |p| [p.name, p.id] } )
-    = f.select(:visitor_team_id, @league.teams.collect{ |p| [p.name, p.id] } )
+    = f.collection_select(:home_team_id, @league.teams, :id, :name )
+    = f.collection_select(:visitor_team_id, @league.teams, :id, :name )
 
   %p
     = f.label :score

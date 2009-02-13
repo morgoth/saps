@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_filter :login_required, :except => [:index, :show]
-  # GET /posts
-  # GET /posts.xml
+	caches_page :index
+	
   def index
     @posts = Post.paginate :page => params[:page], :per_page =>5
     respond_to do |format|

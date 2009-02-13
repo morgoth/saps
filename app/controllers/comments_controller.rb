@@ -13,6 +13,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new(params[:comment])
     respond_to do |format|
       if @comment.save
+				expire_page posts_path
 				@saved = true
         flash[:notice] = 'Comment was successfully created.'
         format.html { redirect_to @comment.post }
@@ -50,6 +51,7 @@ class CommentsController < ApplicationController
   def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy
+		expire_page posts_path
 
     respond_to do |format|
       format.html { redirect_to @comment.post }

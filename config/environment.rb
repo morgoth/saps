@@ -15,10 +15,10 @@ Rails::Initializer.run do |config|
 
   # Specify gems that this application depends on. 
   # They can then be installed with "rake gems:install" on new installations.
-	config.gem "haml", :version => ">= 2.0.6"
+	config.gem "haml", :version => ">= 2.0.8"
 	# config.gem "xml-simple"
-	config.gem "mislav-will_paginate", :lib => "will_paginate", :version => ">= 2.3.6"
-	config.gem  "thoughtbot-paperclip", :lib => "paperclip", :version => ">= 2.2.2"
+	config.gem "mislav-will_paginate", :lib => "will_paginate", :version => ">= 2.3.7"
+	config.gem  "thoughtbot-paperclip", :lib => "paperclip", :version => ">= 2.2.6"
 	#config.gem "rspec", :lib =>"spec", :version => ">= 1.1.12"
 	#config.gem "rspec-rails", :lib => "spec", :version => ">= 1.1.12"
 

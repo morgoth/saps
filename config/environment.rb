@@ -8,17 +8,18 @@ Rails::Initializer.run do |config|
   # Application configuration should go into files in config/initializers
   # -- all .rb files in that directory are automatically loaded.
   # See Rails::Configuration for more options.
-	config.action_controller.page_cache_directory = RAILS_ROOT + "/public/cache"
+	config.action_controller.page_cache_directory = Rails.root + "/public/cache"
   # Skip frameworks you're not going to use. To use Rails without a database
   # you must remove the Active Record framework.
   # config.frameworks -= [ :active_record, :active_resource, :action_mailer ]
 
   # Specify gems that this application depends on. 
   # They can then be installed with "rake gems:install" on new installations.
-	config.gem "haml", :version => ">= 2.0.8"
+	config.gem "haml", :version => ">= 2.0.9"
 	# config.gem "xml-simple"
 	config.gem "mislav-will_paginate", :lib => "will_paginate", :version => ">= 2.3.7"
-	config.gem  "thoughtbot-paperclip", :lib => "paperclip", :version => ">= 2.2.6"
+	config.gem "thoughtbot-paperclip", :lib => "paperclip", :version => ">= 2.2.6"
+	config.gem "thoughtbot-factory_girl", :lib => "factory_girl", :version => ">= 1.2.0"
 	#config.gem "rspec", :lib =>"spec", :version => ">= 1.1.12"
 	#config.gem "rspec-rails", :lib => "spec", :version => ">= 1.1.12"
 

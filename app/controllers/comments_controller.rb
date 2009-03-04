@@ -1,15 +1,11 @@
 class CommentsController < ApplicationController
-  before_filter :login_required, :only => [:destroy, :edit]
+  before_filter :login_required, :only => [:destroy, :edit, :update]
 
-  # GET /comments/1/edit
   def edit
     @comment = Comment.find(params[:id])
   end
 
-  # POST /comments
-  # POST /comments.xml
   def create
-		#TODO: validate errors catch in partial
     @comment = Comment.new(params[:comment])
     respond_to do |format|
       if @comment.save
@@ -20,7 +16,6 @@ class CommentsController < ApplicationController
         format.xml  { render :xml => @comment, :status => :created, :location => @comment }
       else
 				@saved = false
-				flash[:error] = "Content can not be empty"
         format.html {  redirect_to @comment.post }
         format.xml  { render :xml => @comment.errors, :status => :unprocessable_entity }
 				format.js
@@ -28,8 +23,6 @@ class CommentsController < ApplicationController
     end
   end
 
-  # PUT /comments/1
-  # PUT /comments/1.xml
   def update
     @comment = Comment.find(params[:id])
 
@@ -45,8 +38,6 @@ class CommentsController < ApplicationController
     end
   end
 
-  # DELETE /comments/1
-  # DELETE /comments/1.xml
   def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy

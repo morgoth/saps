@@ -7,12 +7,13 @@ class League < ActiveRecord::Base
   validates_uniqueness_of :name
   validate :only_one_league_active
   validates_associated :team_tables
-	named_scope :active, :conditions => {:active => true }
+	named_scope :active, :conditions => {:active => true }, :limit => 1
 
   private
   def only_one_league_active
     if active == true
-      League.all.each do |league|
+      leagues = League.all.reject { |league| league[:id] == id }
+			leagues.each do |league|
         errors.add_to_base "Only one league can be active" if league.active == true
       end
     end

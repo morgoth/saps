@@ -23,5 +23,13 @@ module ApplicationHelper
     end
     messages
   end
+	
+	def generate_error_messages( object )
+		txt = ""
+		object.errors.each_full do |error|
+			txt << error+"<br/>"
+		end
+		txt
+	end
 
 end

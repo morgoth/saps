@@ -1,10 +1,8 @@
 class RoundsController < ApplicationController
   before_filter :login_required, :except => [:index]
-  before_filter :get_league
-  # GET /rounds
-  # GET /rounds.xml
+
   def index
-		@league = League.find(@league.id, :include => [ :rounds], :order => "rounds.date")
+		@league = League.find(params[:league_id], :include => [ :rounds], :order => "rounds.date")
   
     respond_to do |format|
       format.html # index.html.erb
@@ -12,10 +10,6 @@ class RoundsController < ApplicationController
     end
   end
 
-  # GET /rounds/1
-  # GET /rounds/1.xml
-  # GET /rounds/new
-  # GET /rounds/new.xml
   def new
     @round = Round.new
 
@@ -25,21 +19,18 @@ class RoundsController < ApplicationController
     end
   end
 
-  # GET /rounds/1/edit
   def edit
     @round = Round.find(params[:id])
   end
 
-  # POST /rounds
-  # POST /rounds.xml
   def create
     @round = Round.new(params[:round])
-    @round.league_id = @league.id
+    @round.league_id = params[:league_id]
 
     respond_to do |format|
       if @round.save
         flash[:notice] = 'Round was successfully created.'
-        format.html { redirect_to new_league_match_path(@round.league)}#league_rounds_path(@round.league) }
+        format.html { redirect_to new_league_match_path(@round.league)}
         format.xml  { render :xml => @round, :status => :created, :location => @round }
       else
         format.html { render :action => "new" }
@@ -48,8 +39,6 @@ class RoundsController < ApplicationController
     end
   end
 
-  # PUT /rounds/1
-  # PUT /rounds/1.xml
   def update
     @round = Round.find(params[:id])
 
@@ -65,8 +54,6 @@ class RoundsController < ApplicationController
     end
   end
 
-  # DELETE /rounds/1
-  # DELETE /rounds/1.xml
   def destroy
     @round = Round.find(params[:id])
     @round.destroy
@@ -77,8 +64,4 @@ class RoundsController < ApplicationController
     end
   end
   
-  private
-  def get_league
-    @league=League.find(params[:league_id])
-  end
 end

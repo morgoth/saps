@@ -1,4 +1,4 @@
-RAILS_GEM_VERSION = '2.2.2'
+RAILS_GEM_VERSION = '2.3.2'
 
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
@@ -17,11 +17,11 @@ Rails::Initializer.run do |config|
   # They can then be installed with "rake gems:install" on new installations.
 	config.gem "haml", :version => ">= 2.0.9"
 	# config.gem "xml-simple"
-	config.gem "mislav-will_paginate", :lib => "will_paginate", :version => ">= 2.3.7"
-	config.gem "thoughtbot-paperclip", :lib => "paperclip", :version => ">= 2.2.6"
+	config.gem "mislav-will_paginate", :lib => "will_paginate", :version => ">= 2.3.8"
+	config.gem "thoughtbot-paperclip", :lib => "paperclip", :version => ">= 2.2.7"
 	config.gem "thoughtbot-factory_girl", :lib => "factory_girl", :version => ">= 1.2.0"
-	#config.gem "rspec", :lib =>"spec", :version => ">= 1.1.12"
-	#config.gem "rspec-rails", :lib => "spec", :version => ">= 1.1.12"
+	#config.gem "rspec", :lib =>"spec", :version => ">= 1.2.0"
+	config.gem "rspec-rails", :lib => "spec", :version => ">= 1.2.0"
 
   # Only load the plugins named here, in the order given. By default, all plugins 
   # in vendor/plugins are loaded in alphabetical order.

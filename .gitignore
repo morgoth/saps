@@ -1,5 +1,7 @@
 tmp
 log
 db/*.sqlite3
-
+db/data.yml
+config/memcache.conf
+public/images/players_photo/*.*
 public/cache/**/*

@@ -1,11 +1,12 @@
 %hr
 %p
-  = textilize( comment.content )
+  = h comment.content
   %br
   %br
   %span.post-footer
     =h comment.name.capitalize if comment.name
     %span.date= hour_minute( comment.created_at )
+  %br
   %br
   - if logged_in?
     %br

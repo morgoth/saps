@@ -2,7 +2,7 @@
 - for post in @posts
   %h3= link_to "#{post.title}", post
   %p
-    = textilize( post.content )
+    = h post.content
     %br
     %span.post-footer 
       = post.user.login.capitalize if post.user

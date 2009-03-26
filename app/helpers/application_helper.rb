@@ -1,5 +1,5 @@
 module ApplicationHelper
-	#require "redcloth"
+	require "redcloth"
   def hour_minute(date)
     date.strftime("%d.%m.%y - %H:%M")
   end

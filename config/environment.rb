@@ -20,6 +20,7 @@ Rails::Initializer.run do |config|
 	config.gem "mislav-will_paginate", :lib => "will_paginate", :version => ">= 2.3.8"
 	config.gem "thoughtbot-paperclip", :lib => "paperclip", :version => ">= 2.2.7"
 	config.gem "thoughtbot-factory_girl", :lib => "factory_girl", :version => ">= 1.2.0"
+	config.gem "RedCloth", :lib => "redcloth", :version => ">= 4.1.9"
 	#config.gem "rspec", :lib =>"spec", :version => ">= 1.2.0"
 	config.gem "rspec-rails", :lib => "spec", :version => ">= 1.2.0"
 

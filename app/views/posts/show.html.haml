@@ -1,12 +1,13 @@
 %p
   %h3=h @post.title
 %p
-  =h @post.content
+  = textilize( @post.content)
   %br
   %br
   %span.post-footer
     = @post.user.login.capitalize if @post.user
     %span.date= hour_minute(@post.created_at)
+%br
 %br
 %div#comments
   = render :partial => @post.comments
@@ -20,7 +21,8 @@
     = f.text_field :name
   %p
     = f.label :content, "Comment:"
+    %small= "You can use #{link_to "textile", "http://www.textism.com/tools/textile/", :popup => true}"
     %br
-    = f.text_area :content, :rows => 8
+    = f.text_area :content, :rows => 10
   %p
     = f.submit "Add Comment"

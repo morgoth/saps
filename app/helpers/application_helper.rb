@@ -1,5 +1,5 @@
 module ApplicationHelper
-
+	require "redcloth"
   def hour_minute(date)
     date.strftime("%d.%m.%y - %H:%M")
   end
@@ -30,6 +30,10 @@ module ApplicationHelper
 			txt << error+"<br/>"
 		end
 		txt
+	end
+	
+	def textilize( text )
+		RedCloth.new(text, [:filter_html]).to_html
 	end
 
 end

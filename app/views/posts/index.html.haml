@@ -4,6 +4,7 @@
   %p
     = h post.content
     %br
+    %br
     %span.post-footer 
       = post.user.login.capitalize if post.user
       %span.date= post.created_at.strftime("%d.%m.%y %H:%M")
@@ -11,7 +12,7 @@
         Ilośc komentarzy: 
         = post.comments.count
     %br
-    %br 
+    %br
     - if logged_in?
       = link_to 'Edit'[:edit], edit_post_path(post)
       = link_to 'Destroy'[:destroy], post, :confirm => 'Are you sure?', :method => :delete

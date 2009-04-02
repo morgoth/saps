@@ -32,8 +32,8 @@ module ApplicationHelper
 		txt
 	end
 	
-	#def textilize( text )
-	#	RedCloth.new(text, [:filter_html]).to_html
-	#end
+	def textilize( text )
+		RedCloth.new(text, [:filter_html]).to_html
+	end
 
 end

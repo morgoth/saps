@@ -2,7 +2,7 @@
 - for post in @posts
   %h3= link_to "#{post.title}", post
   %p
-    = h post.content
+    = textilize( post.content )
     %br
     %br
     %span.post-footer 

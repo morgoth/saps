@@ -12,7 +12,7 @@ GOOGLE_USER = 'saps.gliwice'
     xml['entry'].each do |album|
 			attribute ={}
       attribute[:id] = album['id'][1]
-      attribute[:title] = album['title']
+      attribute[:title] = album['title'][0]['content'] 
 			albums << attribute
     end
       albums

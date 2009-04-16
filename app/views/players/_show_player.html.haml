@@ -1,5 +1,5 @@
 %div#player
-  = image_tag player.photo.url
+  = image_tag '/images/unknown.gif'
   %div.hidden
     %span.name= h player.name
     %br
@@ -14,6 +14,8 @@
     %br
     = h player.about
   %br
+  = player.name
   - if logged_in?
+    %br
     = link_to 'Edit'[:edit], edit_player_path(player)
     = link_to 'Destroy'[:destroy], player, :confirm => 'Are you sure?', :method => :delete

@@ -13,6 +13,9 @@ config.whiny_nils = true
 config.action_controller.consider_all_requests_local = true
 config.action_controller.perform_caching             = false
 
+config.gem "rspec", :lib =>"spec", :version => ">= 1.2.6"
+config.gem "rspec-rails", :lib => "spec", :version => ">= 1.2.6"
+
 # Disable request forgery protection in test environment
 config.action_controller.allow_forgery_protection    = false
 

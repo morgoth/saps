@@ -15,6 +15,7 @@ config.action_controller.perform_caching             = false
 
 config.gem "rspec", :lib =>"spec", :version => ">= 1.2.6"
 config.gem "rspec-rails", :lib => "spec", :version => ">= 1.2.6"
+config.gem "thoughtbot-factory_girl", :lib => "factory_girl"
 
 # Disable request forgery protection in test environment
 config.action_controller.allow_forgery_protection    = false

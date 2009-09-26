@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   include AuthenticatedSystem
   around_filter :set_language
-	before_filter :get_active_league
+  before_filter :get_active_league
   # See ActionController::RequestForgeryProtection for details
   # Uncomment the :secret if you're not using the cookie session store
   protect_from_forgery # :secret => '181196128ea589718763da4c051f5969'
@@ -16,12 +16,12 @@ class ApplicationController < ActionController::Base
   filter_parameter_logging :password
   private
     def set_language
-        session[:locale] = params[:locale] || session[:locale]
-        Gibberish.use_language(session[:locale] || :pl) { yield }
+      session[:locale] = params[:locale] || session[:locale]
+      Gibberish.use_language(session[:locale] || :pl) { yield }
     end
-		
-		def get_active_league
-			@active_league = League.active.first
-		end
+
+    def get_active_league
+      @active_league = League.active.first
+    end
 
 end

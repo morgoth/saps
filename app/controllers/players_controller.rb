@@ -1,34 +1,28 @@
 class PlayersController < ApplicationController
-	before_filter :login_required, :except => [:index]
-  # GET /players
-  # GET /players.xml
+  before_filter :login_required, :except => [:index]
+
   def index
     @players = Player.find(:all)
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html
       format.xml  { render :xml => @players }
     end
   end
 
-  # GET /players/new
-  # GET /players/new.xml
   def new
     @player = Player.new
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.html
       format.xml  { render :xml => @player }
     end
   end
 
-  # GET /players/1/edit
   def edit
     @player = Player.find(params[:id])
   end
 
-  # POST /players
-  # POST /players.xml
   def create
     @player = Player.new(params[:player])
 
@@ -44,8 +38,6 @@ class PlayersController < ApplicationController
     end
   end
 
-  # PUT /players/1
-  # PUT /players/1.xml
   def update
     @player = Player.find(params[:id])
 
@@ -61,8 +53,6 @@ class PlayersController < ApplicationController
     end
   end
 
-  # DELETE /players/1
-  # DELETE /players/1.xml
   def destroy
     @player = Player.find(params[:id])
     @player.destroy

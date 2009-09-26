@@ -9,16 +9,16 @@ class CommentsController < ApplicationController
     @comment = Comment.new(params[:comment])
     respond_to do |format|
       if @comment.save
-				@saved = true
+        @saved = true
         flash[:notice] = 'Comment was successfully created.'
         format.html { redirect_to @comment.post }
-				format.js
+        format.js
         format.xml  { render :xml => @comment, :status => :created, :location => @comment }
       else
-				@saved = false
+        @saved = false
         format.html {  redirect_to @comment.post }
         format.xml  { render :xml => @comment.errors, :status => :unprocessable_entity }
-				format.js
+        format.js
       end
     end
   end

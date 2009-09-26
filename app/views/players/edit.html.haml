@@ -17,7 +17,11 @@
   %p
     = f.label :position
     %br
-    = f.select( :position, Player::POSITIONS)
+    = f.select(:position, Player::POSITIONS)
+  %p
+    = f.label :photo_url
+    %br
+    = f.text_field :photo_url
   %p
     = f.label :about
     %br

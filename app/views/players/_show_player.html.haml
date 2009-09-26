@@ -1,12 +1,15 @@
 %div#player
-  = image_tag '/images/unknown.gif'
+  - if player.photo_url.blank?
+    = image_tag '/images/unknown.gif'
+  - else
+    = image_tag player.photo_url
   %div.hidden
     %span.name= h player.name
     %br
     Urodzony:
     = h year_month_day( player.birth_date )
     %br
-    = h "Wzrost: #{player.height} cm" if !player.height.nil?
+    = h "Wzrost: #{player.height} cm" if player.height.present?
     %br
     Pozycja:
     = h player.position

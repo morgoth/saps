@@ -1,5 +1,8 @@
 class Player < ActiveRecord::Base
   POSITIONS = %w{Przyjmujący Atakujący Rozgrywający Środkowy Libero}
+
+  default_scope :order => "name"
+
   validates_presence_of :name
   validates_uniqueness_of :name
   validates_inclusion_of :position, :in => POSITIONS, :message => "Wrong position", :allow_blank => true

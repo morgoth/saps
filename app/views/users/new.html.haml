@@ -1,5 +1,5 @@
 = error_messages_for :user
-- form_for :user, :url => users_path do |f|
+- form_for @user, :url => users_path do |f|
   %p
     Login:
     %br
@@ -13,4 +13,4 @@
     %br
     = f.password_field :password_confirmation
   %p
-    = submit_tag 'Sign up', :class=> 'button'
+    = submit_tag "Create"[:create], :class=> 'button'

@@ -1,11 +1,11 @@
 module ApplicationHelper
-	require "redcloth"
+  require "redcloth"
   def hour_minute(date)
-    date.strftime("%d.%m.%y - %H:%M")
+    date.strftime("%d.%m.%y - %H:%M") if date
   end
 
   def year_month_day(date)
-    date.strftime("%d.%m.%Y")
+    date.strftime("%d.%m.%Y") if date
   end
 
   def current(lang)
@@ -23,17 +23,17 @@ module ApplicationHelper
     end
     messages
   end
-	
-	def generate_error_messages( object )
-		txt = ""
-		object.errors.each_full do |error|
-			txt << error+"<br/>"
-		end
-		txt
-	end
-	
-	def textilize( text )
-		RedCloth.new(text, [:filter_html]).to_html
-	end
+
+  def generate_error_messages( object )
+    txt = ""
+    object.errors.each_full do |error|
+      txt << error+"<br/>"
+    end
+    txt
+  end
+
+  def textilize( text )
+    RedCloth.new(text, [:filter_html]).to_html
+  end
 
 end

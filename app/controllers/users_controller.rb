@@ -1,22 +1,16 @@
 class UsersController < ApplicationController
   before_filter :login_required
   before_filter :account_owner, :only => [:edit, :update]
-  # render new.rhtml
+
   def new
     @user = User.new
   end
 
   def create
-    cookies.delete :auth_token
-    # protects against session fixation attacks, wreaks havoc with
-    # request forgery protection.
-    # uncomment at your own risk
-    # reset_session
     @user = User.new(params[:user])
-    @user.save
-    if @user.errors.empty?
-      redirect_back_or_default('/')
+    if @user.save
       flash[:notice] = "User #{@user.login} created"
+      redirect_to users_path
     else
       render :new
     end
@@ -25,7 +19,7 @@ class UsersController < ApplicationController
   def index
     @users=User.all(:order => :login)
     respond_to do |format|
-      format.html # index.html.erb
+      format.html
       format.xml  { render :xml => @users }
     end
   end
@@ -42,7 +36,7 @@ class UsersController < ApplicationController
         format.html { redirect_to(posts_path) }
         format.xml  { head :ok }
       else
-        format.html { render :action => "edit" }
+        format.html { render :edit }
         format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
       end
     end
@@ -53,7 +47,7 @@ class UsersController < ApplicationController
     if id && user = User.find(id)
       begin
         user.safe_delete
-        flash[:notice] = "User #{user.name} usunięty"
+        flash[:notice] = "User #{user.login} usunięty"
       rescue Exception => e
         flash[:notice] = e.message
       end

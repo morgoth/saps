@@ -6,10 +6,12 @@ ActionController::Routing::Routes.draw do |map|
   map.resource :session, :only => [:new, :create, :destroy]
   map.resources :teams
   map.resources :leagues, :has_many => [:rounds, :matches]
+  map.resource :user_session
+
 
   map.signup '/signup', :controller => 'users', :action => 'new'
-  map.login '/login', :controller => 'sessions', :action => 'new'
-  map.logout '/logout', :controller => 'sessions', :action => 'destroy'
+  map.login '/login', :controller => 'user_sessions', :action => 'new'
+  map.logout '/logout', :controller => 'user_sessions', :action => 'destroy'
   map.gallery '/gallery', :controller => 'galleries', :action => 'albums'
 
   map.root :controller => 'Posts'

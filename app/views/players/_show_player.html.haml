@@ -4,7 +4,7 @@
   - else
     = image_tag player.photo_url
   %div.hidden
-    %span.name= h player.name
+    %span.name= h player.full_name
     %br
     Urodzony:
     = h year_month_day( player.birth_date )

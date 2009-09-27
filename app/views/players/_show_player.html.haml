@@ -17,7 +17,7 @@
     %br
     = h player.about
   %br
-  = player.name
+  = player.full_name
   - if logged_in?
     %br
     = link_to 'Edit'[:edit], edit_player_path(player)

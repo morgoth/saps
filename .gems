@@ -1,0 +1,6 @@
+haml
+xml-simple
+mislav-will_paginate -s gems.github.com
+morgoth-picasa -s gems.github.com
+authlogic
+RedCloth

@@ -3,11 +3,9 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :comments, :except => [:show, :index, :new]
   map.resources :posts
   map.resources :users
-  map.resource :session, :only => [:new, :create, :destroy]
   map.resources :teams
   map.resources :leagues, :has_many => [:rounds, :matches]
-  map.resource :user_session
-
+  map.resource :user_session, :only => [:new, :create, :destroy]
 
   map.signup '/signup', :controller => 'users', :action => 'new'
   map.login '/login', :controller => 'user_sessions', :action => 'new'

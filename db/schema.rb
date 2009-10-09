@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090927085737) do
+ActiveRecord::Schema.define(:version => 20091009170723) do
 
   create_table "comments", :force => true do |t|
     t.string   "name"
@@ -24,6 +24,10 @@ ActiveRecord::Schema.define(:version => 20090927085737) do
     t.boolean  "active",     :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "three_zero"
+    t.integer  "three_two"
+    t.integer  "zero_three"
+    t.integer  "two_three"
   end
 
   create_table "matches", :force => true do |t|

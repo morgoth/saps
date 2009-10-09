@@ -4,18 +4,29 @@
   = f.error_messages
   %p
     = f.label :name
-  %br
     = f.text_field :name
   %p
     = f.label :teams
-  %br
-    -@league.teams.each do |team|
+    - @league.teams.each do |team|
       = team.name
       %br
   %p
     = f.label :active
-  %br
     = f.check_box :active
+  %p
+    Ilość punktów dla drużyny, której mecz skończył się wynikiem:
+  %p
+    = f.label :three_zero, "3:0 lub 3:1"
+    = f.text_field :three_zero, :size=> 3
+  %p
+    = f.label :three_two, "3:2"
+    = f.text_field :three_two, :size=> 3
+  %p
+    = f.label :zero_three, "0:3 lub 1:3"
+    = f.text_field :zero_three, :size=> 3
+  %p
+    = f.label :two_three, "2:3"
+    = f.text_field :two_three, :size=> 3
   %p
     = f.submit "Update"[:update], :class => "button"
 

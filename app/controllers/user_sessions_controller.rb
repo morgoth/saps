@@ -18,5 +18,4 @@ class UserSessionsController < ApplicationController
     flash[:notice] = "You have been logged out."
     redirect_back_or_default posts_path
   end
-
 end

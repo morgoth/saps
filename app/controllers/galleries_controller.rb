@@ -7,5 +7,4 @@ class GalleriesController < ApplicationController
   def photos
     @album = Picasa.photos( :google_user => 'saps.gliwice', :album_id => params[:id])
   end
-
 end

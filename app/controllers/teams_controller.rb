@@ -1,8 +1,7 @@
 class TeamsController < ApplicationController
   before_filter :login_required, :except => [:index, :show]
   before_filter :team_played_match, :only=>[:destroy]
-  # GET /teams
-  # GET /teams.xml
+
   def index
     @teams = Team.find(:all)
     @teams.delete_if {|team| team.name=='Pause'}
@@ -12,8 +11,6 @@ class TeamsController < ApplicationController
     end
   end
 
-  # GET /teams/1
-  # GET /teams/1.xml
   def show
     @team = Team.find(params[:id])
     @matches = Match.find(:all, :conditions=>['home_team_id=? OR visitor_team_id=?',@team.id, @team.id ])
@@ -23,8 +20,6 @@ class TeamsController < ApplicationController
     end
   end
 
-  # GET /teams/new
-  # GET /teams/new.xml
   def new
     @team = Team.new
 
@@ -34,13 +29,10 @@ class TeamsController < ApplicationController
     end
   end
 
-  # GET /teams/1/edit
   def edit
     @team = Team.find(params[:id])
   end
 
-  # POST /teams
-  # POST /teams.xml
   def create
     @team = Team.new(params[:team])
 
@@ -56,8 +48,6 @@ class TeamsController < ApplicationController
     end
   end
 
-  # PUT /teams/1
-  # PUT /teams/1.xml
   def update
     @team = Team.find(params[:id])
 
@@ -73,25 +63,24 @@ class TeamsController < ApplicationController
     end
   end
 
-  # DELETE /teams/1
-  # DELETE /teams/1.xml
   def destroy
     @team = Team.find(params[:id])
     @team.destroy
 
     respond_to do |format|
-      format.html { redirect_to(teams_url) }
+      format.html { redirect_to(teams_path) }
       format.xml  { head :ok }
     end
-  end 
-  
+  end
+
   private
+
   def team_played_match
-    matches=Match.find(:all, :conditions=>['home_team_id=? OR visitor_team_id=?',params[:id], params[:id] ])
+    matches=Match.find(:all, :conditions => ['home_team_id=? OR visitor_team_id=?', params[:id], params[:id] ])
     unless matches.empty?
       redirect_to leagues_path
       flash[:notice] = 'Team played match, delete it first'
     end
   end
-  
+
 end

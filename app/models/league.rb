@@ -10,7 +10,6 @@ class League < ActiveRecord::Base
   validates_numericality_of :three_zero, :three_two, :zero_three, :two_three,
                             :only_integer => true, :greater_than_or_equal => 0
 
-  default_scope :order => "created_at DESC"
   named_scope :active, :conditions => { :active => true }, :limit => 1
 
   private

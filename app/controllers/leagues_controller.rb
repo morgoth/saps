@@ -2,21 +2,11 @@ class LeaguesController < ApplicationController
   before_filter :login_required, :except => [:index, :show]
 
   def index
-    @leagues = League.find(:all)
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @leagues }
-    end
+    @leagues = League.find(:all, :order => "created_at DESC")
   end
 
   def new
     @league = League.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @league }
-    end
   end
 
   def edit
@@ -55,20 +45,16 @@ class LeaguesController < ApplicationController
   def destroy
     @league = League.find(params[:id])
     @league.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(leagues_url) }
-      format.xml  { head :ok }
-    end
+    redirect_to leagues_path
   end
-  
+
   def show
-    league=@active_league || League.find_by_active(true)
+    league = @active_league || League.find_by_active(true)
     if league
-       redirect_to league_rounds_path(league.id)
+      redirect_to league_rounds_path(league.id)
     else
       redirect_to leagues_path
     end
   end
-  
+
 end

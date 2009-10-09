@@ -1,6 +1,6 @@
 haml
 xml-simple
-mislav-will_paginate -s gems.github.com
-morgoth-picasa -s gems.github.com
+will_paginate -s gemcutter.org
+picasa -s gemcutter.org
 authlogic
 RedCloth

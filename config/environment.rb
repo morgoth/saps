@@ -9,9 +9,9 @@ Rails::Initializer.run do |config|
 
   config.gem "haml"
   config.gem "xml-simple", :lib => 'xmlsimple'
-  config.gem "mislav-will_paginate", :lib => "will_paginate"
+  config.gem "will_paginate"
   # config.gem "thoughtbot-paperclip", :lib => "paperclip"
-  config.gem 'morgoth-picasa', :lib => 'picasa'
+  config.gem 'picasa'
   config.gem 'authlogic'
   # config.gem "RedCloth", :lib => 'redcloth'
 

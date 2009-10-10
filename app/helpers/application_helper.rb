@@ -27,13 +27,22 @@ module ApplicationHelper
   def generate_error_messages( object )
     txt = ""
     object.errors.each_full do |error|
-      txt << error+"<br/>"
+      txt << error + "<br/>"
     end
     txt
   end
 
-  def textilize( text )
+  def textilize(text)
     RedCloth.new(text, [:filter_html]).to_html
   end
 
+  def generate_league_path
+    if @active_league
+      league_rounds_path(@active_league)
+    elsif league = League.first(:order => "created_at DESC")
+      league_rounds_path(league)
+    else
+      leagues_path
+    end
+  end
 end

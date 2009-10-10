@@ -18,12 +18,12 @@
           - if Gibberish.current_language == :en
             = link_to image_tag( "/images/pl.gif"), current('pl')
           - else
-            = link_to image_tag( "/images/en.gif"), current('en')        
+            = link_to image_tag( "/images/en.gif"), current('en')
       #menu
         %ul#jsddm
           %li= link_to "posts"[:posts], posts_path
           %li
-            = link_to "league"[:league], :controller=>'leagues', :action => 'show'
+            = link_to "league"[:league], generate_league_path
             %ul
               %li= link_to "teams"[:teams], teams_path
               %li= link_to "leagues"[:leagues], leagues_path
@@ -37,7 +37,7 @@
       #content-wrap
         #main
           = flash_messages
-          = yield 
+          = yield
       #footer
         %span.first= link_to image_tag("/images/rails.png"), "http://rubyonrails.org"
         = link_to image_tag("/images/heroku.png"), "http://heroku.com"

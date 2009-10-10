@@ -232,11 +232,11 @@ input.button {
   height: 37px;
   width: 780px;
 }
-#jsddm
-{	margin: 0;
+#jsddm {
+  margin: 0;
   padding: 0;
 }
-#jsddm li	 {
+#jsddm li {
   float: left;
   list-style: none;
 }
@@ -250,13 +250,13 @@ input.button {
 #jsddm li a:hover {
   color: #D4E59F;
 }
-#jsddm li ul	{
+#jsddm li ul {
   margin: 0;
   padding: 0;
   position: absolute;
   visibility: hidden;
 }
-#jsddm li ul li	 {
+#jsddm li ul li {
   float: none;
   display: inline;
   line-height: 20px;

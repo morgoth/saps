@@ -20,8 +20,7 @@
     %small (leave empty if none)
     %br
     = f.text_field :score, :size=> 3
-
   %p
-    = f.submit "Create"[:create], :class => "button"
+    = f.submit t("confirm"), :class => "button"
 
-= link_to 'Back'[:back], league_matches_path(params[:league_id])
+= link_to t("back"), league_matches_path(params[:league_id])

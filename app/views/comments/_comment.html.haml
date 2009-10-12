@@ -10,5 +10,5 @@
   %br
   - if logged_in?
     %br
-    = link_to 'Edit'[:edit], edit_comment_path(comment)
-    = link_to 'Destroy'[:destroy], comment, :confirm => 'Are you sure?', :method => :delete
+    = link_to t("edit"), edit_comment_path(comment)
+    = link_to t("destroy"), comment, :confirm => t("sure"), :method => :delete

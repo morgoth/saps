@@ -1,35 +1,31 @@
-%h1
-  =@team.name
-%br
+%h1= @team.name
+%ul
+  %li
+    = t("matches_played") + ":"
+    = @team.statistics[:played]
+  %li
+    = t("sets_won") + ":"
+    = @team.statistics[:won]
+  %li
+    = t("sets_lost") + ":"
+    = @team.statistics[:lost]
 %table
   %tr
-    %th= 'League'[:league]
-    %th= 'Round'[:round]
-    %th= 'Starts'[:starts]
-    %th= 'Home'[:home]+' vs '+'Visitor'[:visitor]
-    %th= 'Score'[:score]
+    %th= t("league")
+    %th= t("round")
+    %th= t("start_date")
+    %th= t("home_vs_visitor")
+    %th= t("score")
     - @matches.each do |match|
-      %tr
+      %tr{ :class=>cycle('row-a', 'row-b')}
         %td= match.round.league.name
         %td= match.round.name
-        %td 
+        %td
           = year_month_day(match.round.date)
           =','
           = hour_minute(match.hour)
-        %td 
+        %td
           = link_to_if match.home_team.name!= 'Pause', "#{match.home_team.name}", match.home_team
           =' - '
           = link_to_if match.visitor_team.name!= 'Pause', "#{match.visitor_team.name}", match.visitor_team
         %td= match.score
-  %br
-%p
-  %b
-    - stats=@team.statistics
-    Rozegrane mecze: 
-    = stats[:played]
-    %br
-    Wygrane sety:
-    = stats[:won]
-    %br
-    Przegrane sety:
-    = stats[:lost]

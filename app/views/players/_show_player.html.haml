@@ -20,5 +20,5 @@
   = player.full_name
   - if logged_in?
     %br
-    = link_to 'Edit'[:edit], edit_player_path(player)
-    = link_to 'Destroy'[:destroy], player, :confirm => 'Are you sure?', :method => :delete
+    = link_to t("edit"), edit_player_path(player)
+    = link_to t("destroy"), player, :confirm => t("sure"), :method => :delete

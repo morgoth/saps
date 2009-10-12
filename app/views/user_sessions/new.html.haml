@@ -1,11 +1,11 @@
 - form_for @user_session, :url => user_session_path do |f|
   = f.error_messages
   %p
-    = f.label :login, "Login"
+    = f.label :login, t("activerecord.attributes.user.login")
     %br
     = f.text_field :login
   %p
-    = f.label :password, 'password'
+    = f.label :password, t("activerecord.attributes.user.password")
     %br
     = f.password_field :password
   = f.submit "Login", :class => "button"

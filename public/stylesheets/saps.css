@@ -393,9 +393,7 @@ input.button {
 
 }
 .fieldWithErrors {
-  padding: 2px;
-  background-color: red;
-  display: table;
+  color: red;
 }
 #errorExplanation {
   width: 400px;

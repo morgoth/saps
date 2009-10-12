@@ -1,5 +1,5 @@
-%h1= 'gallery'[:gallery]
-%h3= link_to "Slideshow",  @album[ :slideshow ], {:popup => true}
-%p
+%h1= t("photos")
+%h3= link_to t("slideshow"),  @album[ :slideshow ], {:popup => true}
+%div#photos
   - @album[:photos].each do |photo|
     = image_tag( "#{photo[:thumbnail_2]}")

@@ -1,14 +1,14 @@
-%h1= "matches"[:matches]
+%h1= t("matches")
 %table
   %tr
-    %th Starts
-    %th Home
-    %th Visitor
-    %th Score
-    %th Round
+    %th= t("start_date")
+    %th= t("home")
+    %th= t("visitor")
+    %th= t("score")
+    %th= t("round")
   - for match in @matches
     %tr{ :class=>cycle('row-a', 'row-b')}
-      %td 
+      %td
         =h hour_minute( match.hour)
       %td
         = link_to_if match.home_team.name !='Pause', "#{match.home_team.name}", match.home_team
@@ -20,8 +20,8 @@
         =h match.round.name
       - if logged_in?
         %td
-          = link_to_if match.score.empty?, 'Edit', edit_league_match_path(params[:league_id], match)
-          = link_to 'Destroy', league_match_path(params[:league_id], match), :confirm => 'Are you sure?', :method => :delete
+          = link_to_if match.score.empty?, t("edit"), edit_league_match_path(params[:league_id], match)
+          = link_to t("destroy"), league_match_path(params[:league_id], match), :confirm => t("sure"), :method => :delete
     %br
 - if logged_in?
-  = link_to 'New'[:new_male]+' '+'match'[:match], new_league_match_path(params[:league_id])
+  = link_to t("views.matches.new"), new_league_match_path(params[:league_id])

@@ -1,0 +1,7 @@
+en:
+  controllers:
+    logged_in: Logged in
+    logged_out: Loggoed out
+    require_user: You must log in
+    comment_created: Comment created
+    comment_updated: Comment updated

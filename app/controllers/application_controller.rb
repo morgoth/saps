@@ -1,7 +1,5 @@
 class ApplicationController < ActionController::Base
-  helper :all
-  around_filter :set_language
-  before_filter :get_active_league
+  before_filter :get_active_league, :set_locale
   filter_parameter_logging :password
 
   helper_method :current_user_session, :current_user, :logged_in?
@@ -32,7 +30,7 @@ class ApplicationController < ActionController::Base
   def login_required
     unless current_user
       store_location
-      flash[:notice] = "Login required"
+      flash[:notice] = t("controllers.require_user")
       redirect_to new_user_session_url
       return false
     end
@@ -45,5 +43,10 @@ class ApplicationController < ActionController::Base
   def redirect_back_or_default(default)
     redirect_to(session[:return_to] || default)
     session[:return_to] = nil
+  end
+
+  def set_locale
+    cookies[:saps_locale] = params[:locale] if params[:locale]
+    I18n.locale = params[:locale] || cookies[:saps_locale]
   end
 end

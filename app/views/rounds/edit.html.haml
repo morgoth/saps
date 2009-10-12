@@ -12,6 +12,6 @@
     %br
     = f.date_select :date
   %p
-    = f.submit "Update"[:update], :class => "button"
+    = f.submit t("confirm"), :class => "button"
 
-= link_to 'Back'[:back], league_rounds_path(@league)
+= link_to t("back"), league_rounds_path(@league)

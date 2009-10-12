@@ -1,16 +1,3 @@
-%h1= 'New'[:new_female]+' '+'post'[:post]
-- form_for(@post) do |f|
-  = f.error_messages
-  %p
-    = f.label :title
-    %br
-    = f.text_field :title
-  %p
-    = f.label :content
-    %small= "You can use #{link_to "textile", "http://www.textism.com/tools/textile/", :popup => true}"
-    %br
-    = f.text_area :content
-  %p
-    = f.submit "Create"[:create], :class => "button"
-    
-= link_to 'Back'[:back], posts_path
+%h1= t("views.posts.new")
+= render "form"
+= link_to t("back"), posts_path

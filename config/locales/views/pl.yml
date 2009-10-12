@@ -1,0 +1,69 @@
+pl:
+  contact: "Kontakt: {{email}}"
+  confirm: "Potwierdź"
+  back: "Wróć"
+  edit: "Edytuj"
+  destroy: "Usuń"
+  sure: "Jesteś pewny?"
+  textile_hint: "Możesz użyć {{url}}"
+  slideshow: "Pokaz zdjęć"
+
+  start_date: "Data rozpoczęcia"
+  home: "Gosopdarz"
+  visitor: "Gość"
+  score: "Wynik"
+  name: "Nazwa"
+  matches_played: "Mecze"
+  sets_won: "Sety wygrane"
+  sets_lost: "Sety przegrane"
+  points: "Punkty"
+  league: "Liga"
+  round: "Runda"
+  home_vs_visitor: "Gospodarz vs gość"
+  gallery: "Galeria"
+  photos: "Zdjęcia"
+  players: "Zawodnicy"
+  users: "Użytkownicy"
+  matches: "Mecze"
+  change_password: "Zmień hasło"
+  team: "Drużyna"
+
+  menu:
+    league: "liga"
+    leagues: "archiwum"
+    posts: "aktualności"
+    teams: "drużyny"
+    players: "zawodnicy"
+    users: "użytkownicy"
+    gallery: "galeria"
+
+  views:
+    posts:
+      index: "Aktualności"
+      new: "Nowa wiadomość"
+      add_comment: "Dodaj komentarz"
+      edit: "Edycja wiadomości"
+
+    rounds:
+      table: "Tabela"
+      new_round: "Nowa runda"
+      new_match: "Nowy mecz"
+
+    leagues:
+      new: "Nowa liga"
+      index: "Archiwum"
+
+    teams:
+      new: "Nowa drużyna"
+      index: "Lista drużyn"
+
+    players:
+      new: "Nowy zawodnik"
+      present: "Aktualni zawodnicy:"
+      past: "Zawodnicy grający wcześniej:"
+
+    users:
+      new: "Nowy użytkownik"
+
+    matches:
+      new: "Nowy mecz"

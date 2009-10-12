@@ -1,0 +1,69 @@
+en:
+  contact: "Contact: {{email}}"
+  confirm: "Confrim"
+  back: "Back"
+  edit: "Edit"
+  destroy: "Delete"
+  sure: "Are you sure?"
+  textile_hint: "You can use {{url}}"
+  slideshow: "Slideshow"
+
+  start_date: "Start date"
+  home: "Home"
+  visitor: "Visitor"
+  score: "Score"
+  name: "Name"
+  matches_played: "Matches played"
+  sets_won: "Sets won"
+  sets_lost: "Sets lost"
+  points: "Points"
+  league: "League"
+  round: "Round"
+  home_vs_visitor: "Home vs Visitor"
+  gallery: "Gallery"
+  photos: "Photos"
+  players: "Players"
+  users: "Users"
+  matches: "Matches"
+  change_password: "Change password"
+  team: "Team"
+
+  menu:
+    league: "league"
+    leagues: "archive"
+    posts: "news"
+    teams: "teams"
+    players: "players"
+    users: "users"
+    gallery: "gallery"
+
+  views:
+    posts:
+      index: "News"
+      new: "New post"
+      add_comment: "Add comment"
+      edit: "Edit post"
+
+    rounds:
+      table: "Table"
+      new_round: "New round"
+      new_match: "New match"
+
+    leagues:
+      new: "New league"
+      index: "Archive"
+
+    teams:
+      new: "New team"
+      index: "List of teams"
+
+    players:
+      new: "New player"
+      present: "Present players:"
+      past: "Past players:"
+
+    users:
+      new: "New user"
+
+    matches:
+      new: "New match"

@@ -1,19 +1,19 @@
-%h1= "teams"[:teams]
+%h1= t("views.teams.index")
 
 %table
   %tr
     %th Name
-  
+
   - @teams.each do |team|
     %tr{ :class=>cycle('row-a', 'row-b')}
-      %td 
+      %td
         = link_to "#{team.name}", team
       - if logged_in?
         %td
-          = link_to 'Edit'[:edit], edit_team_path(team)
+          = link_to t("edit"), edit_team_path(team)
         %td
-          = link_to 'Destroy'[:destroy], team, :confirm => 'Are you sure?', :method => :delete
+          = link_to t("destroy"), team, :confirm => t("sure"), :method => :delete
 
 %br
 - if logged_in?
-  = link_to 'New'[:new_female]+' '+'team'[:team], new_team_path
+  = link_to t("views.teams.new"), new_team_path

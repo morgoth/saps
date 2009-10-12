@@ -1,18 +1,18 @@
-%h1= "leagues"[:leagues]
+%h1= t("views.leagues.index")
 
 %table
   %tr
     %th Name
-  
+
   - @leagues.each do |league|
     %tr{ :class=>cycle('row-a', 'row-b')}
-      %td 
+      %td
         =link_to "#{league.name}", league_rounds_path(league.id)
       - if logged_in?
         %td
-          = link_to 'Edit'[:edit], edit_league_path(league)
-          = link_to 'Destroy'[:destroy], league, :confirm => 'Are you sure?', :method => :delete
+          = link_to t("edit"), edit_league_path(league)
+          = link_to t("destroy"), league, :confirm => t("sure"), :method => :delete
 
 %br
 - if logged_in?
-  = link_to 'New'[:new_female]+' '+'league'[:league], new_league_path
+  = link_to t("views.leagues.new"), new_league_path

@@ -1,5 +1,5 @@
-%h1 Editing comment
- 
+%h1= t("views.comments.edit")
+
 - form_for(@comment) do |f|
   = f.error_messages
   %p
@@ -11,5 +11,5 @@
     %br
     = f.text_area :content
   %p
-    = f.submit "Update"
-= link_to 'Back'[:back], post_path(@comment.post)
+    = f.submit t("confirm")
+= link_to t("back"), post_path(@comment.post)

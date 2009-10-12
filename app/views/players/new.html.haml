@@ -3,5 +3,5 @@
 - form_for @player do |f|
   = render :partial => 'form', :locals => { :f => f }
   %p
-    = f.submit "Create"[:create]
-= link_to 'Back', players_path
+    = f.submit t("confirm")
+= link_to t("back"), players_path

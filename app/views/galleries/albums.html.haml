@@ -1,5 +1,6 @@
-%h1= 'Gallery'[:gallery]
-- @albums.each do |album|
-  = link_to "#{album[:title]}", :controller => 'galleries', :action=> 'photos', :id => album[:id]
-  = pluralize ( album[:photos_count], 'photo' )
-  %br
+%h1= t("gallery")
+%ul
+  - @albums.each do |album|
+    %li
+      = link_to "#{album[:title]}", :controller => 'galleries', :action=> 'photos', :id => album[:id]
+      = pluralize ( album[:photos_count], 'photo' )

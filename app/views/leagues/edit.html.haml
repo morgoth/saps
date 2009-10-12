@@ -28,6 +28,6 @@
     = f.label :two_three, "2:3"
     = f.text_field :two_three, :size=> 3
   %p
-    = f.submit "Update"[:update], :class => "button"
+    = f.submit t("confirm"), :class => "button"
 
-= link_to 'Back'[:back], leagues_path
+= link_to t("back"), leagues_path

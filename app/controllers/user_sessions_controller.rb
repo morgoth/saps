@@ -6,7 +6,7 @@ class UserSessionsController < ApplicationController
   def create
     @user_session = UserSession.new(params[:user_session])
     if @user_session.save
-      flash[:notice] = "Logged in successfully"
+      flash[:notice] = t("controllers.logged_in")
       redirect_back_or_default posts_path
     else
       render :new
@@ -15,7 +15,7 @@ class UserSessionsController < ApplicationController
 
   def destroy
     current_user_session.destroy
-    flash[:notice] = "You have been logged out."
+    flash[:notice] = t("controllers.logged_out")
     redirect_back_or_default posts_path
   end
 end

@@ -1,14 +1,14 @@
-%h1= "players"[:players]
+%h1= t("players")
 - if logged_in?
-  = link_to 'New'[:new_male]+' '+'player'[:player], new_player_path
+  = link_to t("views.players.new"), new_player_path
   %br
   %br
 #players
-  %h2 Obecni zawodnicy:
+  %h2= t("views.players.present")
   - @players.each do |player|
     - if player.active_player?
       = render :partial => 'show_player', :locals => { :player => player }
-  %h2.clear Zawodnicy grający wcześniej:
+  %h2.clear= t("views.players.past")
   - @players.each do |player|
     - unless player.active_player?
       = render :partial => 'show_player', :locals => { :player => player }

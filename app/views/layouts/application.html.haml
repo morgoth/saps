@@ -15,22 +15,22 @@
         %p#slogan
           Stowarzyszenie Amatarów Piłki Siatkowej
         #header-links
-          - if Gibberish.current_language == :en
-            = link_to image_tag( "/images/pl.gif"), current('pl')
+          - if I18n.locale.to_sym == :en
+            = link_to image_tag( "/images/pl.gif"), current(:pl)
           - else
-            = link_to image_tag( "/images/en.gif"), current('en')
+            = link_to image_tag( "/images/en.gif"), current(:en)
       #menu
         %ul#jsddm
-          %li= link_to "posts"[:posts], posts_path
+          %li= link_to t("menu.posts"), posts_path
           %li
-            = link_to "league"[:league], generate_league_path
+            = link_to t("menu.league"), generate_league_path
             %ul
-              %li= link_to "teams"[:teams], teams_path
-              %li= link_to "leagues"[:leagues], leagues_path
-          %li= link_to "gallery"[:gallery], gallery_path
-          %li= link_to "players"[:players], players_path
+              %li= link_to t("menu.teams"), teams_path
+              %li= link_to t("menu.leagues"), leagues_path
+          %li= link_to t("menu.gallery"), gallery_path
+          %li= link_to t("menu.players"), players_path
           - if logged_in?
-            %li= link_to "users"[:users], users_path
+            %li= link_to t("menu.users"), users_path
             %li= link_to "Logout #{current_user.login}", logout_path
           - else
             %li= link_to "Login", login_path
@@ -42,4 +42,4 @@
         %span.first= link_to image_tag("/images/rails.png"), "http://rubyonrails.org"
         = link_to image_tag("/images/heroku.png"), "http://heroku.com"
         %br
-        %span.txt= h "Kontakt: saps.gliwice@gmail.com"
+        %span.txt= h t("contact", :email => "saps.gliwice@gmail.com")

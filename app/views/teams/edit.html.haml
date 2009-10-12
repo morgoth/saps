@@ -6,5 +6,5 @@
     %br
     = f.text_field :name
   %p
-    = f.submit "Update"[:update], :class => "button"
-= link_to 'Back'[:back], teams_path
+    = f.submit t("confirm"), :class => "button"
+= link_to t("back"), teams_path

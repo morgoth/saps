@@ -1,22 +1,22 @@
 %h1= @league.name
 - if logged_in?
-  = link_to 'New round', new_league_round_path(@league)
-  = link_to "New match", new_league_match_path(@league)
-%ul 
+  = link_to t("views.rounds.new_round"), new_league_round_path(@league)
+  = link_to t("views.rounds.new_match"), new_league_match_path(@league)
+%ul
   - for round in @league.rounds
     %p
       %li
         %b= h round.name
         = h year_month_day(round.date)
         - if logged_in?
-          = link_to 'Edit'[:edit], edit_league_round_path(@league,round)
-          = link_to 'Destroy'[:destroy], league_round_path(@league, round), :confirm => 'Are you sure?', :method => :delete     
+          = link_to t("edit"), edit_league_round_path(@league,round)
+          = link_to t("destroy"), league_round_path(@league, round), :confirm => t("sure"), :method => :delete
     %table
       %tr
-        %th Starts
-        %th Home
-        %th Visitor
-        %th Score
+        %th= t("start_date")
+        %th= t("home")
+        %th= t("visitor")
+        %th= t("score")
       - for match in round.matches
         %tr{ :class=>cycle('row-a', 'row-b')}
           %td
@@ -29,18 +29,18 @@
             = h match.score
           - if logged_in?
             %td
-              = link_to_if match.score.empty?, 'Edit'[:edit], edit_league_match_path(@league,match)
-              = link_to 'Destroy'[:destroy], league_match_path(@league, match), :confirm => 'Are you sure?', :method => :delete
+              = link_to_if match.score.empty?, t("edit"), edit_league_match_path(@league,match)
+              = link_to t("destroy"), league_match_path(@league, match), :confirm => t("sure"), :method => :delete
 
-%br 
-%h1= 'Table'[:table]
+%br
+%h1= t("views.rounds.table")
 %table
   %tr
-    %th Name
-    %th Matches played
-    %th Points
-    %th Sets won
-    %th Sets lost  
+    %th= t("team")
+    %th= t("matches_played")
+    %th= t("points")
+    %th= t("sets_won")
+    %th= t("sets_lost")
   - @league.team_tables.sorted_table.each do |table|
     %tr{ :class=>cycle('row-a', 'row-b')}
       %td

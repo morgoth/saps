@@ -1,5 +1,4 @@
-%h1 
-  = 'Editing'[:editing]
+%h1= t("change_password")
 = error_messages_for :user
 - form_for (@user) do |f|
   %p
@@ -15,4 +14,4 @@
     %br
     = f.password_field :password_confirmation
   %p
-    = submit_tag 'Update'[:update]
+    = submit_tag t("confirm")

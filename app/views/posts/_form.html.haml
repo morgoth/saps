@@ -1,0 +1,13 @@
+- form_for(@post) do |f|
+  = f.error_messages
+  %p
+    = f.label :title, t("activerecord.attributes.post.title")
+    %br
+    = f.text_field :title
+  %p
+    = f.label :content, t("activerecord.attributes.post.content")
+    %small= t("textile_hint", :url => link_to( "textile", "http://www.textism.com/tools/textile/", :popup => true))
+    %br
+    = f.text_area :content
+  %p
+    = f.submit t("confirm"), :class => "button"

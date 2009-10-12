@@ -1,4 +1,4 @@
-%h1= "posts"[:posts]
+%h1= t("views.posts.index")
 - for post in @posts
   %h3= link_to "#{post.title}", post
   %p
@@ -14,11 +14,11 @@
     %br
     %br
     - if logged_in?
-      = link_to 'Edit'[:edit], edit_post_path(post)
-      = link_to 'Destroy'[:destroy], post, :confirm => 'Are you sure?', :method => :delete
+      = link_to t("edit"), edit_post_path(post)
+      = link_to t("destroy"), post, :confirm => t("sure"), :method => :delete
     = will_paginate @posts
   %br
   %hr
 %p
   - if logged_in?
-    = link_to 'New'[:new_female]+' '+'post'[:post], new_post_path
+    = link_to t("views.posts.new"), new_post_path

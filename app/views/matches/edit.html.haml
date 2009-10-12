@@ -15,6 +15,7 @@
     %br
     = f.label :score
     = f.text_field :score, :size => 3
-    = f.submit "Update"[:update], :class => "button"
-  
-= link_to 'Back'[:back], league_matches_path(params[:league_id])
+  %p
+    = f.submit t("confirm"), :class => "button"
+
+= link_to t("back"), league_matches_path(params[:league_id])

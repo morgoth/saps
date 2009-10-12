@@ -1,0 +1,19 @@
+---
+en:
+  activerecord:
+    attributes:
+      user:
+        login: "Login"
+        password: "Password"
+        password_confirmation: "Password confirmation"
+        last_request_at: "Ostatnia aktywność"
+        last_login_at: "Ostatnie logowanie"
+        last_login_ip: "IP ostatniego logowania"
+
+      comment:
+        content: "Content"
+        name: "Name"
+
+      post:
+        content: "Content"
+        title: "Title"

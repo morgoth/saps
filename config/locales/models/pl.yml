@@ -1,0 +1,26 @@
+---
+pl:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            login:
+              blank: "jest wymagane"
+
+    attributes:
+      user:
+        login: "Login"
+        password: "Hasło"
+        password_confirmation: "Potwierdzenie hasła"
+        last_request_at: "Ostatnia aktywność"
+        last_login_at: "Ostatnie logowanie"
+        last_login_ip: "IP ostatniego logowania"
+
+      comment:
+        content: "Treść"
+        name: "Imię"
+
+      post:
+        content: "Treść"
+        title: "Tytuł"

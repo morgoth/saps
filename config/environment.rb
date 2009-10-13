@@ -2,6 +2,7 @@ RAILS_GEM_VERSION = '2.3.4' unless defined? RAILS_GEM_VERSION
 
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
+require 'lib/google_analytics'
 
 Rails::Initializer.run do |config|
 
@@ -23,4 +24,5 @@ Rails::Initializer.run do |config|
 
   config.i18n.load_path += Dir[File.join(Rails.root, "config", "locales", "**", "*.{rb,yml}")]
   config.i18n.default_locale = :pl
+  config.middleware.use Rack::GoogleAnalytics, ENV['GOOGLE_ANALYTICS_ID']
 end

@@ -13,7 +13,7 @@ Rails::Initializer.run do |config|
   config.gem "will_paginate"
   config.gem 'picasa'
   config.gem 'authlogic'
-  # config.gem "RedCloth", :lib => 'redcloth'
+  config.gem "RedCloth", :lib => 'redcloth'
 
   config.time_zone = 'Warsaw'
 

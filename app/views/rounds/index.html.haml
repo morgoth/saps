@@ -3,7 +3,7 @@
   = link_to t("views.rounds.new_round"), new_league_round_path(@league)
   = link_to t("views.rounds.new_match"), new_league_match_path(@league)
 %ul
-  - for round in @league.rounds
+  - @rounds.each do |round|
     %p
       %li
         %b= h round.name
@@ -29,7 +29,7 @@
             = h match.score
           - if logged_in?
             %td
-              = link_to_if match.score.empty?, t("edit"), edit_league_match_path(@league,match)
+              = link_to_if match.score.empty?, t("edit"), edit_league_match_path(@league, match)
               = link_to t("destroy"), league_match_path(@league, match), :confirm => t("sure"), :method => :delete
 
 %br

@@ -1,67 +1,48 @@
 class RoundsController < ApplicationController
   before_filter :login_required, :except => [:index]
+  before_filter :fetch_league
 
   def index
-		@league = League.find(params[:league_id], :include => [ :rounds], :order => "rounds.date")
-  
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @rounds }
-    end
+    @rounds = @league.rounds
   end
 
   def new
-    @round = Round.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @round }
-    end
+    @round = @league.rounds.build
   end
 
   def edit
-    @round = Round.find(params[:id])
+    @round = @league.rounds.find(params[:id])
   end
 
   def create
-    @round = Round.new(params[:round])
-    @round.league_id = params[:league_id]
-
-    respond_to do |format|
-      if @round.save
-        flash[:notice] = 'Round was successfully created.'
-        format.html { redirect_to new_league_match_path(@round.league)}
-        format.xml  { render :xml => @round, :status => :created, :location => @round }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @round.errors, :status => :unprocessable_entity }
-      end
+    @round = @league.rounds.build(params[:round])
+    if @round.save
+      flash[:notice] = 'Round was successfully created.'
+      redirect_to new_league_match_path(@league)
+    else
+      render :new
     end
   end
 
   def update
-    @round = Round.find(params[:id])
-
-    respond_to do |format|
-      if @round.update_attributes(params[:round])
-        flash[:notice] = 'Round was successfully updated.'
-        format.html { redirect_to league_rounds_path(@round.league) }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @round.errors, :status => :unprocessable_entity }
-      end
+    @round = @league.rounds.find(params[:id])
+    if @round.update_attributes(params[:round])
+      flash[:notice] = 'Round was successfully updated.'
+      redirect_to league_rounds_path(@league)
+    else
+      render :edit
     end
   end
 
   def destroy
-    @round = Round.find(params[:id])
+    @round = @league.rounds.find(params[:id])
     @round.destroy
-
-    respond_to do |format|
-      format.html { redirect_to league_rounds_path(@round.league) }
-      format.xml  { head :ok }
-    end
+    redirect_to league_rounds_path(@league)
   end
-  
+
+  private
+
+  def fetch_league
+    @league = League.find(params[:league_id])
+  end
 end

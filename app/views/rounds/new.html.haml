@@ -1,16 +1,3 @@
 %h1 New round
-
-- form_for(:round, :url => league_rounds_path( params[:league_id] )) do |f|
-  = f.error_messages
-
-  %p
-    = f.label :name
-    %br
-    = f.text_field :name
-  %p
-    = f.label :date
-    %br
-    = f.date_select :date
-  %p
-    = f.submit t("confirm"), :class => "button"
+= render "form"
 = link_to t("back"), league_rounds_path(@league)

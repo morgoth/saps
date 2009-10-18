@@ -18,11 +18,6 @@ class ApplicationController < ActionController::Base
 
   alias :logged_in? :current_user
 
-  def set_language
-    session[:locale] = params[:locale] || session[:locale]
-    Gibberish.use_language(session[:locale] || :pl) { yield }
-  end
-
   def get_active_league
     @active_league = League.active.first
   end

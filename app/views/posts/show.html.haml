@@ -1,12 +1,10 @@
 %p
   %h3=h @post.title
-%p
-  = textilize @post.content
-  %br
-  %br
-  %span.post-footer
-    = @post.user.login.capitalize if @post.user
-    %span.date= hour_minute(@post.created_at)
+= textilize @post.content
+%br
+%span.post-footer
+  = @post.user.login.capitalize if @post.user
+  %span.date= hour_minute(@post.created_at)
 %br
 %br
 %div#comments

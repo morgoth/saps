@@ -1,24 +1,22 @@
 %h1= t("views.posts.index")
 - for post in @posts
   %h3= link_to "#{post.title}", post
-  %p
-    = textilize( post.content )
-    %br
-    %br
-    %span.post-footer
-      = post.user.login.capitalize if post.user
-      %span.date= post.created_at.strftime("%d.%m.%y %H:%M")
-      %span.comments
-        Ilośc komentarzy:
-        = post.comments.count
-    %br
-    %br
+  = textilize( post.content )
+  %br
+  %span.post-footer
+    = post.user.login.capitalize if post.user
+    %span.date= post.created_at.strftime("%d.%m.%y %H:%M")
+    %span.comments
+      Ilośc komentarzy:
+      = post.comments.count
+  %br
+  %br
     - if logged_in?
       = link_to t("edit"), edit_post_path(post)
       = link_to t("destroy"), post, :confirm => t("sure"), :method => :delete
     = will_paginate @posts
   %br
   %hr
-%p
-  - if logged_in?
+- if logged_in?
+  %p
     = link_to t("views.posts.new"), new_post_path

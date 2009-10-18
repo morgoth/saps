@@ -9,7 +9,8 @@ module ApplicationHelper
   end
 
   def current(lang)
-    {:controller=>controller.controller_name, :action => controller.action_name, :locale =>lang, :id=>params[:id], :league_id=>params[:league_id]}
+    params.merge(:locale => lang)
+    #{:controller=>controller.controller_name, :action => controller.action_name, :locale =>lang, :id=>params[:id], :league_id=>params[:league_id]}
   end
 
   def flash_messages

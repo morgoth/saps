@@ -1,14 +1,11 @@
 %hr
-%p
-  = textilize( comment.content )
-  %br
-  %br
-  %span.post-footer
-    =h comment.name.capitalize if comment.name
-    %span.date= hour_minute( comment.created_at )
-  %br
-  %br
+= textilize( comment.content )
+%br
+%span.post-footer
+  =h comment.name.capitalize if comment.name
+  %span.date= hour_minute( comment.created_at )
+%br
+%br
   - if logged_in?
-    %br
     = link_to t("edit"), edit_comment_path(comment)
     = link_to t("destroy"), comment, :confirm => t("sure"), :method => :delete

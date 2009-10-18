@@ -6,8 +6,8 @@
     %th= t("visitor")
     %th= t("score")
     %th= t("round")
-  - for match in @matches
-    %tr{ :class=>cycle('row-a', 'row-b')}
+  - @matches.each do |match|
+    %tr{ :class => cycle('row-a', 'row-b')}
       %td
         =h hour_minute( match.hour)
       %td
@@ -20,8 +20,8 @@
         =h match.round.name
       - if logged_in?
         %td
-          = link_to_if match.score.empty?, t("edit"), edit_league_match_path(params[:league_id], match)
+          = link_to_if match.score.empty?, t("edit"), edit_league_match_path(@league, match)
           = link_to t("destroy"), league_match_path(params[:league_id], match), :confirm => t("sure"), :method => :delete
     %br
 - if logged_in?
-  = link_to t("views.matches.new"), new_league_match_path(params[:league_id])
+  = link_to t("views.matches.new"), new_league_match_path(@league)

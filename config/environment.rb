@@ -24,5 +24,5 @@ Rails::Initializer.run do |config|
 
   config.i18n.load_path += Dir[File.join(Rails.root, "config", "locales", "**", "*.{rb,yml}")]
   config.i18n.default_locale = :pl
-  config.middleware.use Rack::GoogleAnalytics, ENV['GOOGLE_ANALYTICS_ID']
+  config.middleware.use Rack::GoogleAnalytics, ENV['GOOGLE_ANALYTICS_ID'] || 'xxxx-x'
 end

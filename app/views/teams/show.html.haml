@@ -21,8 +21,6 @@
         %td= match.round.league.name
         %td= match.round.name
         %td
-          = year_month_day(match.round.date)
-          =','
           = hour_minute(match.hour)
         %td
           = link_to_if match.home_team.name!= 'Pause', "#{match.home_team.name}", match.home_team

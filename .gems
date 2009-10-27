@@ -4,3 +4,5 @@ will_paginate -s gemcutter.org
 picasa -s gemcutter.org
 authlogic
 RedCloth
+jrails -s gemcutter.org
+newrelic_rpm

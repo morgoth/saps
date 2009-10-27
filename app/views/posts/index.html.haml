@@ -14,9 +14,9 @@
     - if logged_in?
       = link_to t("edit"), edit_post_path(post)
       = link_to t("destroy"), post, :confirm => t("sure"), :method => :delete
-    = will_paginate @posts
   %br
   %hr
+= will_paginate @posts, :previous_label => t("pagination_previous"), :next_label => t("pagination_next")
 - if logged_in?
   %p
     = link_to t("views.posts.new"), new_post_path

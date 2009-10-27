@@ -1,4 +1,7 @@
 pl:
+  pagination_previous: "< poprzednie"
+  pagination_next: "następne >"
+
   contact: "Kontakt: {{email}}"
   confirm: "Potwierdź"
   back: "Wróć"

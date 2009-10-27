@@ -76,11 +76,10 @@ class TeamsController < ApplicationController
   private
 
   def team_played_match
-    matches=Match.find(:all, :conditions => ['home_team_id=? OR visitor_team_id=?', params[:id], params[:id] ])
+    matches = Match.find(:all, :conditions => ['home_team_id=? OR visitor_team_id=?', params[:id], params[:id] ])
     unless matches.empty?
       redirect_to leagues_path
       flash[:notice] = 'Team played match, delete it first'
     end
   end
-
 end

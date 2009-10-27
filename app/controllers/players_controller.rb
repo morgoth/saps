@@ -38,4 +38,5 @@ class PlayersController < ApplicationController
     @player.destroy
     flash[:notice] = 'Player was successfully updated.'
     redirect_to players_path
+  end
 end

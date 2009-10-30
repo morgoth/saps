@@ -3,4 +3,4 @@
   - @albums.each do |album|
     %li
       = link_to "#{album[:title]}", gallery_path(album[:id])
-      = pluralize ( album[:photos_count], 'photo' )
+      = pluralize( album[:photos_count], 'photo' )

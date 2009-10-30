@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class Player < ActiveRecord::Base
   POSITIONS = %w{Przyjmujący Atakujący Rozgrywający Środkowy Libero}
 

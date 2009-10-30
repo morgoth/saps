@@ -15,7 +15,6 @@ Rails::Initializer.run do |config|
   config.gem 'authlogic'
   config.gem "RedCloth", :lib => 'redcloth'
   config.gem 'jrails'
-  config.gem 'newrelic_rpm'
 
   config.time_zone = 'Warsaw'
 

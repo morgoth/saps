@@ -4,7 +4,11 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :posts
   map.resources :users
   map.resources :teams
-  map.resources :leagues, :except => :show, :has_many => [:rounds, :matches]
+  map.resources :matches, :only => [:index]
+  map.resources :leagues, :except => :show do |league|
+    league.resources :rounds, :except => [:show]
+    league.resources :matches, :except => [:show, :index]
+  end
   map.resource :user_session, :only => [:new, :create, :destroy]
   map.resources :galleries, :only => [:index, :show]
 
@@ -13,7 +17,4 @@ ActionController::Routing::Routes.draw do |map|
   map.logout '/logout', :controller => 'user_sessions', :action => 'destroy'
 
   map.root :controller => 'Posts'
-
-  #map.connect ':controller/:action/:id'
-  #map.connect ':controller/:action/:id.:format'
 end

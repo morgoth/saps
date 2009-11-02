@@ -2,6 +2,7 @@ class Match < ActiveRecord::Base
   belongs_to :round
   belongs_to :home_team, :class_name => "Team", :foreign_key => "home_team_id"
   belongs_to :visitor_team, :class_name => "Team", :foreign_key => 'visitor_team_id'
+  has_one :league, :through => :round
 
   before_save :change_team_points_on_save
   before_destroy :change_team_points_on_destroy
@@ -12,23 +13,23 @@ class Match < ActiveRecord::Base
   validates_inclusion_of :score, :in => AVAILABLE_SCORES, :message => "score format - set:set", :allow_blank => true
   validate :home_different_than_visitor
 
-  delegate :league, :to => :round, :prefix => true
+  named_scope :recent, :order => "updated_at DESC", :limit => 10
 
   private
 
   def change_team_points_on_save
     self.score = '' if (home_team.name == 'Pause' || visitor_team.name == 'Pause')
     unless score.empty?
-      home = TeamTable.find_by_league_id_and_team_id(round.league_id, home_team_id)
-      visitor = TeamTable.find_by_league_id_and_team_id(round.league_id, visitor_team_id)
+      home = TeamTable.find_by_league_id_and_team_id(league.id, home_team_id)
+      visitor = TeamTable.find_by_league_id_and_team_id(league.id, visitor_team_id)
       points_calculation(home, visitor,'increment')
     end
   end
 
   def change_team_points_on_destroy
     unless score.empty?
-      home = TeamTable.find_by_league_id_and_team_id(round.league_id, home_team_id)
-      visitor = TeamTable.find_by_league_id_and_team_id(round.league_id, visitor_team_id)
+      home = TeamTable.find_by_league_id_and_team_id(league.id, home_team_id)
+      visitor = TeamTable.find_by_league_id_and_team_id(league.id, visitor_team_id)
       points_calculation(home, visitor, 'decrement')
     end
   end
@@ -41,17 +42,17 @@ class Match < ActiveRecord::Base
     home_team.send(inc_dec, :matches_played, 1)
     visitor_team.send(inc_dec, :matches_played, 1)
       if score.eql?('3:0') || score.eql?('3:1')
-        home_team.send(inc_dec,:points, round_league.three_zero)
-        visitor_team.send(inc_dec,:points, round_league.zero_three)
+        home_team.send(inc_dec,:points, league.three_zero)
+        visitor_team.send(inc_dec,:points, league.zero_three)
       elsif score.eql?('3:2')
-        home_team.send(inc_dec,:points, round_league.three_two)
-        visitor_team.send(inc_dec,:points, round_league.two_three)
+        home_team.send(inc_dec,:points, league.three_two)
+        visitor_team.send(inc_dec,:points, league.two_three)
       elsif score.eql?('2:3')
-        home_team.send(inc_dec,:points, round_league.twoo_three)
-        visitor_team.send(inc_dec,:points, round_league.three_two)
+        home_team.send(inc_dec,:points, league.twoo_three)
+        visitor_team.send(inc_dec,:points, league.three_two)
       elsif score.eql?('0:3') || score.eql?('1:3')
-        home_team.send(inc_dec,:points, round_league.zero_three)
-        visitor_team.send(inc_dec,:points, round_league.three_zero)
+        home_team.send(inc_dec,:points, league.zero_three)
+        visitor_team.send(inc_dec,:points, league.three_zero)
       end
     home_team.save!
     visitor_team.save!
@@ -60,5 +61,4 @@ class Match < ActiveRecord::Base
   def home_different_than_visitor
     errors.add_to_base("Home team must be different than visitor team") if home_team_id == visitor_team_id
   end
-
 end

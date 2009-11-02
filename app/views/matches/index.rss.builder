@@ -11,6 +11,7 @@ xml.rss :version => "2.0" do
         xml.description do
           xml << h(render(:partial => match ))
         end
+        xml.link matches_path
       end
     end
   end

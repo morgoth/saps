@@ -1,11 +1,11 @@
 xml.instruct! :xml, :version => "1.0"
 xml.rss :version => "2.0" do
   xml.channel do
-    xml.title "SAPS - #{@league.name}"
-    xml.link league_matches_path(@league, :rss)
-    xml.description "Information about new matches"
+    xml.title "SAPS"
+    xml.link matches_path(:rss)
+    xml.description t("views.matches.recent_matches_news")
 
-    for match in @league.matches
+    @matches.each do |match|
       xml.item do
         xml.pubDate match.updated_at.to_s( :rfc822 )
         xml.description do

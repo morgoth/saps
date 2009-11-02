@@ -28,6 +28,7 @@ pl:
   players: "Zawodnicy"
   users: "Użytkownicy"
   matches: "Mecze"
+  recent_matches: "Ostatnie mecze"
   change_password: "Zmień hasło"
   team: "Drużyna"
 
@@ -39,6 +40,7 @@ pl:
     players: "zawodnicy"
     users: "użytkownicy"
     gallery: "galeria"
+    recent_matches: "ostatnie mecze"
 
   views:
     posts:
@@ -70,3 +72,4 @@ pl:
 
     matches:
       new: "Nowy mecz"
+      recent_matches_news: "Wyniki ostatnio granych meczów"

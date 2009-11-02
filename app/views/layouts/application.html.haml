@@ -6,7 +6,7 @@
     %link{:rel=>"shortcut icon", :href => "/images/ball.ico"}
     = stylesheet_link_tag "saps"
     = javascript_include_tag :defaults
-    = auto_discovery_link_tag(:rss, league_matches_path(@active_league, :rss)) unless @active_league.blank?
+    = auto_discovery_link_tag(:rss, matches_path(:rss))
   %body
     #wrap
       #header
@@ -27,6 +27,7 @@
             %ul
               %li= link_to t("menu.teams"), teams_path
               %li= link_to t("menu.leagues"), leagues_path
+              %li= link_to t("menu.recent_matches"), matches_path
           %li= link_to t("menu.gallery"), galleries_path
           %li= link_to t("menu.players"), players_path
           - if logged_in?

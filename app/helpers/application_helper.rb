@@ -10,7 +10,6 @@ module ApplicationHelper
 
   def current(lang)
     params.merge(:locale => lang)
-    #{:controller=>controller.controller_name, :action => controller.action_name, :locale =>lang, :id=>params[:id], :league_id=>params[:league_id]}
   end
 
   def flash_messages
@@ -34,8 +33,8 @@ module ApplicationHelper
   end
 
   def generate_league_path
-    if @active_league
-      league_rounds_path(@active_league)
+    if league = League.active.first
+      league_rounds_path(league)
     elsif league = League.first(:order => "created_at DESC")
       league_rounds_path(league)
     else

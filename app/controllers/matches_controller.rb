@@ -1,10 +1,10 @@
 class MatchesController < ApplicationController
   before_filter :login_required, :except => [:index]
-  before_filter :get_league
-  before_filter :update_empty_score_only, :only=> [:edit, :update]
+  before_filter :get_league, :except => [:index]
+  before_filter :update_empty_score_only, :only => [:edit, :update]
 
   def index
-    @matches = @league.matches
+    @matches = Match.recent
   end
 
   def new
@@ -38,6 +38,7 @@ class MatchesController < ApplicationController
   def destroy
     @match = @league.matches.find(params[:id])
     @match.destroy
+    flash[:notice] = "Match was destroyed"
     redirect_to league_rounds_path(@league)
   end
 

@@ -28,6 +28,7 @@ en:
   players: "Players"
   users: "Users"
   matches: "Matches"
+  recent_matches: "Recent matches"
   change_password: "Change password"
   team: "Team"
 
@@ -39,6 +40,7 @@ en:
     players: "players"
     users: "users"
     gallery: "gallery"
+    recent_matches: "recent matches"
 
   views:
     posts:
@@ -70,3 +72,4 @@ en:
 
     matches:
       new: "New match"
+      recent_matches_news: "Recent matches news"

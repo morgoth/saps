@@ -1,13 +1,15 @@
-%h1= t("matches")
+%h1= t("recent_matches")
 %table
   %tr
+    %th= t("league")
     %th= t("start_date")
     %th= t("home")
     %th= t("visitor")
     %th= t("score")
-    %th= t("round")
   - @matches.each do |match|
     %tr{ :class => cycle('row-a', 'row-b')}
+      %td
+        = match.league.name
       %td
         =h hour_minute( match.hour)
       %td
@@ -16,9 +18,7 @@
         = link_to_if match.visitor_team.name !='Pause', "#{match.visitor_team.name}", match.visitor_team
       %td
         =h match.score
-      %td
-        =h match.round.name
       - if logged_in?
         %td
-          = link_to_if match.score.empty?, t("edit"), edit_league_match_path(@league, match)
-          = link_to t("destroy"), league_match_path(@league, match), :confirm => t("sure"), :method => :delete
+          = link_to_if match.score.empty?, t("edit"), edit_league_match_path(match.league, match)
+          = link_to t("destroy"), league_match_path(match.league, match), :confirm => t("sure"), :method => :delete

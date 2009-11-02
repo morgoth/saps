@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_filter :get_active_league, :set_locale
+  before_filter :set_locale
   filter_parameter_logging :password
 
   helper_method :current_user_session, :current_user, :logged_in?
@@ -17,10 +17,6 @@ class ApplicationController < ActionController::Base
   end
 
   alias :logged_in? :current_user
-
-  def get_active_league
-    @active_league = League.active.first
-  end
 
   def login_required
     unless current_user

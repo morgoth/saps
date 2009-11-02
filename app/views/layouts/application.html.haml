@@ -1,9 +1,9 @@
 !!! Strict
 %html{html_attrs}
   %head
-    %meta{:name=>"verify-v1", :content=>"p3vhsABnuwDTuRTflrKA0+zZqC7B4naN2mU9YoCwD/c="}
+    %meta{:name => "description", :content => "SAPS - Stowarzyszenie Amatorów Piłki Siatkowej - strona domowa klubu siatkarskiego z Gliwic" }
     %title SAPS Gliwice
-    %link{:rel=>"shortcut icon", :href=>"/images/ball.ico"}
+    %link{:rel=>"shortcut icon", :href => "/images/ball.ico"}
     = stylesheet_link_tag "saps"
     = javascript_include_tag :defaults
     = auto_discovery_link_tag(:rss, league_matches_path(@active_league, :rss)) unless @active_league.blank?

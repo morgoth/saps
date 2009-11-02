@@ -1,6 +1,3 @@
-# encoding: UTF-8
-
-require 'digest/sha1'
 class User < ActiveRecord::Base
   has_many :posts, :dependent => :nullify
 
@@ -8,14 +5,13 @@ class User < ActiveRecord::Base
     c.act_like_restful_authentication = true
   end
 
+  before_destroy :destroyable?
+
   attr_accessible :login, :password, :password_confirmation
 
-   def safe_delete
-     transaction do
-       destroy
-       if User.count.zero?
-         raise "Nie można usunąć ostatniego administratora"
-       end
-     end
-   end
+  private
+
+  def destroyable?
+    User.count != 1
+  end
 end

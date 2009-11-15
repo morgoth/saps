@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class UsersController < ApplicationController
   before_filter :login_required
   before_filter :account_owner, :only => [:edit, :update]
@@ -17,11 +19,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users=User.all(:order => :login)
-    respond_to do |format|
-      format.html
-      format.xml  { render :xml => @users }
-    end
+    @users = User.all(:order => :login)
   end
 
   def edit
@@ -30,15 +28,11 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    respond_to do |format|
-      if @user.update_attributes(params[:user])
-        flash[:notice] = 'Zmieniono hasło.'
-        format.html { redirect_to(posts_path) }
-        format.xml  { head :ok }
-      else
-        format.html { render :edit }
-        format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
-      end
+    if @user.update_attributes(params[:user])
+      flash[:notice] = 'Zmieniono hasło.'
+      redirect_to posts_path
+    else
+      render :edit
     end
   end
 
@@ -52,10 +46,7 @@ class UsersController < ApplicationController
         flash[:notice] = e.message
       end
     end
-    respond_to do |format|
-      format.html { redirect_to(users_path) }
-      format.xml  { head :ok }
-    end
+    redirect_to users_path
   end
 
   private

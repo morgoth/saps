@@ -36,20 +36,23 @@
 %h1= t("views.rounds.table")
 %table
   %tr
+    %th
     %th= t("team")
     %th= t("matches_played")
     %th= t("points")
     %th= t("sets_won")
     %th= t("sets_lost")
-  - @league.team_tables.sorted_table.each do |table|
+  - @league.team_tables.sorted_table.each_with_index do |table, index|
     %tr{ :class=>cycle('row-a', 'row-b')}
       %td
-        =link_to "#{table.team.name}", table.team
+        = index + 1
       %td
-        =h table.matches_played
+        = link_to "#{table.team.name}", table.team
       %td
-        =h table.points
+        = table.matches_played
       %td
-        =h table.sets_won
+        = table.points
       %td
-        =h table.sets_lost
+        = table.sets_won
+      %td
+        = table.sets_lost

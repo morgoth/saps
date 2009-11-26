@@ -8,5 +8,8 @@
     = f.label :password, t("activerecord.attributes.user.password")
     %br
     = f.password_field :password
+  %p
+    = f.check_box :remember_me
+    = f.label :remember_me, t("authlogic.attributes.user_session.remember_me")
   = f.submit "Login", :class => "button"
 

@@ -2,21 +2,21 @@
   function()
   {
     $("input#login").focus();
-		$('#jsddm > li').bind('mouseover', jsddm_open)
+    $('#jsddm > li').bind('mouseover', jsddm_open)
     $('#jsddm > li').bind('mouseout',  jsddm_timer)
-		
-		$("#new_comment").submitWithAjax();
-		
-		$("#players img").click( function() {
+
+    $("#new_comment").submitWithAjax();
+
+    $("#players img").click( function() {
       if ($(this).next(".hidden").is(":hidden")) {
         $(this).next(".hidden").slideDown("normal");
       } else {
         $(this).next(".hidden").fadeOut("fast");
-				}
-		});
+        }
+    });
   }
   );
-	
+
 //jQuery Simple Drop-Down Menu Plugin
 var timeout    = 300;
 var closetimer = 0;
@@ -41,7 +41,7 @@ document.onclick = jsddm_close;
 
 
 //railscasts dynamic comments
-jQuery.ajaxSetup({ 
+jQuery.ajaxSetup({
   'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")}
 })
 

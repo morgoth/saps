@@ -5,3 +5,4 @@ picasa -s gemcutter.org
 authlogic
 RedCloth
 jrails -s gemcutter.org
+rails -v 2.3.5

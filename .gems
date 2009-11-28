@@ -1,8 +1,9 @@
 haml
 xml-simple
-will_paginate -s gemcutter.org
-picasa -s gemcutter.org
+will_paginate
+picasa
 authlogic
 RedCloth
-jrails -s gemcutter.org
+jrails
 rails -v 2.3.5
+rack -v 1.0.1

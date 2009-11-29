@@ -1,7 +1,6 @@
 class MatchesController < ApplicationController
   before_filter :login_required, :except => [:index]
   before_filter :get_league, :except => [:index]
-  before_filter :update_empty_score_only, :only => [:edit, :update]
 
   def index
     @matches = Match.recent
@@ -43,14 +42,6 @@ class MatchesController < ApplicationController
   end
 
   private
-
-  def update_empty_score_only
-    match = @league.matches.find(params[:id])
-    unless match.score.empty?
-      flash[:notice] = "Update only available on empty score"
-      redirect_to league_matches_path(@league)
-    end
-  end
 
   def get_league
     @league = League.find(params[:league_id])

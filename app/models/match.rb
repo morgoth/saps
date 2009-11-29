@@ -4,8 +4,9 @@ class Match < ActiveRecord::Base
   belongs_to :visitor_team, :class_name => "Team", :foreign_key => 'visitor_team_id'
   has_one :league, :through => :round
 
-  before_save :change_team_points_on_save
-  before_destroy :change_team_points_on_destroy
+  before_validation :empty_score_if_paused
+  after_save :home_team_table_recalculate!, :visitor_team_table_recalculate!
+  after_destroy :home_team_table_recalculate!, :visitor_team_table_recalculate!
 
   AVAILABLE_SCORES = %w{3:0 3:1 3:2 0:3 1:3 2:3}
 
@@ -17,45 +18,16 @@ class Match < ActiveRecord::Base
 
   private
 
-  def change_team_points_on_save
+  def empty_score_if_paused
     self.score = '' if (home_team.name == 'Pause' || visitor_team.name == 'Pause')
-    unless score.empty?
-      home = TeamTable.find_by_league_id_and_team_id(league.id, home_team_id)
-      visitor = TeamTable.find_by_league_id_and_team_id(league.id, visitor_team_id)
-      points_calculation(home, visitor,'increment')
-    end
   end
 
-  def change_team_points_on_destroy
-    unless score.empty?
-      home = TeamTable.find_by_league_id_and_team_id(league.id, home_team_id)
-      visitor = TeamTable.find_by_league_id_and_team_id(league.id, visitor_team_id)
-      points_calculation(home, visitor, 'decrement')
-    end
+  def home_team_table_recalculate!
+    TeamTable.find_by_league_id_and_team_id(league.id, home_team.id).recalculate!
   end
 
-  def points_calculation(home_team, visitor_team, inc_dec)
-    home_team.send(inc_dec, :sets_won, score[0,1].to_i)
-    home_team.send(inc_dec, :sets_lost, score[-1,1].to_i)
-    visitor_team.send(inc_dec, :sets_won, score[-1,1].to_i)
-    visitor_team.send(inc_dec, :sets_lost, score[0,1].to_i)
-    home_team.send(inc_dec, :matches_played, 1)
-    visitor_team.send(inc_dec, :matches_played, 1)
-      if score.eql?('3:0') || score.eql?('3:1')
-        home_team.send(inc_dec,:points, league.three_zero)
-        visitor_team.send(inc_dec,:points, league.zero_three)
-      elsif score.eql?('3:2')
-        home_team.send(inc_dec,:points, league.three_two)
-        visitor_team.send(inc_dec,:points, league.two_three)
-      elsif score.eql?('2:3')
-        home_team.send(inc_dec,:points, league.twoo_three)
-        visitor_team.send(inc_dec,:points, league.three_two)
-      elsif score.eql?('0:3') || score.eql?('1:3')
-        home_team.send(inc_dec,:points, league.zero_three)
-        visitor_team.send(inc_dec,:points, league.three_zero)
-      end
-    home_team.save!
-    visitor_team.save!
+  def visitor_team_table_recalculate!
+    TeamTable.find_by_league_id_and_team_id(league.id, visitor_team.id).recalculate!
   end
 
   def home_different_than_visitor

@@ -1,6 +1,7 @@
 en:
   pagination_previous: "< previous"
   pagination_next: "next >"
+  photos_number: "Phots number: {{number}}"
 
   contact: "Contact: {{email}}"
   confirm: "Confrim"

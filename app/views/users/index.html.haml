@@ -1,7 +1,7 @@
 %h1= t("users")
 = link_to t("views.users.new"), new_user_path
 %br
-- for user in @users
+- @users.each do |user|
   = user.login.capitalize
   = link_to_if current_user == user, t("change_password"), edit_user_path(user)
   = link_to t("destroy"), user, :confirm => t("sure"), :method => :delete

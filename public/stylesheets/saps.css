@@ -350,11 +350,11 @@ input.button {
   clear: both;
   width: 820px;
   height: 65px;
-  text-align: center;
+  text-align: left;
   font-size: 92%;
 }
 #footer .txt{
-  position: absolute;
+  margin-left: 28px;
 }
 #footer .first img{
   margin-right: 20px;

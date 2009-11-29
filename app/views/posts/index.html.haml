@@ -1,5 +1,5 @@
 %h1= t("views.posts.index")
-- for post in @posts
+- @posts.each do |post|
   %h3= link_to "#{post.title}", post
   = textilize( post.content )
   %br

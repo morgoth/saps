@@ -37,16 +37,14 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    id = params[:id]
-    if id && user = User.find(id)
-      begin
-        user.safe_delete
-        flash[:notice] = "User #{user.login} usunięty"
-      rescue Exception => e
-        flash[:notice] = e.message
-      end
+    @user = User.find(params[:id])
+    if @user.destroy
+      flash[:notice] = "User destroyed"
+      redirect_to users_path
+    else
+      flash[:notice] = "User can not be destroyed"
+      redirect_to users_path
     end
-    redirect_to users_path
   end
 
   private

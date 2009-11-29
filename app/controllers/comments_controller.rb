@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
         format.js
       else
         @saved = false
-        format.html {  redirect_to @comment.post }
+        format.html { redirect_to @comment.post }
         format.js
       end
     end

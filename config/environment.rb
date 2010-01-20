@@ -6,16 +6,6 @@ require 'lib/google_analytics'
 
 Rails::Initializer.run do |config|
 
-  config.action_controller.page_cache_directory = Rails.root + "/public/cache"
-
-  config.gem "haml"
-  config.gem "xml-simple", :lib => 'xmlsimple'
-  config.gem "will_paginate"
-  config.gem 'picasa'
-  config.gem 'authlogic'
-  config.gem "RedCloth", :lib => 'redcloth'
-  config.gem 'jrails'
-
   config.time_zone = 'Warsaw'
 
   config.action_controller.session = {

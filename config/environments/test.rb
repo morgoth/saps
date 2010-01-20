@@ -13,10 +13,6 @@ config.whiny_nils = true
 config.action_controller.consider_all_requests_local = true
 config.action_controller.perform_caching             = false
 
-config.gem "shoulda"
-config.gem "factory_girl"
-config.gem "rr"
-
 # Disable request forgery protection in test environment
 config.action_controller.allow_forgery_protection    = false
 

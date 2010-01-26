@@ -1,1 +1,3 @@
-Picasa::WebAlbums.google_user = "saps.gliwice"
+Picasa.config do |c|
+  c.google_user = 'saps.gliwice'
+end

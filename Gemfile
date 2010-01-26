@@ -5,7 +5,7 @@ gem "rails"
 gem "haml"
 gem "xml-simple", :require_as => 'xmlsimple'
 gem "will_paginate"
-gem 'picasa'
+gem 'picasa', '>=0.1.9'
 gem 'authlogic'
 gem "RedCloth", :require_as => 'redcloth'
 gem 'jrails'

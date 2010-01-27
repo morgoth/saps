@@ -9,6 +9,7 @@ gem 'picasa', '>=0.1.9'
 gem 'authlogic'
 gem "RedCloth", :require_as => 'redcloth'
 gem 'jrails'
+gem 'hoptoad_notifier'
 
 only :test do
   gem "shoulda"

@@ -5,5 +5,4 @@ db/data.yml
 config/memcache.conf
 public/images/players_photo/*.*
 public/cache/**/*
-bin
-vendor/bundler_gems
+.bundle

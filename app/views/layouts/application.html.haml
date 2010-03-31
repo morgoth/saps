@@ -37,7 +37,7 @@
             %li= link_to "Login", login_path
       #content-wrap
         #main
-          = flash_messages
+          = render "shared/flash", :flash => flash
           = yield
       #footer
         %span.first= link_to image_tag("/images/rails.png"), "http://rubyonrails.org"

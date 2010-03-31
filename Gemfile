@@ -13,6 +13,7 @@ gem "hoptoad_notifier"
 gem "sqlite3-ruby", :require => "sqlite3", :groups => [:development, :test]
 
 group :test do
+  gem "test-unit", ">=2.0", :require => "test/unit"
   gem "shoulda"
   gem "factory_girl"
   gem "rr"

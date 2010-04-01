@@ -2,7 +2,8 @@ class PlayersController < ApplicationController
   before_filter :login_required, :except => [:index]
 
   def index
-    @players = Player.all
+    @active_players = Player.active.all
+    @not_active_players = Player.not_active.all
   end
 
   def new

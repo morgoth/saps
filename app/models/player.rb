@@ -5,7 +5,7 @@ class Player < ActiveRecord::Base
 
   default_scope :order => "last_name"
   named_scope :active, :conditions => { :active_player => true }
-  named_scope :not_active, :conditions => { :active_player => "NOT TRUE" }
+  named_scope :not_active, :conditions => "active_player IS NULL or active_player = 'f'"
 
   validates_presence_of :first_name, :last_name
   validates_inclusion_of :position, :in => POSITIONS, :allow_blank => true

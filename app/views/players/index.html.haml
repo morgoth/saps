@@ -5,10 +5,6 @@
   %br
 #players
   %h2= t("views.players.present")
-  - @players.each do |player|
-    - if player.active_player?
-      = render :partial => 'show_player', :locals => { :player => player }
+  = render @active_players
   %h2.clear= t("views.players.past")
-  - @players.each do |player|
-    - unless player.active_player?
-      = render :partial => 'show_player', :locals => { :player => player }
+  = render @not_active_players

@@ -12,14 +12,6 @@ module ApplicationHelper
     params.merge(:locale => lang)
   end
 
-  def flash_messages
-    messages = []
-    flash.each do |key, msg|
-     messages <<  content_tag( :div, msg, :id => key)
-    end
-    messages
-  end
-
   def generate_error_messages( object )
     txt = ""
     object.errors.each_full do |error|
@@ -43,6 +35,6 @@ module ApplicationHelper
   end
 
   def player_positions
-    Player::POSITIONS.map { |p| [t("position.#{p}"), p]}
+    Player::POSITIONS.map { |position| [t("position.#{position}"), position] }
   end
 end

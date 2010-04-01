@@ -1,7 +1,6 @@
 # encoding: UTF-8
 
 class Player < ActiveRecord::Base
-  #POSITIONS = %w{Przyjmujący Atakujący Rozgrywający Środkowy Libero}
   POSITIONS = %w{hitter attacker setter blocker libero}
 
   default_scope :order => "last_name"

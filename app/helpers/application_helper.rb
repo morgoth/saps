@@ -41,4 +41,8 @@ module ApplicationHelper
       leagues_path
     end
   end
+
+  def player_positions
+    Player::POSITIONS.map { |p| [t("position.#{p}"), p]}
+  end
 end

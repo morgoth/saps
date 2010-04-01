@@ -43,6 +43,13 @@ pl:
     gallery: "galeria"
     recent_matches: "ostatnie mecze"
 
+  position:
+    setter: "Rozgrywający"
+    attacker: "Atakujący"
+    hitter: "Przyjmujący"
+    libero: "Libero"
+    blocker: "Środkowy"
+
   views:
     posts:
       index: "Aktualności"

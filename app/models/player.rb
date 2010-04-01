@@ -1,7 +1,8 @@
 # encoding: UTF-8
 
 class Player < ActiveRecord::Base
-  POSITIONS = %w{Przyjmujący Atakujący Rozgrywający Środkowy Libero}
+  #POSITIONS = %w{Przyjmujący Atakujący Rozgrywający Środkowy Libero}
+  POSITIONS = %w{hitter attacker setter blocker libero}
 
   default_scope :order => "last_name"
   named_scope :active, :conditions => { :active_player => true }
@@ -13,5 +14,9 @@ class Player < ActiveRecord::Base
 
   def full_name
     "#{first_name} #{last_name}"
+  end
+
+  def position_name
+    I18n::translate("position.#{position}")
   end
 end

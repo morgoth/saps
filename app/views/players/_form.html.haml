@@ -19,7 +19,7 @@
 %p
   = f.label :position
   %br
-  = f.select( :position, Player::POSITIONS, :include_blank => true)
+  = f.select( :position, player_positions, :include_blank => true)
 %p
   = f.label :photo_url
   %br

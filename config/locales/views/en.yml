@@ -43,6 +43,13 @@ en:
     gallery: "gallery"
     recent_matches: "recent matches"
 
+  positions:
+    setter: "Setter"
+    attacker: "Attacker"
+    hitter: "Hitter"
+    libero: "Libero"
+    blocker: "Blocker"
+
   views:
     posts:
       index: "News"

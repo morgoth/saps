@@ -10,7 +10,7 @@ gem "authlogic"
 gem "RedCloth", :require => "redcloth"
 gem "jrails"
 gem "hoptoad_notifier"
-gem "sqlite3-ruby", :require => "sqlite3", :groups => [:development, :test]
+gem "sqlite3-ruby", :require => "sqlite3", :group => [:development, :test]
 
 group :test do
   gem "test-unit", ">=2.0", :require => "test/unit"

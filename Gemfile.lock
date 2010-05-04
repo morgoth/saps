@@ -1,0 +1,120 @@
+--- 
+hash: ebfc6dab6940345b5b5431debfcf21a2390fd029
+sources: 
+- Rubygems: 
+    uri: http://rubygems.org
+specs: 
+- rake: 
+    version: 0.8.7
+- RedCloth: 
+    version: 4.2.3
+- activesupport: 
+    version: 2.3.5
+- rack: 
+    version: 1.0.1
+- actionpack: 
+    version: 2.3.5
+- actionmailer: 
+    version: 2.3.5
+- activerecord: 
+    version: 2.3.5
+- activeresource: 
+    version: 2.3.5
+- authlogic: 
+    version: 2.1.3
+- factory_girl: 
+    version: 1.2.4
+- haml: 
+    version: 2.2.23
+- hoptoad_notifier: 
+    version: 2.2.2
+- jrails: 
+    version: 0.6.0
+- pg: 
+    version: 0.9.0
+- xml-simple: 
+    version: 1.0.12
+- picasa: 
+    version: 0.2.1
+- rails: 
+    version: 2.3.5
+- rr: 
+    version: 0.10.11
+- shoulda: 
+    version: 2.10.3
+- sqlite3-ruby: 
+    version: 1.2.5
+- test-unit: 
+    version: 2.0.7
+- will_paginate: 
+    version: 2.3.12
+dependencies: 
+  rails: 
+    version: = 2.3.5
+    group: 
+    - :default
+  haml: 
+    version: ">= 0"
+    group: 
+    - :default
+  xml-simple: 
+    version: ">= 0"
+    group: 
+    - :default
+    require: 
+    - xmlsimple
+  will_paginate: 
+    version: ">= 0"
+    group: 
+    - :default
+  picasa: 
+    version: ">= 0.1.9"
+    group: 
+    - :default
+  authlogic: 
+    version: ">= 0"
+    group: 
+    - :default
+  RedCloth: 
+    version: ">= 0"
+    group: 
+    - :default
+    require: 
+    - redcloth
+  jrails: 
+    version: ">= 0"
+    group: 
+    - :default
+  hoptoad_notifier: 
+    version: ">= 0"
+    group: 
+    - :default
+  sqlite3-ruby: 
+    version: ">= 0"
+    group: 
+    - :development
+    - :test
+    require: 
+    - sqlite3
+  test-unit: 
+    version: ">= 2.0"
+    group: 
+    - :test
+    require: 
+    - test/unit
+  shoulda: 
+    version: ">= 0"
+    group: 
+    - :test
+  factory_girl: 
+    version: ">= 0"
+    group: 
+    - :test
+  rr: 
+    version: ">= 0"
+    group: 
+    - :test
+  pg: 
+    version: ">= 0"
+    group: 
+    - :production

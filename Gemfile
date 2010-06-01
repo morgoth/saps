@@ -1,8 +1,9 @@
 source "http://rubygems.org"
 
-gem "rails", "2.3.5"
+gem "rails", "2.3.8"
 
-gem "haml"
+gem "haml", "3.0.6"
+gem "compass", "0.10.2"
 gem "xml-simple", :require => "xmlsimple"
 gem "will_paginate"
 gem "picasa", ">=0.1.9"

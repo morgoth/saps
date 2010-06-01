@@ -22,14 +22,14 @@ dependencies:
     group: 
     - :default
     version: = 2.3.8
-  haml: 
-    group: 
-    - :default
-    version: = 3.0.6
   authlogic: 
     group: 
     - :default
     version: ">= 0"
+  haml: 
+    group: 
+    - :default
+    version: = 3.0.6
   sqlite3-ruby: 
     group: 
     - :development
@@ -50,6 +50,10 @@ dependencies:
     - :test
     version: ">= 0"
   will_paginate: 
+    group: 
+    - :default
+    version: ">= 0"
+  simple_form: 
     group: 
     - :default
     version: ">= 0"
@@ -114,13 +118,21 @@ specs:
     version: 0.10.11
 - shoulda: 
     version: 2.10.3
+- simple_form: 
+    version: 1.0.0
+    source: 0
 - sqlite3-ruby: 
     version: 1.2.5
 - test-unit: 
     version: 2.0.7
 - will_paginate: 
     version: 2.3.14
-hash: a76eec60bd91025209e642ba5553fce04e80ab09
+hash: 3f14869e528cfce4f64cdf4992756502916009bb
 sources: 
+- Git: 
+    uri: git://github.com/plataformatec/simple_form.git
+    branch: v1.0
+    git: git://github.com/plataformatec/simple_form.git
+    ref: 980a9be03b1a4b91a4cdcb58d40405658a7f15c0
 - Rubygems: 
     uri: http://rubygems.org

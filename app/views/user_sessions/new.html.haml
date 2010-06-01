@@ -1,15 +1,5 @@
-- form_for @user_session, :url => user_session_path do |f|
-  = f.error_messages
-  %p
-    = f.label :login, t("activerecord.attributes.user.login")
-    %br
-    = f.text_field :login
-  %p
-    = f.label :password, t("activerecord.attributes.user.password")
-    %br
-    = f.password_field :password
-  %p
-    = f.check_box :remember_me
-    = f.label :remember_me, t("authlogic.attributes.user_session.remember_me")
-  = f.submit "Login", :class => "button"
-
+- simple_form_for @user_session, :url => user_session_path do |f|
+  %div= f.input :login
+  %div= f.input :password
+  %div= f.input :remember_me, :as => :boolean, :required => false
+  %div= f.button :submit, "Login"

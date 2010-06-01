@@ -1,4 +1,5 @@
-#flash
-  - flash.each do |key, message|
-    %div{:id => key.to_s}
-      = message
+- if flash.present?
+  #flash
+    - flash.each do |key, message|
+      %div{:id => key.to_s}
+        = message

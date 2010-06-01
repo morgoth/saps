@@ -1,3 +1,36 @@
+$left_column_width = 20%
+$red_color = red
+
 form.simple_form
+  margin: 10px
+  padding: 0 5px
+  border: 1px solid #f2f2f2
+  background-color: #FAFAFA
+  width: 500px
   div
+    padding: 5px
+  .fieldWithErrors
+    color: $red_color
+    padding: 0
+  .error
+    color: $red_color
+  label
+    float: left
+    width: $left_column_width
+  label.required > abbr
+    color: $red_color
+  .hint
+    margin-left: $left_column_width
+  input
     padding: 2px
+    border: 1px solid #eee
+    font: normal 1em Verdana, sans-serif
+    color: #777
+    width: 70%
+  textarea
+    @extend input
+    height: 100px
+
+  input[type=submit]
+    margin-left: $left_column_width
+    width: auto

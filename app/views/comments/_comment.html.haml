@@ -2,7 +2,7 @@
 = textilize( comment.content )
 %br
 %span.post-footer
-  =h comment.name.capitalize if comment.name
+  = comment.name.capitalize if comment.name
   %span.date= hour_minute( comment.created_at )
 %br
 %br

@@ -1,5 +1,5 @@
 %p
-  %h3=h @post.title
+  %h3= @post.title
 = textilize @post.content
 %br
 %span.post-footer
@@ -14,5 +14,5 @@
 - simple_form_for Comment.new(:post => @post) do |f|
   %div= f.input :post_id, :as => :hidden
   %div= f.input :name
-  %div= f.input :content, :hint => t("textile_hint", :url => link_to( "textile", "http://www.textism.com/tools/textile/", :popup => true))
+  %div= f.input :content, :hint => t("textile_hint", :url => link_to( "textile", "http://www.textism.com/tools/textile/", :popup => true)).html_safe
   %div= f.button :submit, t("confirm"), :class => "button"

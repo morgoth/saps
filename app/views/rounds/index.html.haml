@@ -6,7 +6,7 @@
   - @rounds.each do |round|
     %p
       %li
-        %b= h round.name
+        %b= round.name
         = h year_month_day(round.date)
         - if logged_in?
           = link_to t("edit"), edit_league_round_path(@league,round)
@@ -26,7 +26,7 @@
           %td
             = link_to_if match.visitor_team.name !='Pause', "#{match.visitor_team.name}", match.visitor_team
           %td
-            = h match.score
+            = match.score
           - if logged_in?
             %td
               = link_to t("edit"), edit_league_match_path(@league, match)

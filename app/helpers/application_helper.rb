@@ -17,11 +17,11 @@ module ApplicationHelper
     object.errors.each_full do |error|
       txt << error + "<br/>"
     end
-    txt
+    txt.html_safe
   end
 
   def textilize(text)
-    RedCloth.new(text, [:filter_html]).to_html
+    RedCloth.new(text, [:filter_html]).to_html.html_safe
   end
 
   def generate_league_path

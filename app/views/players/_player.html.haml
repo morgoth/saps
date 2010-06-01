@@ -4,18 +4,18 @@
   - else
     = image_tag player.photo_url
   %div.hidden
-    %span.name= h player.full_name
+    %span.name= player.full_name
     %br
     Urodzony:
-    = h year_month_day( player.birth_date )
+    = year_month_day( player.birth_date )
     %br
-    = h "Wzrost: #{player.height} cm" if player.height.present?
+    = "Wzrost: #{player.height} cm" if player.height.present?
     %br
     Pozycja:
-    = h player.position_name
+    = player.position_name
     %br
     %br
-    = h player.about
+    = player.about
   %br
   = player.full_name
   - if logged_in?

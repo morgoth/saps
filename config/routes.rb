@@ -1,20 +1,20 @@
-ActionController::Routing::Routes.draw do |map|
-  map.resources :players, :except => :show
-  map.resources :comments, :except => [:show, :index, :new]
-  map.resources :posts
-  map.resources :users
-  map.resources :teams
-  map.resources :matches, :only => [:index]
-  map.resources :leagues, :except => :show do |league|
-    league.resources :rounds, :except => [:show]
-    league.resources :matches, :except => [:show, :index]
+Saps::Application.routes.draw do
+  resources :players, :except => :show
+  resources :comments, :except => [:show, :index, :new]
+  resources :posts
+  resources :users
+  resources :teams
+  resources :matches, :only => [:index]
+  resources :leagues, :except => :show do
+    resources :rounds, :except => [:show]
+    resources :matches, :except => [:show, :index]
   end
-  map.resource :user_session, :only => [:new, :create, :destroy]
-  map.resources :galleries, :only => [:index, :show]
+  resource :user_session, :only => [:new, :create, :destroy]
+  resources :galleries, :only => [:index, :show]
 
-  map.signup '/signup', :controller => 'users', :action => 'new'
-  map.login '/login', :controller => 'user_sessions', :action => 'new'
-  map.logout '/logout', :controller => 'user_sessions', :action => 'destroy'
+  match "signup", :to => "users#new"
+  match "login", :to => "user_sessions#new"
+  match "logout", :to => "user_sessions#destroy"
 
-  map.root :controller => 'Posts'
+  root :to => "posts#index"
 end

@@ -1,15 +1,15 @@
 en:
   pagination_previous: "< previous"
   pagination_next: "next >"
-  photos_number: "Phots number: {{number}}"
+  photos_number: "Phots number: %{number}"
 
-  contact: "Contact: {{email}}"
+  contact: "Contact: %{email}"
   confirm: "Confrim"
   back: "Back"
   edit: "Edit"
   destroy: "Delete"
   sure: "Are you sure?"
-  textile_hint: "You can use {{url}}"
+  textile_hint: "You can use %{url}"
   slideshow: "Slideshow"
 
   start_date: "Start date"

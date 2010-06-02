@@ -14,7 +14,7 @@ class Match < ActiveRecord::Base
   validates_inclusion_of :score, :in => AVAILABLE_SCORES, :message => "score format - set:set", :allow_blank => true
   validate :home_different_than_visitor
 
-  named_scope :recent, :order => "updated_at DESC", :limit => 10
+  scope :recent, order("updated_at DESC").limit(10)
 
   private
 

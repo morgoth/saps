@@ -3,9 +3,9 @@ pl:
     "yes": 'tak'
     "no": 'nie'
     buttons:
-      create: 'Stwórz {{model}}'
-      update: 'Aktualizuj {{model}}'
-      submit: 'Wyślij {{model}}'
+      create: 'Stwórz %{model}'
+      update: 'Aktualizuj %{model}'
+      submit: 'Wyślij %{model}'
     required:
       text: 'wymagane'
       mark: '*'

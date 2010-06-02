@@ -1,24 +1,21 @@
 source "http://rubygems.org"
 
-gem "rails", "2.3.8"
+gem "rails", :git => "http://github.com/rails/rails.git"
 
-gem "haml", ">=3.0.9"
-gem "erubis"
+gem "haml", ">=3.0.10"
 gem "compass", ">=0.10.2"
 gem "xml-simple", :require => "xmlsimple"
-gem "will_paginate"
+gem "will_paginate", :git => "http://github.com/mislav/will_paginate.git", :branch => "rails3"
 gem "picasa", ">=0.1.9"
-gem "authlogic"
-gem "simple_form", :git => "git://github.com/plataformatec/simple_form.git", :branch => "v1.0"
+gem "authlogic", :git => "http://github.com/odorcicd/authlogic.git", :branch => "rails3"
+gem "simple_form", ">= 1.2.0"
 gem "RedCloth", :require => "redcloth"
-gem "jrails"
-gem "hoptoad_notifier"
+# gem "hoptoad_notifier"
 gem "sqlite3-ruby", :require => "sqlite3", :group => [:development, :test]
 
 group :test do
   gem "test-unit", ">=2.0", :require => "test/unit"
-  gem "shoulda"
-  gem "factory_girl"
+  gem "factory_girl", :git => "http://github.com/thoughtbot/factory_girl.git", :branch => "fixes_for_rails3"
   gem "rr"
 end
 

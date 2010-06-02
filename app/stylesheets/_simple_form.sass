@@ -1,5 +1,5 @@
-$left_column_width = 20%
-$red_color = red
+$left_column_width: 25%
+$red_color: red
 
 form.simple_form
   margin: 10px
@@ -7,29 +7,55 @@ form.simple_form
   border: 1px solid #f2f2f2
   background-color: #FAFAFA
   width: 500px
+
   div
     padding: 5px
+
   .fieldWithErrors
     color: $red_color
     padding: 0
+
   .error
     margin-left: $left_column_width
     color: $red_color
     display: block
+
   label
     float: left
     width: $left_column_width
+
+  label.collection_check_boxes
+    float: right
+    width: 72%
+
+  label.check_boxes
+    display: block
+    float: none
+
+  input.check_boxes
+    margin-left: $left_column_width
+
   label.required > abbr
     color: $red_color
+
   .hint
     margin-left: $left_column_width
     display: block
+
   input
     padding: 2px
     border: 1px solid #eee
     font: normal 1em Verdana, sans-serif
     color: #777
     width: 70%
+
+  input[type=checkbox]
+    margin: 0
+    width: auto
+
+  select
+    display: block
+
   textarea
     @extend input
     height: 100px

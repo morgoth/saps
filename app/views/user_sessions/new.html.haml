@@ -1,5 +1,7 @@
-- simple_form_for @user_session, :url => user_session_path do |f|
-  %div= f.input :login
-  %div= f.input :password
-  %div= f.input :remember_me, :as => :boolean, :required => false
-  %div= f.button :submit, "Login", :class => "button"
+= simple_form_for @user_session, :url => user_session_path do |f|
+  - if f.object.errors[:base].present?
+    %span.error= f.object.errors[:base]
+  = f.input :login
+  = f.input :password
+  = f.input :remember_me, :as => :boolean, :required => false
+  = f.button :submit, "Login", :class => "button"

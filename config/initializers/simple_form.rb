@@ -5,18 +5,16 @@ SimpleForm.setup do |config|
   # remove any of them, change the order, or even add your own components in the
   # stack. By inheriting your component from SimpleForm::Components::Base you'll
   # have some extra helpers for free.
-  # config.components = [
-  #  SimpleForm::Components::Wrapper, SimpleForm::Components::Label,
-  #  SimpleForm::Components::Input, SimpleForm::Components::Hint,
-  #  SimpleForm::Components::Error
-  #]
+  # config.components = [ :label, :input, :hint, :error ]
 
-  # Default tag used in components (hints and errors basically). When using one
-  # of these components, this tag will be used to render it.
-  # config.component_tag = :span
+  # Default tag used on hints.
+  # config.hint_tag = :span
 
-  # You can wrap all inputs in a pre-defined tag. By default is nil.
-  # config.wrapper_tag = nil
+  # Default tag used on errors.
+  # config.error_tag = :span
+
+  # You can wrap all inputs in a pre-defined tag.
+  # config.wrapper_tag = :div
 
   # How the label text should be generated altogether with the required text.
   # config.label_text = lambda { |label, required| "#{required} #{label}" }
@@ -35,4 +33,7 @@ SimpleForm.setup do |config|
 
   # Default priority for country inputs.
   # config.country_priority = nil
+
+  # Default size for text inputs
+  # config.default_input_size = 50
 end

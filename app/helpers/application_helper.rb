@@ -14,7 +14,7 @@ module ApplicationHelper
 
   def generate_error_messages( object )
     txt = ""
-    object.errors.each_full do |error|
+    object.errors.to_a.each do |error|
       txt << error + "<br/>"
     end
     txt.html_safe

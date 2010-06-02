@@ -1,15 +1,15 @@
 pl:
   pagination_previous: "< poprzednie"
   pagination_next: "następne >"
-  photos_number: "Ilość zdjęć: {{number}}"
+  photos_number: "Ilość zdjęć: %{number}"
 
-  contact: "Kontakt: {{email}}"
+  contact: "Kontakt: %{email}"
   confirm: "Potwierdź"
   back: "Wróć"
   edit: "Edytuj"
   destroy: "Usuń"
   sure: "Jesteś pewny?"
-  textile_hint: "Możesz użyć {{url}}"
+  textile_hint: "Możesz użyć %{url}"
   slideshow: "Pokaz zdjęć"
 
   start_date: "Data rozpoczęcia"

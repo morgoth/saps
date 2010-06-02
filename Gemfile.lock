@@ -9,7 +9,7 @@ dependencies:
   compass: 
     group: 
     - :default
-    version: = 0.10.2
+    version: ">= 0.10.2"
   rr: 
     group: 
     - :test
@@ -29,7 +29,7 @@ dependencies:
   haml: 
     group: 
     - :default
-    version: = 3.0.6
+    version: ">= 3.0.9"
   sqlite3-ruby: 
     group: 
     - :development
@@ -103,7 +103,7 @@ specs:
 - authlogic: 
     version: 2.1.5
 - haml: 
-    version: 3.0.6
+    version: 3.0.9
 - compass: 
     version: 0.10.2
 - erubis: 
@@ -111,7 +111,7 @@ specs:
 - factory_girl: 
     version: 1.2.4
 - hoptoad_notifier: 
-    version: 2.2.2
+    version: 2.2.6
 - jrails: 
     version: 0.6.0
 - pg: 
@@ -132,15 +132,15 @@ specs:
 - sqlite3-ruby: 
     version: 1.2.5
 - test-unit: 
-    version: 2.0.7
+    version: 2.0.9
 - will_paginate: 
     version: 2.3.14
-hash: 31466603d376d1220c6b5215519e43b670629288
+hash: a7f68821d1f28b3e5fac254f2614cff2f5ff913f
 sources: 
 - Git: 
-    uri: git://github.com/morgoth/simple_form.git
+    uri: git://github.com/plataformatec/simple_form.git
     branch: v1.0
-    git: git://github.com/morgoth/simple_form.git
-    ref: 64e45b36104ba33c8a99d79f08c33d149d00317f
+    git: git://github.com/plataformatec/simple_form.git
+    ref: 1f288c0b7ca213d2402ef9e62dbefe82dcaa8b7c
 - Rubygems: 
     uri: http://rubygems.org

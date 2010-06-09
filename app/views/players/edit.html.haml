@@ -1,7 +1,4 @@
 %h1 Editing player
 
-- form_for @player do |f|
-  = render :partial => 'form', :locals => { :f => f }
-  %p
-    = f.submit t("confirm")
+= render "form"
 = link_to t("back"), players_path

@@ -7,9 +7,11 @@ form.simple_form
   border: 1px solid #f2f2f2
   background-color: #FAFAFA
   width: 500px
+  float: none
 
   div
     padding: 5px
+    clear: both
 
   .fieldWithErrors
     color: $red_color
@@ -21,8 +23,10 @@ form.simple_form
     display: block
 
   label
+    margin: 0
     float: left
     width: $left_column_width
+    text-align: left
 
   label.collection_check_boxes
     float: right
@@ -48,6 +52,7 @@ form.simple_form
     font: normal 1em Verdana, sans-serif
     color: #777
     width: 70%
+    float: left
 
   input[type=checkbox]
     margin: 0
@@ -56,6 +61,10 @@ form.simple_form
   select
     display: block
 
+  select.date
+    display: inline
+    float: left
+
   textarea
     @extend input
     height: 100px
@@ -63,3 +72,4 @@ form.simple_form
   input[type=submit]
     margin-left: $left_column_width
     width: auto
+    float: none

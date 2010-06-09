@@ -8,7 +8,7 @@ gem "xml-simple", :require => "xmlsimple"
 gem "will_paginate", :git => "http://github.com/mislav/will_paginate.git", :branch => "rails3"
 gem "picasa", ">=0.1.9"
 gem "authlogic", :git => "http://github.com/odorcicd/authlogic.git", :branch => "rails3"
-gem "simple_form", ">= 1.2.0"
+gem "simple_form", ">= 1.2.0", :git => "http://github.com/plataformatec/simple_form.git"
 gem "RedCloth", :require => "redcloth"
 # gem "hoptoad_notifier"
 gem "sqlite3-ruby", :require => "sqlite3", :group => [:development, :test]

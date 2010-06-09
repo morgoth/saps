@@ -37,6 +37,6 @@ class ApplicationController < ActionController::Base
 
   def set_locale
     cookies[:saps_locale] = params[:locale] if params[:locale]
-    I18n.locale = params[:locale] || cookies[:saps_locale]
+    I18n.locale = params[:locale] || cookies[:saps_locale] || I18n.default_locale
   end
 end

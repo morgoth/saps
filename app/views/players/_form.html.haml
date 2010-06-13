@@ -1,4 +1,4 @@
-- simple_form_for @player do |f|
+= simple_form_for @player do |f|
   = f.input :first_name
   = f.input :last_name
   = f.input :birth_date, :start_year => Time.now.year - 70, :end_year => Time.now.year, :order => [:day, :month, :year], :include_blank => true

@@ -24,3 +24,13 @@ pl:
       post:
         content: "Treść"
         title: "Tytuł"
+
+      player:
+        first_name: "Imię"
+        last_name: "Nazwisko"
+        birth_date: "Data urodzenia"
+        height: "Wzrost"
+        position: "Pozycja"
+        photo_url: "Link ze zdjęciem"
+        about: "O zawodniku"
+        active_player: "Aktywny?"

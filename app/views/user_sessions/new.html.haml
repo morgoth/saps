@@ -1,6 +1,6 @@
 = simple_form_for @user_session, :url => user_session_path do |f|
   - if f.object.errors[:base].present?
-    %span.error= f.object.errors[:base]
+    %span.error= f.object.errors[:base].to_sentence
   = f.input :login
   = f.input :password
   = f.input :remember_me, :as => :boolean, :required => false

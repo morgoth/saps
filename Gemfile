@@ -15,7 +15,7 @@ gem "sqlite3-ruby", :require => "sqlite3", :group => [:development, :test]
 
 group :test do
   gem "test-unit", ">=2.0", :require => "test/unit"
-  gem "factory_girl", :git => "http://github.com/thoughtbot/factory_girl.git", :branch => "fixes_for_rails3"
+  gem "factory_girl_rails"
   gem "rr"
 end
 

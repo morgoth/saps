@@ -1,70 +1,26 @@
 --- 
-dependencies: 
-  compass: 
-    group: 
-    - :default
-    version: ">= 0.10.2"
-  test-unit: 
-    group: 
-    - :test
-    version: ">= 2.0"
-    require: 
-    - test/unit
-  rr: 
-    group: 
-    - :test
-    version: ">= 0"
-  pg: 
-    group: 
-    - :production
-    version: ">= 0"
-  rails: 
-    group: 
-    - :default
-    version: ">= 0"
-  sqlite3-ruby: 
-    group: 
-    - :development
-    - :test
-    version: ">= 0"
-    require: 
-    - sqlite3
-  haml: 
-    group: 
-    - :default
-    version: ">= 3.0.10"
-  authlogic: 
-    group: 
-    - :default
-    version: ">= 0"
-  factory_girl: 
-    group: 
-    - :test
-    version: ">= 0"
-  simple_form: 
-    group: 
-    - :default
-    version: ">= 1.2.0"
-  will_paginate: 
-    group: 
-    - :default
-    version: ">= 0"
-  picasa: 
-    group: 
-    - :default
-    version: ">= 0.1.9"
-  RedCloth: 
-    group: 
-    - :default
-    version: ">= 0"
-    require: 
-    - redcloth
-  xml-simple: 
-    group: 
-    - :default
-    version: ">= 0"
-    require: 
-    - xmlsimple
+hash: 1ded9bb240f3dc7ad811a18ee2836f39da5a29f0
+sources: 
+- Git: 
+    git: http://github.com/plataformatec/simple_form.git
+    uri: http://github.com/plataformatec/simple_form.git
+    ref: 35f9c01324fb2cb42dbede7f6482b9212f2eba5f
+- Git: 
+    git: http://github.com/odorcicd/authlogic.git
+    branch: rails3
+    uri: http://github.com/odorcicd/authlogic.git
+    ref: a087ad0cba3c165ba22fcf176c28b6f7517931e8
+- Git: 
+    git: http://github.com/mislav/will_paginate.git
+    branch: rails3
+    uri: http://github.com/mislav/will_paginate.git
+    ref: 60aa1c7b2ef03ee7c7a5ed657efb479a69f7d128
+- Git: 
+    git: http://github.com/rails/rails.git
+    uri: http://github.com/rails/rails.git
+    ref: e574ca920d315158a4af5c906b23ea0082c5690f
+- Rubygems: 
+    uri: http://rubygems.org
 specs: 
 - rake: 
     version: 0.8.7
@@ -74,27 +30,27 @@ specs:
     version: 1.0.0
 - activesupport: 
     version: 3.0.0.beta4
-    source: 4
+    source: 3
 - builder: 
     version: 2.1.2
 - i18n: 
     version: 0.4.1
 - activemodel: 
     version: 3.0.0.beta4
-    source: 4
+    source: 3
 - erubis: 
     version: 2.6.5
 - rack: 
     version: 1.1.0
 - rack-mount: 
-    version: 0.6.3
+    version: 0.6.4
 - rack-test: 
     version: 0.5.4
 - tzinfo: 
     version: 0.3.22
 - actionpack: 
     version: 3.0.0.beta4
-    source: 4
+    source: 3
 - mime-types: 
     version: "1.16"
 - polyglot: 
@@ -102,80 +58,120 @@ specs:
 - treetop: 
     version: 1.4.8
 - mail: 
-    version: 2.2.3
+    version: 2.2.4
 - actionmailer: 
     version: 3.0.0.beta4
-    source: 4
+    source: 3
 - arel: 
     version: 0.4.0
 - activerecord: 
     version: 3.0.0.beta4
-    source: 4
+    source: 3
 - activeresource: 
     version: 3.0.0.beta4
-    source: 4
+    source: 3
 - authlogic: 
     version: 2.1.3
-    source: 2
+    source: 1
 - bundler: 
     version: 0.9.26
 - haml: 
-    version: 3.0.10
+    version: 3.0.12
 - compass: 
     version: 0.10.2
 - factory_girl: 
-    version: 1.2.5.beta1
-    source: 0
+    version: 1.3.0
+- thor: 
+    version: 0.13.6
+- railties: 
+    version: 3.0.0.beta4
+    source: 3
+- rails: 
+    version: 3.0.0.beta4
+    source: 3
+- factory_girl_rails: 
+    version: "1.0"
 - pg: 
     version: 0.9.0
 - xml-simple: 
     version: 1.0.12
 - picasa: 
     version: 0.2.1
-- thor: 
-    version: 0.13.6
-- railties: 
-    version: 3.0.0.beta4
-    source: 4
-- rails: 
-    version: 3.0.0.beta4
-    source: 4
 - rr: 
     version: 0.10.11
 - simple_form: 
     version: 1.2.0
-    source: 1
+    source: 0
 - sqlite3-ruby: 
     version: 1.3.0
 - test-unit: 
     version: 2.0.9
 - will_paginate: 
     version: 3.0.pre
-    source: 3
-hash: 91e80153911c90804b659db02861619665e78626
-sources: 
-- Git: 
-    uri: http://github.com/thoughtbot/factory_girl.git
-    branch: fixes_for_rails3
-    git: http://github.com/thoughtbot/factory_girl.git
-    ref: ea502f0c5590a49d7d429d880edfbc487fe99053
-- Git: 
-    uri: http://github.com/plataformatec/simple_form.git
-    git: http://github.com/plataformatec/simple_form.git
-    ref: 35f9c01324fb2cb42dbede7f6482b9212f2eba5f
-- Git: 
-    uri: http://github.com/odorcicd/authlogic.git
-    branch: rails3
-    git: http://github.com/odorcicd/authlogic.git
-    ref: a087ad0cba3c165ba22fcf176c28b6f7517931e8
-- Git: 
-    uri: http://github.com/mislav/will_paginate.git
-    branch: rails3
-    git: http://github.com/mislav/will_paginate.git
-    ref: 60aa1c7b2ef03ee7c7a5ed657efb479a69f7d128
-- Git: 
-    uri: http://github.com/rails/rails.git
-    git: http://github.com/rails/rails.git
-    ref: 0265c708b9696c3943518ad5f3dabdc22c5eba11
-- Rubygems: 
-    uri: http://rubygems.org
+    source: 2
+dependencies: 
+  rails: 
+    version: ">= 0"
+    group: 
+    - :default
+  haml: 
+    version: ">= 3.0.10"
+    group: 
+    - :default
+  compass: 
+    version: ">= 0.10.2"
+    group: 
+    - :default
+  xml-simple: 
+    version: ">= 0"
+    group: 
+    - :default
+    require: 
+    - xmlsimple
+  will_paginate: 
+    version: ">= 0"
+    group: 
+    - :default
+  picasa: 
+    version: ">= 0.1.9"
+    group: 
+    - :default
+  authlogic: 
+    version: ">= 0"
+    group: 
+    - :default
+  simple_form: 
+    version: ">= 1.2.0"
+    group: 
+    - :default
+  RedCloth: 
+    version: ">= 0"
+    group: 
+    - :default
+    require: 
+    - redcloth
+  sqlite3-ruby: 
+    version: ">= 0"
+    group: 
+    - :development
+    - :test
+    require: 
+    - sqlite3
+  test-unit: 
+    version: ">= 2.0"
+    group: 
+    - :test
+    require: 
+    - test/unit
+  factory_girl_rails: 
+    version: ">= 0"
+    group: 
+    - :test
+  rr: 
+    version: ">= 0"
+    group: 
+    - :test
+  pg: 
+    version: ">= 0"
+    group: 
+    - :production

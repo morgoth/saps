@@ -9,7 +9,7 @@ Bundler.require(:default, Rails.env) if defined?(Bundler)
 module Saps
   class Application < Rails::Application
 
-    require 'lib/google_analytics'
+    require Rails.root.join('lib/google_analytics')
     config.time_zone = 'Warsaw'
 
     config.i18n.load_path += Dir[File.join(Rails.root, "config", "locales", "**", "*.{rb,yml}")]
@@ -39,11 +39,12 @@ module Saps
     # config.i18n.default_locale = :de
 
     # Configure generators values. Many other options are available, be sure to check the documentation.
-    # config.generators do |g|
-    #   g.orm             :active_record
-    #   g.template_engine :erb
-    #   g.test_framework  :test_unit, :fixture => true
-    # end
+    config.generators do |g|
+      g.orm                  :active_record
+      g.template_engine      :haml
+      g.test_framework       :test_unit
+      g.fixtures_replacement :factory_girl
+    end
 
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"

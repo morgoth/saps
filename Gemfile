@@ -1,6 +1,6 @@
 source "http://rubygems.org"
 
-gem "rails", :git => "http://github.com/rails/rails.git"
+gem "rails", :git => "http://github.com/rails/rails.git", :ref => "7240a960f2e515316ac4"
 
 gem "haml", ">=3.0.10"
 gem "compass", ">=0.10.2"
@@ -16,7 +16,6 @@ gem "sqlite3-ruby", :require => "sqlite3", :group => [:development, :test]
 group :test do
   gem "test-unit", ">=2.0", :require => "test/unit"
   gem "factory_girl_rails"
-  gem "rr"
 end
 
 group :production do

@@ -1,15 +1,7 @@
 %h1= t("views.comments.edit")
 
-- form_for(@comment) do |f|
-  = f.error_messages
-  %p
-    = f.label :name
-    %br
-    = f.text_field :name
-  %p
-    = f.label :content
-    %br
-    = f.text_area :content
-  %p
-    = f.submit t("confirm")
+= simple_form_for(@comment) do |f|
+  = f.input :name
+  = f.input :content
+  = f.button :submit, t("confirm")
 = link_to t("back"), post_path(@comment.post)

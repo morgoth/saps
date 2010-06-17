@@ -1,5 +1,5 @@
 --- 
-hash: 1ded9bb240f3dc7ad811a18ee2836f39da5a29f0
+hash: 62c40d42c29b0ca8556ab7d2d740c7ca8313d0f0
 sources: 
 - Git: 
     git: http://github.com/plataformatec/simple_form.git
@@ -17,8 +17,8 @@ sources:
     ref: 60aa1c7b2ef03ee7c7a5ed657efb479a69f7d128
 - Git: 
     git: http://github.com/rails/rails.git
+    ref: 7240a960f2e515316ac4d962482f678b67b83b8c
     uri: http://github.com/rails/rails.git
-    ref: e574ca920d315158a4af5c906b23ea0082c5690f
 - Rubygems: 
     uri: http://rubygems.org
 specs: 
@@ -97,8 +97,6 @@ specs:
     version: 1.0.12
 - picasa: 
     version: 0.2.1
-- rr: 
-    version: 0.10.11
 - simple_form: 
     version: 1.2.0
     source: 0
@@ -164,10 +162,6 @@ dependencies:
     require: 
     - test/unit
   factory_girl_rails: 
-    version: ">= 0"
-    group: 
-    - :test
-  rr: 
     version: ">= 0"
     group: 
     - :test

@@ -2,7 +2,7 @@ class Team < ActiveRecord::Base
   # if nr of teams is odd, create team named Pause
   has_many :team_tables
   has_many :leagues, :through => :team_tables
-  validates_uniqueness_of :name
+  validates :name, :presence => true, :uniqueness => true
 
   def statistics
     matches_played = team_tables.sum(:matches_played)

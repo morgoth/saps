@@ -1,7 +1,0 @@
-pl:
-  controllers:
-    logged_in: "Logowanie pomyślne"
-    logged_out: "Wylogowanie pomyślne"
-    require_user: "Musisz być zalogowany"
-    comment_created: "Komentarz dodany"
-    comment_updated: "Komentarz zaktualizowany"

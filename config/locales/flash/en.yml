@@ -1,0 +1,10 @@
+en:
+  flash:
+    logged_in: Logged in
+    logged_out: Loggoed out
+    require_user: You must log in
+    comments:
+      create:
+        notice: "Comment created"
+      update:
+        notice: "Comment updated"

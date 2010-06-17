@@ -1,0 +1,10 @@
+pl:
+  flash:
+    logged_in: "Logowanie pomyślne"
+    logged_out: "Wylogowanie pomyślne"
+    require_user: "Musisz być zalogowany"
+    comments:
+      create:
+        notice: "Komentarz dodany"
+      update:
+        notice: "Komentarz zaktualizowany"

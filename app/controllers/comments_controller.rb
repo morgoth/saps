@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
     respond_to do |format|
       if @comment.save
         @saved = true
-        flash[:notice] = t("controllers.comment_created")
+        flash[:notice] = t("flash.comments.create.notice")
         format.html { redirect_to @comment.post }
         format.js
       else
@@ -25,7 +25,7 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     if @comment.update_attributes(params[:comment])
       flash[:notice] = t("controllers.comment_updated")
-      redirect_to @comment.post
+      redirect_to @comment.post, :notice => t{"flash.comments.update.notice"}
     else
       render :edit
     end

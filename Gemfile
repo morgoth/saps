@@ -1,6 +1,6 @@
 source "http://rubygems.org"
 
-gem "rails", :git => "http://github.com/rails/rails.git", :ref => "7240a960f2e515316ac4"
+gem "rails", :git => "http://github.com/rails/rails.git"
 
 gem "haml", ">=3.0.10"
 gem "compass", ">=0.10.2"

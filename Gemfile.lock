@@ -1,10 +1,10 @@
 --- 
-hash: 62c40d42c29b0ca8556ab7d2d740c7ca8313d0f0
+hash: 845581588f5a305c01454b9fd408d0d97d4be074
 sources: 
 - Git: 
     git: http://github.com/plataformatec/simple_form.git
     uri: http://github.com/plataformatec/simple_form.git
-    ref: 35f9c01324fb2cb42dbede7f6482b9212f2eba5f
+    ref: 366656c9aa8310141735d51e2110c7db1b97080a
 - Git: 
     git: http://github.com/odorcicd/authlogic.git
     branch: rails3
@@ -17,8 +17,8 @@ sources:
     ref: 60aa1c7b2ef03ee7c7a5ed657efb479a69f7d128
 - Git: 
     git: http://github.com/rails/rails.git
-    ref: 7240a960f2e515316ac4d962482f678b67b83b8c
     uri: http://github.com/rails/rails.git
+    ref: 4bfff05f37b8416496d25a045c0e1c38368f1e31
 - Rubygems: 
     uri: http://rubygems.org
 specs: 
@@ -58,7 +58,7 @@ specs:
 - treetop: 
     version: 1.4.8
 - mail: 
-    version: 2.2.4
+    version: 2.2.5
 - actionmailer: 
     version: 3.0.0.beta4
     source: 3

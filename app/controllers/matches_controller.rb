@@ -17,18 +17,17 @@ class MatchesController < ApplicationController
   def create
     @match = @league.matches.build(params[:match])
     if @match.save
-      flash[:notice] = 'Match was successfully created.'
-      redirect_to league_rounds_path @league
+      redirect_to league_rounds_path(@league), :notice => 'Match was successfully created.'
     else
       render :new
     end
   end
 
+  # TODO: investigate readonly
   def update
-    @match = @league.matches.find(params[:id])
+    @match = @league.matches.find(params[:id], :readonly => false)
     if @match.update_attributes(params[:match])
-      flash[:notice] = 'Match was successfully updated.'
-      redirect_to league_rounds_path(@league)
+      redirect_to league_rounds_path(@league), :notice => 'Match was successfully updated.'
     else
       render :edit
     end
@@ -37,8 +36,7 @@ class MatchesController < ApplicationController
   def destroy
     @match = @league.matches.find(params[:id])
     @match.destroy
-    flash[:notice] = "Match was destroyed"
-    redirect_to league_rounds_path(@league)
+    redirect_to league_rounds_path(@league), :notice => "Match was destroyed"
   end
 
   private

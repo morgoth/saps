@@ -17,8 +17,7 @@ class RoundsController < ApplicationController
   def create
     @round = @league.rounds.build(params[:round])
     if @round.save
-      flash[:notice] = 'Round was successfully created.'
-      redirect_to new_league_match_path(@league)
+      redirect_to new_league_match_path(@league), :notice => 'Round was successfully created.'
     else
       render :new
     end
@@ -27,8 +26,7 @@ class RoundsController < ApplicationController
   def update
     @round = @league.rounds.find(params[:id])
     if @round.update_attributes(params[:round])
-      flash[:notice] = 'Round was successfully updated.'
-      redirect_to league_rounds_path(@league)
+      redirect_to league_rounds_path(@league), :notice => 'Round was successfully updated.'
     else
       render :edit
     end

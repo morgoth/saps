@@ -1,7 +1,7 @@
 class Match < ActiveRecord::Base
   belongs_to :round
-  belongs_to :home_team, :class_name => "Team", :foreign_key => "home_team_id"
-  belongs_to :visitor_team, :class_name => "Team", :foreign_key => 'visitor_team_id'
+  belongs_to :home_team, :class_name => "Team"
+  belongs_to :visitor_team, :class_name => "Team"
   has_one :league, :through => :round
 
   before_validation :empty_score_if_paused
@@ -15,6 +15,8 @@ class Match < ActiveRecord::Base
   validate :home_different_than_visitor
 
   scope :recent, order("updated_at DESC").limit(10)
+  scope :with_score, where("matches.score != '' OR matches.score != NULL")
+  scope :with_team, lambda { |team| where(['home_team_id=? OR visitor_team_id=?', team, team])}
 
   private
 
@@ -23,14 +25,14 @@ class Match < ActiveRecord::Base
   end
 
   def home_team_table_recalculate!
-    TeamTable.find_by_league_id_and_team_id(league.id, home_team.id).recalculate!
+    TeamTable.where(:league_id => league.id).where(:team_id => home_team.id).first.recalculate!
   end
 
   def visitor_team_table_recalculate!
-    TeamTable.find_by_league_id_and_team_id(league.id, visitor_team.id).recalculate!
+    TeamTable.where(:league_id => league.id).where(:team_id => visitor_team.id).first.recalculate!
   end
 
   def home_different_than_visitor
-    errors.add_to_base("Home team must be different than visitor team") if home_team_id == visitor_team_id
+    errors.add(:base, "Home team must be different than visitor team") if home_team_id == visitor_team_id
   end
 end

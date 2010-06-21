@@ -18,7 +18,7 @@ sources:
 - Git: 
     git: http://github.com/rails/rails.git
     uri: http://github.com/rails/rails.git
-    ref: 4bfff05f37b8416496d25a045c0e1c38368f1e31
+    ref: f29fb0dd9ef3e563f9813ee09e7a9b826f70e3f2
 - Rubygems: 
     uri: http://rubygems.org
 specs: 
@@ -43,7 +43,7 @@ specs:
 - rack: 
     version: 1.1.0
 - rack-mount: 
-    version: 0.6.4
+    version: 0.6.6
 - rack-test: 
     version: 0.5.4
 - tzinfo: 

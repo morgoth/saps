@@ -26,10 +26,7 @@ class TeamTable < ActiveRecord::Base
   private
 
   def zerofy
-    self.points = 0
-    self.sets_won = 0
-    self.sets_lost = 0
-    self.matches_played = 0
+    self.points = self.sets_won = self.sets_lost = self.matches_played = 0
   end
 
   def calculate_points_for_home_team(score)

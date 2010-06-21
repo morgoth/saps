@@ -4,7 +4,7 @@ class League < ActiveRecord::Base
   has_many :teams, :through => :team_tables
   has_many :matches, :through => :rounds, :order => "updated_at DESC"
 
-  validates_uniqueness_of :name
+  validates :name, :presence => true, :uniqueness => true
   validate :only_one_league_active, :if => :active?
   validates_associated :team_tables
   validates_numericality_of :three_zero, :three_two, :zero_three, :two_three,

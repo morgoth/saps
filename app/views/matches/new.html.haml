@@ -1,26 +1,4 @@
 %h1 New match
-- form_for [@league, @match] do |f|
-  = f.error_messages
-  %p
-    = f.label :round_id
-    %br
-    = f.collection_select( :round_id, @league.rounds.reverse, :id, :name )
-  %p
-    = f.label :hour
-    %br
-    = f.datetime_select :hour, :minute_step => 15
-  %p
-    = f.label :home_team_visitor_team
-    %br
-    = f.collection_select(:home_team_id, @league.teams, :id, :name )
-    = f.collection_select(:visitor_team_id, @league.teams, :id, :name )
 
-  %p
-    = f.label :score
-    %small (leave empty if none)
-    %br
-    = f.text_field :score, :size => 3
-  %p
-    = f.submit t("confirm"), :class => "button"
-
+= render "form"
 = link_to t("back"), league_matches_path(@league)

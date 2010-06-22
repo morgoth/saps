@@ -1,0 +1,7 @@
+= simple_form_for [@league, @match] do |f|
+  = f.association :round, :collection => @league.rounds.reverse
+  = f.input :hour, :as => :time, :minute_step => 15
+  = f.association :home_team, :collection => @league.teams, :input_html => { :disabled => @match.new_record? ? false : true}
+  = f.association :visitor_team, :collection => @league.teams, :input_html => { :disabled => @match.new_record? ? false : true}
+  = f.input :score, :hint => "leave empty if none"
+  = f.button :submit, t("confirm"), :class => "button"

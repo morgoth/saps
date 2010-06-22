@@ -18,7 +18,7 @@ sources:
 - Git: 
     git: http://github.com/rails/rails.git
     uri: http://github.com/rails/rails.git
-    ref: f29fb0dd9ef3e563f9813ee09e7a9b826f70e3f2
+    ref: d0df7f1196ee633a0cea7b5b8cf8b65a8269df19
 - Rubygems: 
     uri: http://rubygems.org
 specs: 

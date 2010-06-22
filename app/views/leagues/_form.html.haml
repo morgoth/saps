@@ -1,0 +1,12 @@
+~# TODO: fix displaying checkboxes
+= simple_form_for(@league) do |f|
+  = f.input :name
+  = f.association :teams, :as => :check_boxes, :input_html => { :disabled => @league.new_record? ? false : true }
+  = f.input :active
+  %div
+    Ilość punktów dla drużyny, której mecz skończył się wynikiem:
+  = f.input :three_zero
+  = f.input :three_two
+  = f.input :zero_three
+  = f.input :two_three
+  = f.button :submit, t("confirm"), :class => "button"

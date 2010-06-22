@@ -34,3 +34,9 @@ pl:
         photo_url: "Link ze zdjęciem"
         about: "O zawodniku"
         active_player: "Aktywny?"
+
+      league:
+        three_zero: "3:0, 3:1"
+        three_two: "3:2"
+        two_three: "2:3"
+        zero_three: "0:3, 1:3"

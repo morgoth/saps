@@ -1,4 +1,4 @@
 = simple_form_for(@post) do |f|
-    %div= f.input :title
-    %div= f.input :content, :hint => t("textile_hint", :url => link_to( "textile", "http://www.textism.com/tools/textile/", :popup => true)).html_safe
-    %div= f.button :submit, t("confirm"), :class => "button"
+  = f.input :title
+  = f.input :content, :hint => t("textile_hint", :url => link_to( "textile", "http://www.textism.com/tools/textile/", :popup => true)).html_safe
+  = f.button :submit, t("confirm"), :class => "button"

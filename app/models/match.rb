@@ -21,7 +21,7 @@ class Match < ActiveRecord::Base
   private
 
   def empty_score_if_paused
-    self.score = '' if (home_team.name == 'Pause' || visitor_team.name == 'Pause')
+    self.score = '' if (home_team.try(:name) == 'Pause' || visitor_team.try(:name) == 'Pause')
   end
 
   def home_team_table_recalculate!

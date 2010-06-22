@@ -1,21 +1,4 @@
 %h1 Editing match
-= form_for [@league, @match] do |f|
-  = f.error_messages
-  %p
-    = f.label :round_id
-    %br
-    =  f.collection_select(:round_id, @league.rounds.reverse, :id, :name )
-  %p
-    = @match.home_team.name
-    = ' - '
-    = @match.visitor_team.name
-    %br
-    = f.label :hour
-    = f.datetime_select :hour, :minute_step => 15
-    %br
-    = f.label :score
-    = f.text_field :score, :size => 3
-  %p
-    = f.submit t("confirm"), :class => "button"
 
+= render "form"
 = link_to t("back"), league_matches_path(@league)

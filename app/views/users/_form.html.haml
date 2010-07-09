@@ -1,4 +1,4 @@
-- simple_form_for @user do |f|
+= simple_form_for @user do |f|
   = f.input :login, :input_html => { :disabled => @user.new_record? ? false : true}
   = f.input :password
   = f.input :password_confirmation

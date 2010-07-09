@@ -22,7 +22,6 @@ class CommentsController < ApplicationController
   def update
     @comment = Comment.find(params[:id])
     if @comment.update_attributes(params[:comment])
-      flash[:notice] = t("controllers.comment_updated")
       redirect_to @comment.post, :notice => t{"flash.comments.update.notice"}
     else
       render :edit

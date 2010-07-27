@@ -6,8 +6,6 @@ Saps::Application.configure do
   # since you don't have to restart the webserver when you make code changes.
   config.cache_classes = false
 
-  config.active_support.deprecation = :log
-
   # Log error messages when you accidentally call methods on nil.
   config.whiny_nils = true
 
@@ -18,4 +16,7 @@ Saps::Application.configure do
 
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = false
+
+  # Print deprecation notices to the Rails logger
+  config.active_support.deprecation = :log
 end

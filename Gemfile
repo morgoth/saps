@@ -1,14 +1,14 @@
-source "http://rubygems.org"
+source :rubygems
 
-gem "rails", :git => "http://github.com/rails/rails.git"
+gem "rails", ">=3.0.0"
 
-gem "haml", ">=3.0.10"
+gem "haml", ">=3.0.18"
 gem "compass", ">=0.10.2"
 gem "xml-simple", :require => "xmlsimple"
 gem "will_paginate", :git => "http://github.com/mislav/will_paginate.git", :branch => "rails3"
 gem "picasa", ">=0.1.9"
 gem "authlogic", :git => "http://github.com/odorcicd/authlogic.git", :branch => "rails3"
-gem "simple_form", ">= 1.2.0", :git => "http://github.com/plataformatec/simple_form.git"
+gem "simple_form", ">= 1.2.2"
 gem "RedCloth", :require => "redcloth"
 # gem "hoptoad_notifier"
 gem "sqlite3-ruby", :require => "sqlite3", :group => [:development, :test]

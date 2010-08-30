@@ -10,7 +10,7 @@ class PasswordResetsController < ApplicationController
       @user.deliver_password_reset_instructions!
       redirect_to root_url, :notice => t("flash.password_resets.create.notice")
     else
-      flash[:notice] = t("flash.password_resets.create.alert")
+      flash[:error] = t("flash.password_resets.create.alert")
       render :new
     end
   end

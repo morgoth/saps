@@ -83,3 +83,11 @@ pl:
       recent_matches_news: "Wyniki ostatnio granych meczów"
       rss_title: "SAPS - wyniki meczów"
       recent_matches_news: "Wyniki ostatnio granych meczów"
+
+    password_resets:
+      edit: "Zmień hasło"
+      new: "Zapomniałeś hasła?"
+      instructions: "Wpisz swój adres email, informacje o zmianie hasła zostaną wysłane na Twój adres"
+
+    user_sessions:
+      forgot_password: "Zapomniałem hasła"

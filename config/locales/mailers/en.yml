@@ -3,3 +3,4 @@ en:
     user_mailer:
       password_resets_instructions:
         subject: "Reset your password"
+        body: "Click link below to change your email:"

@@ -3,3 +3,4 @@ pl:
     user_mailer:
       password_resets_instructions:
         subject: "Zmień swoje hasło"
+        body: "Kliknij w poniższy link aby zmienić swoje hasło"

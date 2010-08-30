@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   has_many :posts, :dependent => :nullify
 
   validates_presence_of :login, :email
+  validates_uniqueness_of :email
   validates_format_of :email, :with => Authlogic::Regex.email
   validate :login_not_changed, :on => :update
 

@@ -83,3 +83,11 @@ en:
       recent_matches_news: "Recent matches news"
       rss_title: "SAPS - matches result"
       recent_matches_news: "Recent matches news"
+
+    password_resets:
+      edit: "Change password"
+      new: "Forgot password?"
+      instructions: "Fill out the form below and instructions to reset your password will be emailed to you:"
+
+    user_sessions:
+      forgot_password: "I forgot password"

@@ -1,7 +1,7 @@
-%h1 Forgot password?
+%h1= t("views.password_resets.new")
 
-Fill out the form below and instructions to reset your password will be emailed to you:
+%p= t("views.password_resets.instructions")
 
 = simple_form_for :password_reset, :url => password_resets_path, :method => :post do |f|
   = f.input :email
-  = f.button :submit
+  = f.button :submit, t("confirm")

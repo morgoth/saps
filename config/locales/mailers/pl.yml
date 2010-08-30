@@ -1,0 +1,5 @@
+pl:
+  mailers:
+    user_mailer:
+      password_resets_instructions:
+        subject: "Zmień swoje hasło"

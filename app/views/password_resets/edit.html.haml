@@ -1,0 +1,6 @@
+%h1 Change password
+
+= simple_form_for @user, :url => password_reset_path, :method => :put do |f|
+  = f.input :password
+  = f.input :password_confirmation
+  = f.button :submit, "Change password"

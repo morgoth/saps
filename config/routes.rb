@@ -11,6 +11,7 @@ Saps::Application.routes.draw do
   end
   resource :user_session, :only => [:new, :create, :destroy]
   resources :galleries, :only => [:index, :show]
+  resources :password_resets, :only => [:new, :create, :edit, :update]
 
   match "signup", :to => "users#new"
   match "login", :to => "user_sessions#new"

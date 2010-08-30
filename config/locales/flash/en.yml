@@ -8,3 +8,11 @@ en:
         notice: "Comment created"
       update:
         notice: "Comment updated"
+    password_resets:
+      create:
+        notice: "Instructions to reset password was sent to you"
+        alert: "No user was found with this email"
+      update:
+        notice: "Password changed"
+      not_found:
+        alert: "We're sorry, but we could not locate your account. If you are having issues try copying and pasting the URL from your email into your browser or restarting the reset password process."

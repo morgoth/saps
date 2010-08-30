@@ -8,3 +8,11 @@ pl:
         notice: "Komentarz dodany"
       update:
         notice: "Komentarz zaktualizowany"
+    password_resets:
+      create:
+        notice: "Instrukcje do reseteowania hasła zostały wysłane na Twój email"
+        alert: "Nie znaleziono użytkownika z podanym emailem"
+      update:
+        notice: "Hasło zostało zmienione"
+      not_found:
+        alert: "Nie znaleziono konta"

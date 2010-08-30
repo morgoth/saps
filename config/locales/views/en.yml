@@ -32,6 +32,7 @@ en:
   recent_matches: "Recent matches"
   change_password: "Change password"
   team: "Team"
+  account: "Account"
 
   menu:
     league: "league"
@@ -42,6 +43,7 @@ en:
     users: "users"
     gallery: "gallery"
     recent_matches: "recent matches"
+    account: "account"
 
   positions:
     setter: "Setter"

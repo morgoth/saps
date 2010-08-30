@@ -1,0 +1,10 @@
+%h1= t("account")
+
+%dl
+  %dt Login:
+  %dd= @user.login
+
+  %dt Email:
+  %dd= @user.email
+
+%p= link_to t("edit"), edit_account_path

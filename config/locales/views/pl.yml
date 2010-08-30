@@ -32,6 +32,7 @@ pl:
   recent_matches: "Ostatnie mecze"
   change_password: "Zmień hasło"
   team: "Drużyna"
+  account: "Konto"
 
   menu:
     league: "liga"
@@ -42,6 +43,7 @@ pl:
     users: "użytkownicy"
     gallery: "galeria"
     recent_matches: "ostatnie mecze"
+    account: "konto"
 
   position:
     setter: "Rozgrywający"

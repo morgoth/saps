@@ -1,8 +1,9 @@
 Saps::Application.routes.draw do
+  resource :account, :only => [:show, :edit, :update]
   resources :players, :except => :show
   resources :comments, :except => [:show, :index, :new]
   resources :posts
-  resources :users
+  resources :users, :only => [:index, :new, :create, :destroy]
   resources :teams
   resources :matches, :only => [:index]
   resources :leagues, :except => :show do

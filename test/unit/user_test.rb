@@ -11,11 +11,4 @@ class UserTest < ActiveSupport::TestCase
     Factory(:user)
     assert !User.first.destroy
   end
-
-  test "not allow to change login" do
-    user = Factory(:user, :login => "john")
-    user.login = "nasty"
-    assert_false user.valid?
-    assert user.errors[:login].present?
-  end
 end

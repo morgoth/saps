@@ -16,3 +16,7 @@ pl:
         notice: "Hasło zostało zmienione"
       not_found:
         alert: "Nie znaleziono konta"
+
+    accounts:
+      update:
+        notice: "Konto zaktualizowane"

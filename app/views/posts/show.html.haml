@@ -13,6 +13,6 @@
 
 = simple_form_for Comment.new(:post => @post) do |f|
   %div= f.input :post_id, :as => :hidden
-  %div= f.input :name
+  %div= f.input :name, :input_html => {:value => current_user.try(:login)}
   %div= f.input :content, :hint => t("textile_hint", :url => link_to( "textile", "http://www.textism.com/tools/textile/")).html_safe
   %div= f.button :submit, t("confirm"), :class => "button"

@@ -1,0 +1,55 @@
+$content_color: #2b89c6
+$shadow_color: #aaa
+$top_border: #52a3e5
+$bottom_border: #1669ab
+
+body
+  background: #CCC
+  color: #555
+  font: 80%/1.5em Verdana, Tahoma, arial, sans-serif
+
+#container
+  +container
+  margin: 20px auto
+  border: 5px solid $content_color
+  +border-radius(20px)
+  +box-shadow($shadow_color, 10px, 10px, 20px)
+
+header
+  +append(2)
+  +prepend(2)
+  +column(20, true)
+  background-color: $content_color
+  height: 90px
+  border-bottom: 1px solid $bottom_border
+
+nav
+  +append(1)
+  +prepend(1)
+  +column(22, true)
+  background-color: $content_color
+  border-top: 1px solid $top_border
+  border-bottom: 1px solid $bottom_border
+  font-weight: bold
+
+section#content
+  +append(1)
+  +prepend(1)
+  +column(22, true)
+  background-color: white
+  border-top: 1px solid $top_border
+  border-top: 1px solid $bottom_border
+
+footer
+  +append(2)
+  +prepend(2)
+  +column(20, true)
+  background-color: $content_color
+  border-top: 1px solid $top_border
+  text-align: center
+  color: #C6DDEE
+  font-size: 92%
+
+#flash
+  #notice
+    +border-radius(5px)

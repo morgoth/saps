@@ -9,8 +9,8 @@
     = csrf_meta_tag
     = auto_discovery_link_tag(:rss, matches_path(:rss))
   %body
-    #wrap
-      #header
+    #container
+      %header
         %h1#logo-text
           saps
         %p#slogan
@@ -20,7 +20,7 @@
             = link_to image_tag( "/images/pl.gif"), current(:pl)
           - else
             = link_to image_tag( "/images/en.gif"), current(:en)
-      #menu
+      %nav
         %ul#jsddm
           %li= link_to t("menu.posts"), posts_path
           %li
@@ -37,10 +37,10 @@
             %li= link_to "Logout #{current_user.login}", logout_path
           - else
             %li= link_to "Login", login_path
-      #content-wrap
+      %section#content
         #main
           = render "shared/flash", :flash => flash
           = yield
-      #footer
+      %footer
         .contact= t("contact", :email => "saps.gliwice@gmail.com")
         .copyright &copy; 2010 SAPS Gliwice

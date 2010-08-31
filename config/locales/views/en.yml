@@ -93,3 +93,4 @@ en:
 
     user_sessions:
       forgot_password: "I forgot password"
+      login_or_email: "Login or email"

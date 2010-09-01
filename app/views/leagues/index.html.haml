@@ -5,7 +5,7 @@
     %th Name
 
   - @leagues.each do |league|
-    %tr{:class=>cycle('row-a', 'row-b')}
+    %tr
       %td
         =link_to "#{league.name}", league_rounds_path(league.id)
       - if logged_in?

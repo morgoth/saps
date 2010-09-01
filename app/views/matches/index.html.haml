@@ -7,7 +7,7 @@
     %th= t("visitor")
     %th= t("score")
   - @matches.each do |match|
-    %tr{ :class => cycle('row-a', 'row-b')}
+    %tr
       %td
         = match.league.name
       %td

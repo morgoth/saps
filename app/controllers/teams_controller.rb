@@ -1,15 +1,14 @@
 class TeamsController < ApplicationController
   before_filter :login_required, :except => [:index, :show]
-  before_filter :team_played_match, :only=>[:destroy]
+  before_filter :team_played_match, :only => [:destroy]
 
   def index
-    @teams = Team.find(:all)
-    @teams.delete_if { |team| team.name == 'Pause' }
+    @teams = Team.without_pause
   end
 
   def show
     @team = Team.find(params[:id])
-    @matches = Match.find(:all, :conditions => ['home_team_id=? OR visitor_team_id=?',@team.id, @team.id ])
+    @matches = Match.with_team(@team)
   end
 
   def new
@@ -23,8 +22,7 @@ class TeamsController < ApplicationController
   def create
     @team = Team.new(params[:team])
     if @team.save
-      flash[:notice] = 'Team was successfully created.'
-      redirect_to teams_path
+      redirect_to teams_path, :notice => 'Team was successfully created.'
     else
       render :new
     end
@@ -33,8 +31,7 @@ class TeamsController < ApplicationController
   def update
     @team = Team.find(params[:id])
     if @team.update_attributes(params[:team])
-      flash[:notice] = 'Team was successfully updated.'
-      redirect_to teams_path
+      redirect_to teams_path, :notice => 'Team was successfully updated.'
     else
       render :edit
     end
@@ -49,10 +46,8 @@ class TeamsController < ApplicationController
   private
 
   def team_played_match
-    matches = Match.find(:all, :conditions => ['home_team_id=? OR visitor_team_id=?', params[:id], params[:id] ])
-    unless matches.empty?
-      redirect_to leagues_path
-      flash[:notice] = 'Team played match, delete it first'
+    if Match.with_team(params[:id]).present?
+      redirect_to leagues_path, :alert => 'Team played match, delete it first'
     end
   end
 end

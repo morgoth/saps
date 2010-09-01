@@ -9,8 +9,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new(params[:comment])
     respond_to do |format|
       if @comment.save
-        flash[:notice] = t("flash.comments.create.notice")
-        format.html { redirect_to @comment.post }
+        format.html { redirect_to @comment.post, :notice => t("flash.comments.create.notice") }
         format.js
       else
         format.html { redirect_to @comment.post }

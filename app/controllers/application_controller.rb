@@ -20,8 +20,7 @@ class ApplicationController < ActionController::Base
   def login_required
     unless current_user
       store_location
-      flash[:notice] = t("flash.require_user")
-      redirect_to new_user_session_url
+      redirect_to new_user_session_url, :notice => t("flash.require_user")
       return false
     end
   end

@@ -4,13 +4,12 @@
   = link_to t("views.rounds.new_match"), new_league_match_path(@league)
 %ul
   - @rounds.each do |round|
-    %p
-      %li
-        %b= round.name
-        = h year_month_day(round.date)
-        - if logged_in?
-          = link_to t("edit"), edit_league_round_path(@league,round)
-          = link_to t("destroy"), league_round_path(@league, round), :confirm => t("sure"), :method => :delete
+    %li
+      %b= round.name
+      = year_month_day(round.date)
+      - if logged_in?
+        = link_to t("edit"), edit_league_round_path(@league,round)
+        = link_to t("destroy"), league_round_path(@league, round), :confirm => t("sure"), :method => :delete
     %table
       %tr
         %th= t("start_date")
@@ -18,13 +17,13 @@
         %th= t("visitor")
         %th= t("score")
       - for match in round.matches
-        %tr{ :class => cycle('row-a', 'row-b') }
+        %tr
           %td
-            =h hour_minute( match.hour)
+            = hour_minute( match.hour)
           %td
-            = link_to_if match.home_team.name !='Pause', "#{match.home_team.name}", match.home_team
+            = link_to_unless match.home_team.pause?, "#{match.home_team.name}", match.home_team
           %td
-            = link_to_if match.visitor_team.name !='Pause', "#{match.visitor_team.name}", match.visitor_team
+            = link_to_unless match.visitor_team.pause?, "#{match.visitor_team.name}", match.visitor_team
           %td
             = match.score
           - if logged_in?
@@ -32,7 +31,6 @@
               = link_to t("edit"), edit_league_match_path(@league, match)
               = link_to t("destroy"), league_match_path(@league, match), :confirm => t("sure"), :method => :delete
 
-%br
 %h1= t("views.rounds.table")
 %table
   %tr
@@ -43,7 +41,7 @@
     %th= t("sets_won")
     %th= t("sets_lost")
   - @league.team_tables.sorted_table.each_with_index do |table, index|
-    %tr{ :class => cycle('row-a', 'row-b') }
+    %tr
       %td
         = index + 1
       %td

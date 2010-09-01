@@ -12,12 +12,10 @@ module ApplicationHelper
     params.merge(:locale => lang)
   end
 
-  def generate_error_messages( object )
-    txt = ""
-    object.errors.to_a.each do |error|
-      txt << error + "<br/>"
-    end
-    txt.html_safe
+  def generate_error_messages(object)
+    object.errors.to_a.inject("") do |message, error|
+      message << error + "<br/>"
+    end.html_safe
   end
 
   def textilize(text)

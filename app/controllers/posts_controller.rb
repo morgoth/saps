@@ -20,8 +20,7 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build(params[:post])
     if @post.save
-      flash[:notice] = 'Post was successfully created.'
-      redirect_to posts_path
+      redirect_to posts_path, :notice => 'Post was successfully created.'
     else
       render :new
     end
@@ -30,8 +29,7 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     if @post.update_attributes(params[:post])
-      flash[:notice] = 'Post was successfully updated.'
-      redirect_to posts_path
+      redirect_to posts_path, :notice => 'Post was successfully updated.'
     else
       render :edit
     end
@@ -40,7 +38,6 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    flash[:notice] = 'Post was destroyed'
-    redirect_to posts_path
+    redirect_to posts_path, :notice => 'Post was destroyed'
   end
 end

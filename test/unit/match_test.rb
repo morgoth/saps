@@ -26,4 +26,11 @@ class MatchTest < ActiveSupport::TestCase
     match_2 = Factory(:match, :round => @round, :home_team => @team_2, :visitor_team => @team_1)
     assert_equal [match_1, match_2], Match.with_team(@team_1).all
   end
+
+  test "should empty score if team is pause" do
+    pause = Factory(:team, :name => "Pause")
+    Factory(:team_table, :team => pause, :league => @league)
+    match = Factory(:match, :round => @round, :home_team => pause, :visitor_team => @team_2, :score => "3:1")
+    assert_equal "", match.score
+  end
 end

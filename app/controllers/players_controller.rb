@@ -2,8 +2,8 @@ class PlayersController < ApplicationController
   before_filter :login_required, :except => [:index]
 
   def index
-    @active_players = Player.active.all
-    @not_active_players = Player.not_active.all
+    @active_players = Player.active
+    @not_active_players = Player.not_active
   end
 
   def new
@@ -17,8 +17,7 @@ class PlayersController < ApplicationController
   def create
     @player = Player.new(params[:player])
     if @player.save
-      flash[:notice] = 'Player was successfully created.'
-      redirect_to players_path
+      redirect_to players_path, :notice => 'Player was successfully created.'
     else
       render :new
     end
@@ -27,8 +26,7 @@ class PlayersController < ApplicationController
   def update
     @player = Player.find(params[:id])
     if @player.update_attributes(params[:player])
-      flash[:notice] = 'Player was successfully updated.'
-      redirect_to players_path
+      redirect_to players_path, :notice => 'Player was successfully updated.'
     else
       render :edit
     end
@@ -37,7 +35,6 @@ class PlayersController < ApplicationController
   def destroy
     @player = Player.find(params[:id])
     @player.destroy
-    flash[:notice] = 'Player was successfully updated.'
-    redirect_to players_path
+    redirect_to players_path, :notice => 'Player was successfully updated.'
   end
 end

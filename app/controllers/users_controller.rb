@@ -22,11 +22,9 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     if @user.destroy
-      flash[:notice] = "User destroyed"
-      redirect_to users_path
+      redirect_to users_path, :notice => "User destroyed"
     else
-      flash[:notice] = "User can not be destroyed"
-      redirect_to users_path
+      redirect_to users_path, :alert => "User can not be destroyed"
     end
   end
 end

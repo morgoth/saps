@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default :from => "saps.gliwce@gmail.com"
+  default :from => "SAPS Gliwice <saps.gliwce@gmail.com>"
 
   def password_reset_instructions(user)
     @user = user

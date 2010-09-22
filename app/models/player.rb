@@ -14,6 +14,6 @@ class Player < ActiveRecord::Base
   end
 
   def position_name
-    I18n.t("position.#{position}")
+    I18n.t("position.#{position}") if position.present?
   end
 end

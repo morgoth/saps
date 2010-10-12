@@ -82,9 +82,11 @@ en:
 
     matches:
       new: "New match"
+      edit: "Edit match"
       recent_matches_news: "Recent matches news"
       rss_title: "SAPS - matches result"
       recent_matches_news: "Recent matches news"
+      score_hint: "Leave empty if none"
 
     password_resets:
       edit: "Change password"

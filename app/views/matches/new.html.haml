@@ -1,4 +1,4 @@
-%h1 New match
+%h1= t("views.matches.new")
 
 = render "form"
-= link_to t("back"), league_matches_path(@league)
+= link_to t("back"), league_rounds_path(@league)

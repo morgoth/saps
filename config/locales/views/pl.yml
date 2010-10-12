@@ -82,9 +82,11 @@ pl:
 
     matches:
       new: "Nowy mecz"
+      edit: "Edycja meczu"
       recent_matches_news: "Wyniki ostatnio granych meczów"
       rss_title: "SAPS - wyniki meczów"
       recent_matches_news: "Wyniki ostatnio granych meczów"
+      score_hint: "Zostaw puste jeśli jeszcze nie rozegrany"
 
     password_resets:
       edit: "Zmień hasło"

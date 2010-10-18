@@ -2,7 +2,7 @@ class MatchesController < ApplicationController
   before_filter :login_required, :except => [:index]
 
   def index
-    @matches = Match.recent
+    @matches = Match.recent.with_score
   end
 
   def new

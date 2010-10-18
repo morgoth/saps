@@ -7,9 +7,9 @@ xml.rss :version => "2.0" do
 
     @matches.each do |match|
       xml.item do
-        xml.pubDate match.updated_at.to_s( :rfc822 )
+        xml.pubDate match.updated_at.to_s(:rfc822)
         xml.description do
-          xml << h(render(:partial => match ))
+          xml << render(:partial => match)
         end
         xml.link matches_path
       end

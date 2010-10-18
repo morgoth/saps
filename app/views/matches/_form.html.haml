@@ -1,5 +1,5 @@
 = simple_form_for [@league, @match] do |f|
-  = f.association :round, :collection => @league.rounds.reverse
+  = f.association :round, :collection => @league.rounds.reverse, :include_blank => false
   = f.input :hour, :minute_step => 5
   = f.association :home_team, :collection => @league.teams, :input_html => {:disabled => @match.persisted?}
   = f.association :visitor_team, :collection => @league.teams, :input_html => {:disabled => @match.persisted?}

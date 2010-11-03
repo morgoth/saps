@@ -1,0 +1,11 @@
+%h1= t("achievements")
+- if logged_in?
+  = link_to t("views.achievements.new"), new_achievement_path
+  %br
+  %br
+%ul#achievements
+  - @achievements.each do |achievement|
+    %li
+      %p.date= achievement.played_at
+      .description= textilize achievement.description
+      .photo= image_tag achievement.photo_url if achievement.photo_url.present?

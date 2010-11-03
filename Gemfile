@@ -4,7 +4,6 @@ gem "rails", ">=3.0.0"
 
 gem "haml", ">=3.0.18"
 gem "compass", ">=0.10.2"
-gem "xml-simple", :require => "xmlsimple"
 gem "will_paginate", :git => "http://github.com/mislav/will_paginate.git", :branch => "rails3"
 gem "picasa", ">=0.1.9"
 gem "authlogic", :git => "http://github.com/odorcicd/authlogic.git", :branch => "rails3"

@@ -1,0 +1,5 @@
+= simple_form_for @achievement do |f|
+  = f.input :played_at
+  = f.input :description, :hint => t("textile_hint", :url => link_to("textile", "http://www.textism.com/tools/textile/")).html_safe
+  = f.input :photo_url
+  %div= f.button :submit, t("confirm"), :class => "button"

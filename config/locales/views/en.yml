@@ -101,4 +101,5 @@ en:
 
     achievements:
       new: "New achievement"
+      edit: "Editing achievement"
       place: "%{place} place"

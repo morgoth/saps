@@ -101,4 +101,5 @@ pl:
 
     achievements:
       new: "Nowe osiągnięcie"
+      edit: "Edycja osiągnięcia"
       place: "%{place} miejsce"

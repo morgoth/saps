@@ -47,3 +47,9 @@ pl:
         home_team: "Gospodarz"
         visitor_team: "Gość"
         score: "Wynik"
+
+      achievement:
+        place: "Miejsce"
+        description: "Opis"
+        photo_url: "Link ze zdjęciem"
+        played_at: "Data gry"

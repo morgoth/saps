@@ -10,3 +10,6 @@
       .description= textilize achievement.description
       .played_at= achievement.played_at
       .photo= image_tag achievement.photo_url if achievement.photo_url.present?
+      - if logged_in?
+        = link_to t("edit"), edit_achievement_path(achievement)
+        = link_to t("destroy"), achievement, :confirm => t("sure"), :method => :delete

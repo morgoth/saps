@@ -6,6 +6,7 @@
 %ul#achievements
   - @achievements.each do |achievement|
     %li
-      %p.date= achievement.played_at
+      .place= t("views.achievements.place", :place => achievement.place)
       .description= textilize achievement.description
+      .played_at= achievement.played_at
       .photo= image_tag achievement.photo_url if achievement.photo_url.present?

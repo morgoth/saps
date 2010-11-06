@@ -52,4 +52,22 @@ footer
 
 #flash
   #notice
+    margin-top: 5px
     +border-radius(5px)
+
+section#content ul#achievements
+  li
+    border-bottom: solid 2px #FFF
+    +no-bullets
+    &:nth-child(odd)
+      background: #F8F8F8
+    &:nth-child(even)
+      background: #EFEFEF
+
+    .place
+      padding: 5px
+      font-weight: bold
+
+    .played_at
+      padding: 5px
+      text-align: right

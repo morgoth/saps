@@ -45,6 +45,7 @@ pl:
     gallery: "galeria"
     recent_matches: "ostatnie mecze"
     account: "konto"
+    achievements: "osiągnięcia"
 
   position:
     setter: "Rozgrywający"
@@ -100,3 +101,4 @@ pl:
 
     achievements:
       new: "Nowe osiągnięcie"
+      place: "%{place} miejsce"

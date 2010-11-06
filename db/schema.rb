@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(:version => 20101103000806) do
     t.date     "played_at"
     t.string   "photo_url"
     t.text     "description"
+    t.integer  "place"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

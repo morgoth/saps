@@ -4,6 +4,7 @@ class CreateAchievements < ActiveRecord::Migration
       t.date :played_at
       t.string :photo_url
       t.text :description
+      t.integer :place
 
       t.timestamps
     end

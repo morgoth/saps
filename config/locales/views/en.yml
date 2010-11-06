@@ -45,6 +45,7 @@ en:
     gallery: "gallery"
     recent_matches: "recent matches"
     account: "account"
+    achievements: "achievements"
 
   positions:
     setter: "Setter"
@@ -97,3 +98,7 @@ en:
     user_sessions:
       forgot_password: "I forgot password"
       login_or_email: "Login or email"
+
+    achievements:
+      new: "New achievement"
+      place: "%{place} place"

@@ -1,5 +1,4 @@
 class GalleriesController < ApplicationController
-
   def index
     @albums = Picasa.albums
   end

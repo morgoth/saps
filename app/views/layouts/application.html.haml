@@ -12,7 +12,7 @@
     #container
       %header
         %h1#logo-text
-          saps
+          = link_to "saps", root_path
         %p#slogan
           Stowarzyszenie Amatarów Piłki Siatkowej
         #header-links
@@ -44,4 +44,4 @@
           = yield
       %footer
         .contact= t("contact", :email => "saps.gliwice@gmail.com")
-        .copyright &copy; 2010 SAPS Gliwice
+        .copyright &copy; 2011 SAPS Gliwice

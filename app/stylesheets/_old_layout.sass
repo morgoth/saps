@@ -30,6 +30,12 @@ ul#jsddm
 header
   position: relative
   color: #FFF
+  a
+    +link-colors(#FFF, #FFF, #FFF, #FFF, #FFF)
+    text-decoration: none
+    &:hover
+      text-decoration: none
+
   h1#logo-text
     position: absolute
     margin: 0
@@ -42,7 +48,7 @@ header
     background: transparent
     /* change the values of top and left to adjust the position of the logo
     top: 15px
-    left: 60px
+    left: $blueprint_grid_width + $blueprint_grid_margin
   p#slogan
     position: absolute
     margin: 0
@@ -52,7 +58,7 @@ header
     color: #FFF
     /* change the values of top and left to adjust the position of the slogan
     top: 63px
-    left: 55px
+    left: $blueprint_grid_width + $blueprint_grid_margin
   #header-links
     position: absolute
     top: 10px

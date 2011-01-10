@@ -1,8 +1,6 @@
 %h1= t("players")
 - if logged_in?
-  = link_to t("views.players.new"), new_player_path
-  %br
-  %br
+  %p= link_to t("views.players.new"), new_player_path
 #players
   %h2= t("views.players.present")
   = render @active_players

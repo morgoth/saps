@@ -1,6 +1,6 @@
 $(document).ready(
   function() {
-    $("input#login").focus();
+    $("input#user_session_login").focus();
     $('#jsddm > li').bind('mouseover', jsddm_open);
     $('#jsddm > li').bind('mouseout',  jsddm_timer);
 

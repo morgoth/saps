@@ -1,4 +1,6 @@
 class Match < ActiveRecord::Base
+  SCORES = %w{3:0 3:1 3:2 0:3 1:3 2:3}
+
   belongs_to :round
   belongs_to :home_team, :class_name => "Team"
   belongs_to :visitor_team, :class_name => "Team"
@@ -7,8 +9,6 @@ class Match < ActiveRecord::Base
   before_validation :empty_score, :if => :pause_team?
   after_save :home_team_table_recalculate!, :visitor_team_table_recalculate!
   after_destroy :home_team_table_recalculate!, :visitor_team_table_recalculate!
-
-  SCORES = %w{3:0 3:1 3:2 0:3 1:3 2:3}
 
   validates_presence_of :round_id
   validates_inclusion_of :score, :in => SCORES, :message => "score format - set:set", :allow_blank => true

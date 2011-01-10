@@ -1,5 +1,4 @@
 module ApplicationHelper
-
   def hour_minute(date)
     date.strftime("%d.%m.%y - %H:%M") if date
   end

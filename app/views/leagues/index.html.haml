@@ -7,12 +7,11 @@
   - @leagues.each do |league|
     %tr
       %td
-        =link_to "#{league.name}", league_rounds_path(league.id)
+        = link_to league.name, league_rounds_path(league.id)
       - if logged_in?
         %td
           = link_to t("edit"), edit_league_path(league)
           = link_to t("destroy"), league, :confirm => t("sure"), :method => :delete
 
-%br
 - if logged_in?
-  = link_to t("views.leagues.new"), new_league_path
+  %p= link_to t("views.leagues.new"), new_league_path

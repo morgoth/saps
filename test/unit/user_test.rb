@@ -9,7 +9,7 @@ class UserTest < ActiveSupport::TestCase
 
   test "not allow to destroy user if it is the last one" do
     Factory(:user)
-    assert !User.first.destroy
+    assert_false User.first.destroy
   end
 
   test "find user by email" do

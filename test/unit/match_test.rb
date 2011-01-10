@@ -1,7 +1,6 @@
 require 'test_helper'
 
 class MatchTest < ActiveSupport::TestCase
-
   setup do
     @league = Factory(:league)
     @team_1 = Factory(:team)

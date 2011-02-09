@@ -43,7 +43,6 @@ function jsddm_canceltimer() {
 }
 document.onclick = jsddm_close;
 
-
 //railscasts dynamic comments
 jQuery.ajaxSetup({
   'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")}

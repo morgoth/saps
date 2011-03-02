@@ -1,4 +1,4 @@
-<% if @comment.new_record? %>
+<% if @comment.errors.present? %>
   $("#comments").after('<div id="error"><%= escape_javascript(generate_error_messages(@comment)) %></div>');
 <% else %>
   $("#comments").after('<div id="notice"><%= escape_javascript(flash.delete(:notice)) %></div>');

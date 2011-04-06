@@ -1,6 +1,6 @@
 source :rubygems
 
-gem "rails", "~> 3.0.5"
+gem "rails"
 
 gem "haml", ">=3.0.18"
 gem "compass", ">=0.10.2"

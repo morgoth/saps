@@ -2,8 +2,9 @@ source :rubygems
 
 gem "rails"
 
-gem "haml", ">=3.0.18"
-gem "compass", ">=0.10.2"
+gem "haml"
+gem "sass"
+gem "compass"
 gem "will_paginate", ">= 3.0.pre2"
 gem "picasa", ">=0.1.9"
 gem "authlogic", :git => "http://github.com/odorcicd/authlogic.git", :branch => "rails3"

@@ -23,7 +23,7 @@ class AchievementsController < ApplicationController
   end
 
   def update
-    @achievement = Achievement.new(params[:achievement])
+    @achievement = Achievement.find(params[:id])
     if @achievement.update_attributes(params[:achievement])
       redirect_to achievements_path, :notice => "Achievement updated"
     else

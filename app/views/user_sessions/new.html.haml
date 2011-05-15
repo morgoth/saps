@@ -1,7 +1,7 @@
 = simple_form_for @user_session, :url => user_session_path do |f|
   - if f.object.errors[:base].present?
     %span.error= f.object.errors[:base].to_sentence
-  = f.input :login, :label => t("views.user_sessions.login_or_email")
+  = f.input :login, :label => t("views.user_sessions.login_or_email"), :input_html => {:autofocus => true}
   = f.input :password
   = f.input :remember_me, :as => :boolean, :required => false
   %div= f.button :submit, "Login", :class => "button"

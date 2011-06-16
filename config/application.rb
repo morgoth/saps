@@ -8,12 +8,9 @@ Bundler.require(:default, Rails.env) if defined?(Bundler)
 
 module Saps
   class Application < Rails::Application
-    require Rails.root.join('lib/google_analytics')
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
-
-    config.middleware.use Rack::GoogleAnalytics, "UA-7563082-2"
 
     # Custom directories with classes and modules you want to be autoloadable.
     # config.autoload_paths += %W(#{config.root}/extras)

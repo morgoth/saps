@@ -7,7 +7,7 @@ class TeamTest < ActiveSupport::TestCase
     @team.name = "Pause"
     assert @team.pause?
     @team.name = "great team"
-    assert_false @team.pause?
+    assert !@team.pause?
   end
 
   test "return teams without pause" do

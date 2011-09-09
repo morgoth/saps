@@ -7,7 +7,7 @@ class LeagueTest < ActiveSupport::TestCase
     @league.active = true
     @league.save!
     league_2 = Factory.build(:league, :active => true)
-    assert_false league_2.valid?
+    assert league_2.invalid?
   end
 
   test "should be valid with 2 leagues not active" do

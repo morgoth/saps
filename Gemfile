@@ -18,8 +18,11 @@ group :assets do
 end
 
 group :test do
-  gem "test-unit", ">=2.0", :require => "test/unit"
   gem "factory_girl_rails"
+end
+
+group :test, :development do
+  gem "ruby-debug19", :require => "ruby-debug"
 end
 
 group :production do

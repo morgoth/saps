@@ -3,7 +3,7 @@
   %head
     %meta{:name => "description", :content => "SAPS - Stowarzyszenie Amatorów Piłki Siatkowej - strona domowa klubu siatkarskiego z Gliwic"}
     %title SAPS Gliwice
-    %link{:rel => "shortcut icon", :href => "/images/ball.ico"}
+    %link{:rel => "shortcut icon", :href => "/assets/ball.ico"}
     = stylesheet_link_tag "application"
     = javascript_include_tag "application"
     = csrf_meta_tag
@@ -17,9 +17,9 @@
           Stowarzyszenie Amatarów Piłki Siatkowej
         #header-links
           - if I18n.locale.to_sym == :en
-            = link_to image_tag( "/images/pl.gif"), current(:pl)
+            = link_to image_tag("pl.gif"), current(:pl)
           - else
-            = link_to image_tag( "/images/en.gif"), current(:en)
+            = link_to image_tag("en.gif"), current(:en)
       %nav
         %ul#menu
           %li= link_to t("menu.posts"), posts_path

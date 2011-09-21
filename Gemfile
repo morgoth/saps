@@ -12,7 +12,7 @@ gem "sqlite3", :group => [:development, :test]
 gem "jquery-rails"
 
 group :assets do
-  gem "compass", "~>0.12.alpha.0"
+  gem "compass", "~> 0.12.alpha.0"
   gem "sass-rails", "~> 3.1.0"
   gem "uglifier"
 end

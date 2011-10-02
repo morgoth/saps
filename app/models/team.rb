@@ -8,10 +8,19 @@ class Team < ActiveRecord::Base
   scope :without_pause, where("teams.name != 'Pause'")
 
   def statistics
-    matches_played = team_tables.sum(:matches_played)
-    sets_won = team_tables.sum(:sets_won)
-    sets_lost = team_tables.sum(:sets_lost)
     {:played => matches_played, :won => sets_won, :lost => sets_lost}
+  end
+
+  def matches_played
+    team_tables.sum(:matches_played)
+  end
+
+  def sets_won
+    team_tables.sum(:sets_won)
+  end
+
+  def sets_lost
+    team_tables.sum(:sets_lost)
   end
 
   def pause?

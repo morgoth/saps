@@ -41,6 +41,6 @@ class MatchesController < ApplicationController
   private
 
   def league
-    @league = League.find(params[:league_id])
+    @league ||= League.find(params[:league_id])
   end
 end

@@ -10,7 +10,6 @@ class User < ActiveRecord::Base
   end
 
   attr_accessible :login, :email, :password, :password_confirmation
-  before_destroy :destroyable?
 
   def self.find_by_username_or_email(login)
     find_by_smart_case_login_field(login) || find_by_smart_case_email_field(login)
@@ -23,11 +22,5 @@ class User < ActiveRecord::Base
   def deliver_password_reset_instructions!
     reset_perishable_token!
     UserMailer.password_reset_instructions(self).deliver
-  end
-
-  private
-
-  def destroyable?
-    User.count != 1
   end
 end

@@ -2,7 +2,7 @@ class TeamTable < ActiveRecord::Base
   belongs_to :league
   belongs_to :team
 
-  scope :sorted_table, order('points DESC, sets_won-sets_lost DESC')
+  scope :sorted_table, order('points DESC, sets_won - sets_lost DESC, sets_won DESC')
   scope :without_pause, joins(:team).where(["teams.name != ?", "Pause"])
 
   def recalculate!

@@ -74,3 +74,32 @@ class TeamTableRecalculateTest < ActiveSupport::TestCase
     assert_equal 1, @team_table_1.points
   end
 end
+
+class TeamTableOrderTest < ActiveSupport::TestCase
+  setup do
+    @league = Factory(:league, :three_zero => 3, :three_two => 2, :zero_three => 0, :two_three => 1)
+    @team_1 = Factory(:team)
+    @team_2 = Factory(:team)
+    @team_table_1 = Factory(:team_table, :team => @team_1, :league => @league)
+    @team_table_2 = Factory(:team_table, :team => @team_2, :league => @league)
+    @round = Factory(:round, :league => @league)
+  end
+
+  test "should order by points" do
+    @team_table_1.update_attributes(:points => 3)
+    @team_table_2.update_attributes(:points => 2)
+    assert_equal [@team_table_1, @team_table_2], @league.team_tables.sorted_table.all
+  end
+
+  test "should order by sets difference when points are equal" do
+    @team_table_1.update_attributes(:points => 4, :sets_won => 4, :sets_lost => 1)
+    @team_table_2.update_attributes(:points => 4, :sets_won => 3, :sets_lost => 1)
+    assert_equal [@team_table_1, @team_table_2], @league.team_tables.sorted_table.all
+  end
+
+  test "should order by won_sets when sets difference and points are equal" do
+    @team_table_1.update_attributes(:points => 4, :sets_won => 4, :sets_lost => 1)
+    @team_table_2.update_attributes(:points => 4, :sets_won => 3, :sets_lost => 0)
+    assert_equal [@team_table_1, @team_table_2], @league.team_tables.sorted_table.all
+  end
+end

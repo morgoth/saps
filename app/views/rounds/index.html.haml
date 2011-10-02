@@ -40,7 +40,7 @@
     %th= t("points")
     %th= t("sets_won")
     %th= t("sets_lost")
-  - @league.team_tables.sorted_table.each_with_index do |table, index|
+  - @league.team_tables.without_pause.sorted_table.each_with_index do |table, index|
     %tr
       %td
         = index + 1

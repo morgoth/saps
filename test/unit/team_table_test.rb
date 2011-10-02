@@ -1,7 +1,6 @@
 require 'test_helper'
 
 class TeamTableTest < ActiveSupport::TestCase
-
   setup do
     @league = Factory(:league, :three_zero => 3, :three_two => 2, :zero_three => 0, :two_three => 1)
     @team_table = Factory.build(:team_table, :league => @league)

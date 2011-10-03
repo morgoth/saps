@@ -16,7 +16,7 @@ class Match < ActiveRecord::Base
 
   scope :recent, order("updated_at DESC").limit(10)
   scope :with_score, where("matches.score != '' OR matches.score != NULL")
-  scope :with_team, lambda { |team| where(['home_team_id=? OR visitor_team_id=?', team, team])}
+  scope :with_team, lambda { |team| where(['home_team_id = :team OR visitor_team_id = :team', :team => team]) }
 
   private
 

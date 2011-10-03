@@ -21,9 +21,9 @@
           %td
             = hour_minute( match.hour)
           %td
-            = link_to_unless match.home_team.pause?, "#{match.home_team.name}", match.home_team
+            = link_to match.home_team.name, match.home_team
           %td
-            = link_to_unless match.visitor_team.pause?, "#{match.visitor_team.name}", match.visitor_team
+            = link_to match.visitor_team.name, match.visitor_team
           %td
             = match.score
           - if logged_in?
@@ -40,12 +40,12 @@
     %th= t("points")
     %th= t("sets_won")
     %th= t("sets_lost")
-  - @league.team_tables.without_pause.sorted_table.each_with_index do |table, index|
+  - @league.team_tables.sorted_table.each_with_index do |table, index|
     %tr
       %td
         = index + 1
       %td
-        = link_to "#{table.team.name}", table.team
+        = link_to table.team.name, table.team
       %td
         = table.matches_played
       %td

@@ -3,7 +3,7 @@ class TeamsController < ApplicationController
   before_filter :team_played_match, :only => [:destroy]
 
   def index
-    @teams = Team.without_pause
+    @teams = Team.all
   end
 
   def show

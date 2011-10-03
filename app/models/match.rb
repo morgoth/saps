@@ -6,7 +6,6 @@ class Match < ActiveRecord::Base
   belongs_to :visitor_team, :class_name => "Team"
   has_one :league, :through => :round
 
-  before_validation :empty_score, :if => :pause_team?
   after_save :home_team_table_recalculate!, :visitor_team_table_recalculate!
   after_destroy :home_team_table_recalculate!, :visitor_team_table_recalculate!
 
@@ -19,14 +18,6 @@ class Match < ActiveRecord::Base
   scope :with_team, lambda { |team| where(['home_team_id = :team OR visitor_team_id = :team', :team => team]) }
 
   private
-
-  def empty_score
-    self.score = ""
-  end
-
-  def pause_team?
-    !!(home_team.try(:pause?) || visitor_team.try(:pause?))
-  end
 
   def home_team_table_recalculate!
     TeamTable.where(:league_id => league.id).where(:team_id => home_team.id).first.recalculate!

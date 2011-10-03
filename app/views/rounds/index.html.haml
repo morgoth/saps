@@ -16,10 +16,10 @@
         %th= t("home")
         %th= t("visitor")
         %th= t("score")
-      - for match in round.matches
+      - round.matches.each do |match|
         %tr
           %td
-            = hour_minute( match.hour)
+            = hour_minute(match.hour)
           %td
             = link_to match.home_team.name, match.home_team
           %td
@@ -30,6 +30,11 @@
             %td
               = link_to t("edit"), edit_league_match_path(@league, match)
               = link_to t("destroy"), league_match_path(@league, match), :confirm => t("sure"), :method => :delete
+      - if round.pause_team
+        %tr
+          %td(colspan=4)
+            Pause
+            = link_to round.pause_team.name, round.pause_team
 
 %h1= t("views.rounds.table")
 %table

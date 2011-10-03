@@ -9,7 +9,7 @@ class Match < ActiveRecord::Base
   after_save :home_team_table_recalculate!, :visitor_team_table_recalculate!
   after_destroy :home_team_table_recalculate!, :visitor_team_table_recalculate!
 
-  validates_presence_of :round_id
+  validates_presence_of :round, :home_team, :visitor_team
   validates_inclusion_of :score, :in => SCORES, :message => "score format - set:set", :allow_blank => true
   validate :home_different_than_visitor
 
@@ -28,6 +28,6 @@ class Match < ActiveRecord::Base
   end
 
   def home_different_than_visitor
-    errors.add(:base, "Home team must be different than visitor team") if home_team_id == visitor_team_id
+    errors.add(:base, "Home team must be different than visitor team") if home_team == visitor_team
   end
 end

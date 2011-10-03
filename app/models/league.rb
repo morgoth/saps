@@ -12,6 +12,10 @@ class League < ActiveRecord::Base
 
   scope :active, where(:active => true).limit(1)
 
+  def with_pause?
+    teams.count.odd?
+  end
+
   private
 
   def only_one_league_active

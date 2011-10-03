@@ -24,4 +24,16 @@ class LeagueTest < ActiveSupport::TestCase
     @league.active = false
     assert @league.valid?
   end
+
+  test "should have pause if nr of teams is odd" do
+    @league.save!
+    3.times { @league.teams << Factory(:team) }
+    assert @league.with_pause?
+  end
+
+  test "should not have pause if nr of teams is even" do
+    @league.save!
+    2.times { @league.teams << Factory(:team) }
+    assert !@league.with_pause?
+  end
 end

@@ -6,8 +6,8 @@ class Match < ActiveRecord::Base
   belongs_to :visitor_team, :class_name => "Team"
   has_one :league, :through => :round
 
-  after_save :home_team_table_recalculate!, :visitor_team_table_recalculate!
-  after_destroy :home_team_table_recalculate!, :visitor_team_table_recalculate!
+  after_save :calculate_team_tables!
+  after_destroy :calculate_team_tables!
 
   validates_presence_of :round, :home_team, :visitor_team
   validates_inclusion_of :score, :in => SCORES, :message => "score format - set:set", :allow_blank => true
@@ -19,12 +19,8 @@ class Match < ActiveRecord::Base
 
   private
 
-  def home_team_table_recalculate!
-    TeamTable.where(:league_id => league.id).where(:team_id => home_team.id).first.recalculate!
-  end
-
-  def visitor_team_table_recalculate!
-    TeamTable.where(:league_id => league.id).where(:team_id => visitor_team.id).first.recalculate!
+  def calculate_team_tables!
+    league.team_tables.where(:team_id => [home_team, visitor_team]).each(&:calculate!)
   end
 
   def home_different_than_visitor

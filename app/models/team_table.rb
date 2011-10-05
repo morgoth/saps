@@ -4,22 +4,25 @@ class TeamTable < ActiveRecord::Base
 
   scope :sorted_table, order('points DESC, sets_won - sets_lost DESC, sets_won DESC')
 
-  def recalculate!
+  def calculate!
     zerofy
-    matches = league.matches.with_score.with_team(team)
-    matches.each do |match|
+    played_matches.each do |match|
       self.matches_played += 1
       if match.home_team_id == team.id
         self.sets_won += match.score[0,1].to_i
         self.sets_lost += match.score[-1,1].to_i
-        self.points += calculate_points_for_home_team(match.score)
+        self.points += home_team_points(match.score)
       elsif match.visitor_team_id == team.id
         self.sets_won += match.score[-1,1].to_i
         self.sets_lost += match.score[0,1].to_i
-        self.points += calculate_points_for_visitor_team(match.score)
+        self.points += visitor_team_points(match.score)
       end
     end
     save!
+  end
+
+  def played_matches
+    league.matches.with_score.with_team(team)
   end
 
   private
@@ -28,7 +31,7 @@ class TeamTable < ActiveRecord::Base
     self.points = self.sets_won = self.sets_lost = self.matches_played = 0
   end
 
-  def calculate_points_for_home_team(score)
+  def home_team_points(score)
     case score
     when "3:0", "3:1"
       league.three_zero
@@ -41,7 +44,7 @@ class TeamTable < ActiveRecord::Base
     end
   end
 
-  def calculate_points_for_visitor_team(score)
+  def visitor_team_points(score)
     case score
     when "3:0", "3:1"
       league.zero_three

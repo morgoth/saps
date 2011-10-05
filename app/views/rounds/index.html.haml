@@ -1,7 +1,7 @@
 %h1= @league.name
 - if logged_in?
-  = link_to t("views.rounds.new_round"), new_league_round_path(@league)
-  = link_to t("views.rounds.new_match"), new_league_match_path(@league)
+  = link_to t(".new_round"), new_league_round_path(@league)
+  = link_to t(".new_match"), new_league_match_path(@league)
 %ul
   - @rounds.each do |round|
     %li
@@ -32,11 +32,12 @@
               = link_to t("destroy"), league_match_path(@league, match), :confirm => t("sure"), :method => :delete
       - if round.pause_team
         %tr
-          %td(colspan=4)
-            Pause
+          %td
+          %td(colspan=3)
             = link_to round.pause_team.name, round.pause_team
-
-%h1= t("views.rounds.table")
+            = " - "
+            = t(".pause")
+%h1= t(".table")
 %table
   %tr
     %th

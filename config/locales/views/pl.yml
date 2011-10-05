@@ -54,6 +54,12 @@ pl:
     libero: "Libero"
     blocker: "Środkowy"
 
+  rounds:
+    index:
+      table: "Tabela"
+      new_round: "Nowa runda"
+      new_match: "Nowy mecz"
+      pause: "Pauza"
   views:
     posts:
       index: "Aktualności"

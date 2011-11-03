@@ -8,7 +8,6 @@ gem "picasa", ">=0.1.9"
 gem "authlogic", ">= 3.0"
 gem "simple_form", ">= 1.2.2"
 gem "RedCloth", :require => "redcloth"
-gem "sqlite3", :group => [:development, :test]
 gem "jquery-rails"
 
 group :assets do
@@ -22,7 +21,7 @@ group :test do
 end
 
 group :test, :development do
-  gem "ruby-debug19", :require => "ruby-debug"
+  gem "sqlite3"
 end
 
 group :production do

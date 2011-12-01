@@ -1,4 +1,6 @@
-%h1= @league.name
+%h1
+  = @league.name
+  = link_to image_tag("rss.jpg", :class => "rss-image"), matches_path(:rss)
 - if logged_in?
   = link_to t(".new_round"), new_league_round_path(@league)
   = link_to t(".new_match"), new_league_match_path(@league)

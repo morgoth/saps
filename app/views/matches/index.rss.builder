@@ -7,6 +7,7 @@ xml.rss :version => "2.0" do
 
     @matches.each do |match|
       xml.item do
+        xml.title match.league.name
         xml.pubDate match.updated_at.to_s(:rfc822)
         xml.description do
           xml << render(:partial => match)

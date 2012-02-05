@@ -1,6 +1,6 @@
 source :rubygems
 
-gem "rails"
+gem "rails", "~> 3.2.1"
 
 gem "haml"
 gem "will_paginate", ">= 3.0"
@@ -11,8 +11,8 @@ gem "RedCloth", :require => "redcloth"
 gem "jquery-rails"
 
 group :assets do
-  gem "compass", "~> 0.12.alpha.0"
-  gem "sass-rails", "~> 3.1.0"
+  gem "compass-rails"
+  gem "sass-rails", "~> 3.2.0"
   gem "uglifier"
 end
 

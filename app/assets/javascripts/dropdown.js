@@ -15,6 +15,7 @@ jQuery(function ($) {
         if (ddmenuitem) ddmenuitem.css('visibility', 'hidden');
     }
 
+
     function jsddm_timer () {
         closetimer = setTimeout(jsddm_close, timeout);
     }

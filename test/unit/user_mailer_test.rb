@@ -2,7 +2,7 @@ require 'test_helper'
 
 class UserMailerTest < ActionMailer::TestCase
   def setup
-    @user = Factory(:user)
+    @user = FactoryGirl.create(:user)
   end
 
   test "reset password instuctions" do

@@ -1,8 +1,10 @@
-Factory.define :player do |f|
-  f.height 191
-  f.position "libero"
-  f.about "About me"
-  f.active true
-  f.first_name "John"
-  f.last_name "Doe"
+FactoryGirl.define do
+  factory :player do
+    height 191
+    position "libero"
+    about "About me"
+    active true
+    first_name "John"
+    last_name "Doe"
+  end
 end

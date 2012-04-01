@@ -1,12 +1,12 @@
 require 'test_helper'
 
 class PlayerTest < ActiveSupport::TestCase
-  setup { @player = Factory.build(:player) }
+  setup { @player = FactoryGirl.build(:player) }
 
   test "return active players" do
     @player.active = true
     @player.save!
-    Factory(:player, :active => false)
+    FactoryGirl.create(:player, :active => false)
     assert_equal [@player], Player.active.all
   end
 

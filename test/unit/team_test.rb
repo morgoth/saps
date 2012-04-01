@@ -1,5 +1,5 @@
 require 'test_helper'
 
 class TeamTest < ActiveSupport::TestCase
-  setup { @team = Factory.build(:team) }
+  setup { @team = FactoryGirl.build(:team) }
 end

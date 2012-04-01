@@ -1,4 +1,6 @@
-Factory.define :round do |f|
-  f.association :league
-  f.sequence(:name) { |n| "round#{n}" }
+FactoryGirl.define do
+  factory :round do
+    association :league
+    sequence(:name) { |n| "round#{n}" }
+  end
 end

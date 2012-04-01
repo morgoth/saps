@@ -2,8 +2,8 @@ require 'test_helper'
 
 class TeamTableTest < ActiveSupport::TestCase
   setup do
-    @league = Factory(:league, :three_zero => 3, :three_two => 2, :zero_three => 0, :two_three => 1)
-    @team_table = Factory.build(:team_table, :league => @league)
+    @league = FactoryGirl.create(:league, :three_zero => 3, :three_two => 2, :zero_three => 0, :two_three => 1)
+    @team_table = FactoryGirl.build(:team_table, :league => @league)
   end
 
   test "set 0 to all attributes when zerofy is called" do
@@ -34,16 +34,16 @@ end
 
 class TeamTableCalculateTest < ActiveSupport::TestCase
   setup do
-    @league = Factory(:league, :three_zero => 3, :three_two => 2, :zero_three => 0, :two_three => 1)
-    @team_1 = Factory(:team)
-    @team_2 = Factory(:team)
-    @team_table_1 = Factory(:team_table, :team => @team_1, :league => @league)
-    @team_table_2 = Factory(:team_table, :team => @team_2, :league => @league)
-    @round = Factory(:round, :league => @league)
+    @league = FactoryGirl.create(:league, :three_zero => 3, :three_two => 2, :zero_three => 0, :two_three => 1)
+    @team_1 = FactoryGirl.create(:team)
+    @team_2 = FactoryGirl.create(:team)
+    @team_table_1 = FactoryGirl.create(:team_table, :team => @team_1, :league => @league)
+    @team_table_2 = FactoryGirl.create(:team_table, :team => @team_2, :league => @league)
+    @round = FactoryGirl.create(:round, :league => @league)
   end
 
   test "should calculate team points in given match" do
-    Factory(:match, :round => @round, :home_team => @team_1, :visitor_team => @team_2, :score => "3:0")
+    FactoryGirl.create(:match, :round => @round, :home_team => @team_1, :visitor_team => @team_2, :score => "3:0")
     @team_table_1.calculate!
     @team_table_2.calculate!
     assert_equal 3, @team_table_1.points
@@ -51,7 +51,7 @@ class TeamTableCalculateTest < ActiveSupport::TestCase
   end
 
   test "should calculate team points when teams are switched in match" do
-    match = Factory(:match, :round => @round, :home_team => @team_1, :visitor_team => @team_2, :score => "3:0")
+    match = FactoryGirl.create(:match, :round => @round, :home_team => @team_1, :visitor_team => @team_2, :score => "3:0")
     @team_table_1.calculate!
     @team_table_2.calculate!
     assert_equal 3, @team_table_1.points
@@ -64,7 +64,7 @@ class TeamTableCalculateTest < ActiveSupport::TestCase
   end
 
   test "should calculate team points when score is changed" do
-    match = Factory(:match, :round => @round, :home_team => @team_1, :visitor_team => @team_2, :score => "3:0")
+    match = FactoryGirl.create(:match, :round => @round, :home_team => @team_1, :visitor_team => @team_2, :score => "3:0")
     @team_table_1.calculate!
     @team_table_2.calculate!
     match.update_attributes(:score => "2:3")
@@ -77,12 +77,12 @@ end
 
 class TeamTableOrderTest < ActiveSupport::TestCase
   setup do
-    @league = Factory(:league, :three_zero => 3, :three_two => 2, :zero_three => 0, :two_three => 1)
-    @team_1 = Factory(:team)
-    @team_2 = Factory(:team)
-    @team_table_1 = Factory(:team_table, :team => @team_1, :league => @league)
-    @team_table_2 = Factory(:team_table, :team => @team_2, :league => @league)
-    @round = Factory(:round, :league => @league)
+    @league = FactoryGirl.create(:league, :three_zero => 3, :three_two => 2, :zero_three => 0, :two_three => 1)
+    @team_1 = FactoryGirl.create(:team)
+    @team_2 = FactoryGirl.create(:team)
+    @team_table_1 = FactoryGirl.create(:team_table, :team => @team_1, :league => @league)
+    @team_table_2 = FactoryGirl.create(:team_table, :team => @team_2, :league => @league)
+    @round = FactoryGirl.create(:round, :league => @league)
   end
 
   test "should order by points" do

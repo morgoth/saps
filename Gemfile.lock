@@ -1,11 +1,3 @@
-GIT
-  remote: git://github.com/morgoth/picasa.git
-  revision: b1cca73369597c85f86d288d67ac3d88681d4d74
-  branch: rewrite
-  specs:
-    picasa (0.4.0)
-      multi_xml
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -76,6 +68,8 @@ GEM
     multi_json (1.3.6)
     multi_xml (0.5.1)
     pg (0.14.0)
+    picasa (0.4.0)
+      multi_xml
     polyglot (0.3.3)
     rack (1.4.1)
     rack-cache (1.2)
@@ -141,7 +135,7 @@ DEPENDENCIES
   haml
   jquery-rails
   pg
-  picasa (>= 0.4.0)!
+  picasa (>= 0.4.0)
   rails (~> 3.2.1)
   sass-rails (~> 3.2.0)
   simple_form (>= 1.2.2)

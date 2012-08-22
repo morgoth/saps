@@ -1,5 +1,5 @@
 %h1= t("photos")
-%h3= link_to t("slideshow"), @album[:slideshow]
+%h3= link_to t("slideshow"), @album.links[2].href
 %div#photos
-  - @album[:photos].each do |photo|
-    = image_tag(photo[:thumbnail_2])
+  - @album.photos.each do |photo|
+    = image_tag(photo.media.thumbnails[1].url)

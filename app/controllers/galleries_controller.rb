@@ -1,9 +1,15 @@
 class GalleriesController < ApplicationController
   def index
-    @albums = Picasa.albums
+    @albums = picasa.album.list.entries
   end
 
   def show
-    @album = Picasa.photos(:album_id => params[:id])
+    @album = picasa.album.show(params[:id])
+  end
+
+  private
+
+  def picasa
+    @picasa ||= Picasa::Client.new(user_id: "saps.gliwice")
   end
 end

@@ -2,6 +2,6 @@
 %ul
   - @albums.each do |album|
     %li
-      = link_to album[:title], gallery_path(album[:id])
+      = link_to album.title, gallery_path(album.id)
       = " - "
-      = t("photos_number", :number => album[:photos_count])
+      = t("photos_number", number: album.numphotos)

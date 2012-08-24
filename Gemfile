@@ -6,10 +6,10 @@ gem "rails", "~> 3.2.1"
 
 gem "haml"
 gem "will_paginate", ">= 3.0"
-gem "picasa", ">= 0.4.0"
+gem "picasa", ">= 0.4.2"
 gem "authlogic", ">= 3.0"
 gem "simple_form", ">= 1.2.2"
-gem "RedCloth", :require => "redcloth"
+gem "RedCloth", require: "redcloth"
 gem "jquery-rails"
 
 group :assets do

@@ -5,6 +5,8 @@ class GalleriesController < ApplicationController
 
   def show
     @album = picasa.album.show(params[:id])
+  rescue Picasa::NotFoundError
+    raise ActionController::RoutingError.new("Not Found")
   end
 
   private

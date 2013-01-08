@@ -1,8 +1,8 @@
 source "https://rubygems.org"
 
-ruby "1.9.3"
+ruby "2.0.0"
 
-gem "rails", "~> 3.2.10"
+gem "rails", "~> 3.2.11"
 
 gem "haml"
 gem "will_paginate", ">= 3.0"
